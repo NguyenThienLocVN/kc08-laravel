@@ -54,7 +54,7 @@ return [
 
     'url' => env('APP_URL', 'http://localhost/kc08-laravel'),
 
-    'asset_url' => env('ASSET_URL', 'http://localhost/kc08-laravel'),
+    'asset_url' => env('ASSET_URL', 'http://localhost/kc08-laravel/public'),
 
     /*
     |--------------------------------------------------------------------------
