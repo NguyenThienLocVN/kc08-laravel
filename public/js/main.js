@@ -18,4 +18,12 @@ jQuery(function($){
 
   // Hide column title of danh sach tram
   $('.list-station table tbody .row:first-child td:last-child').empty();
+
+  // Change caret when click
+  $("#sidebar-left-mobile .has-sub").click(function(){
+    $(this).find('i').toggleClass('fa-caret-down fa-caret-right');
+  })
+  $("#sidebar-left-mobile .has-sub-sub").click(function(){
+    $(this).find('i').toggleClass('fa-caret-down fa-caret-right');
+  })
 })
