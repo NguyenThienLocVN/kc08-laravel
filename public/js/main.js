@@ -15,4 +15,7 @@ jQuery(function($){
     var target = $(this).next(".sub-submenu");
     $(target).slideToggle();
   });
+
+  // Hide column title of danh sach tram
+  $('.list-station table tbody .row:first-child td:last-child').empty();
 })

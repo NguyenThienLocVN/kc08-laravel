@@ -183,7 +183,7 @@ a { text-decoration: none; color: #035291; }
 
 .content-right { padding: 15px; }
 
-.content-right h3 { color: #09268c; margin: 10px 0 5px 0; }
+.content-right h3 { color: #09268c; margin: 0 0 5px 0; }
 .content-right h4 { margin: 5px 0; }
 
 /* Content image */
@@ -222,6 +222,34 @@ a { text-decoration: none; color: #035291; }
 .detail-scheme-product .form-comment textarea { display: block; }
 
 .detail-scheme-product .other-post .list-other-post li{ margin-bottom: 15px; }
+
+/* Danh sach tram */
+.list-station table { width: 100%; border-collapse: collapse;}
+.list-station table tbody .row:first-child {
+    background: #b9c6f7;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+.list-station table tbody .row:nth-child(even) {
+    background-color: #eee;
+}
+
+
+.list-station table tbody .row td {
+    border: 1px solid gray;
+    padding: 5px;
+}   
+
+.list-station table tbody .row .item:first-child,
+.list-station table tbody .row .item:nth-child(3),
+.list-station table tbody .row .item:nth-child(4),
+.list-station table tbody .row .item:nth-child(5),
+.list-station table tbody .row td:nth-child(6) {
+    text-align: center;
+}
+
+.list-station table tbody .row .item:nth-child(5) { width: 30%; }
 
 /* Footer */
 footer {
