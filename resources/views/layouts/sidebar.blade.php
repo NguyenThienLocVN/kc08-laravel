@@ -2,9 +2,9 @@
     <li><a href="{{ route('trang-chu') }}">TRANG CHỦ</a></li>
     <li class="has-sub"><a href="#">THÔNG TIN CHUNG</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
     <ul class="submenu">
-        <li><a href="muc-tieu-de-tai.html">MỤC TIÊU ĐỀ TÀI</a></li>
+        <li><a href="{{ route('thong-tin-chung.muc-tieu-de-tai') }}">MỤC TIÊU ĐỀ TÀI</a></li>
         <li><a href="{{ route('thong-tin-chung.san-pham-de-tai') }}">SẢN PHẨM ĐỀ TÀI</a></li>
-        <li><a href="dong-gop-moi-cua-de-tai.html">ĐÓNG GÓP MỚI CỦA ĐỀ TÀI</a></li>
+        <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">ĐÓNG GÓP MỚI CỦA ĐỀ TÀI</a></li>
         <li><a href="#">CÁC SẢN PHẨM ĐÃ CÔNG BỐ</a></li>
     </ul>
     <li class="has-sub"><a href="#">CÁC BÁO CÁO SẢN PHẨM</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
@@ -17,11 +17,11 @@
     <ul class="submenu">
         <li class="has-sub-sub"><a href="#">ĐẶC ĐIỂM ĐIỀU KIỆN TỰ NHIÊN</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
         <ul class="sub-submenu">
-            <li><a href="vi-tri-dia-ly.html">VỊ TRÍ ĐỊA LÝ</a></li>
-            <li><a href="dac-diem-dia-hinh.html">ĐẶC ĐIỂM ĐỊA HÌNH</a></li>
-            <li><a href="tho-nhuong.html">THỔ NHƯỠNG</a></li>
-            <li><a href="tham-phu-thuc-vat.html">THẢM PHỦ THỰC VẬT RỪNG VÀ HỆ THỰC VẬT</a></li>
-            <li><a href="he-thong-song-ngoi.html">HỆ THỐNG SÔNG NGÒI</a></li>
+            <li><a href="{{ route('khu-vuc-nghien-cuu.vi-tri-dia-ly') }}">VỊ TRÍ ĐỊA LÝ</a></li>
+            <li><a href="{{ route('khu-vuc-nghien-cuu.dac-diem-dia-hinh') }}">ĐẶC ĐIỂM ĐỊA HÌNH</a></li>
+            <li><a href="{{ route('khu-vuc-nghien-cuu.tho-nhuong') }}">THỔ NHƯỠNG</a></li>
+            <li><a href="{{ route('khu-vuc-nghien-cuu.tham-phu-thuc-vat') }}">THẢM PHỦ THỰC VẬT RỪNG VÀ HỆ THỰC VẬT</a></li>
+            <li><a href="{{ route('khu-vuc-nghien-cuu.he-thong-song-ngoi') }}">HỆ THỐNG SÔNG NGÒI</a></li>
         </ul>
         <li><a href="#">HIỆN TRẠNG KHAI THÁC, SỬ DỤNG ĐẤT VEN SÔNG</a></li>
     </ul>
@@ -42,9 +42,9 @@
     <li><a href="{{ route('trang-chu') }}">TRANG CHỦ</a></li>
     <li><a href="#">THÔNG TIN CHUNG</a><i class="fa fa-caret-right" aria-hidden="true"></i>
         <ul class="submenu">
-            <li><a href="muc-tieu-de-tai.html">MỤC TIÊU ĐỀ TÀI</a></li>
+            <li><a href="{{ route('thong-tin-chung.muc-tieu-de-tai') }}">MỤC TIÊU ĐỀ TÀI</a></li>
             <li><a href="{{ route('thong-tin-chung.san-pham-de-tai') }}">SẢN PHẨM ĐỀ TÀI</a></li>
-            <li><a href="dong-gop-moi-cua-de-tai.html">ĐÓNG GÓP MỚI CỦA ĐỀ TÀI</a></li>
+            <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">ĐÓNG GÓP MỚI CỦA ĐỀ TÀI</a></li>
             <li><a href="#">CÁC SẢN PHẨM ĐÃ CÔNG BỐ</a></li>
         </ul>
     </li>
@@ -59,11 +59,11 @@
         <ul class="submenu">
             <li><a href="#">ĐẶC ĐIỂM ĐIỀU KIỆN TỰ NHIÊN</a><i class="fa fa-caret-right" aria-hidden="true"></i>
                 <ul class="sub-submenu">
-                    <li><a href="vi-tri-dia-ly.html">VỊ TRÍ ĐỊA LÝ</a></li>
-                    <li><a href="dac-diem-dia-hinh.html">ĐẶC ĐIỂM ĐỊA HÌNH</a></li>
-                    <li><a href="tho-nhuong.html">THỔ NHƯỠNG</a></li>
-                    <li><a href="tham-phu-thuc-vat.html">THẢM PHỦ THỰC VẬT RỪNG VÀ HỆ THỰC VẬT</a></li>
-                    <li><a href="he-thong-song-ngoi.html">HỆ THỐNG SÔNG NGÒI</a></li>
+                    <li><a href="{{ route('khu-vuc-nghien-cuu.vi-tri-dia-ly') }}">VỊ TRÍ ĐỊA LÝ</a></li>
+                    <li><a href="{{ route('khu-vuc-nghien-cuu.dac-diem-dia-hinh') }}">ĐẶC ĐIỂM ĐỊA HÌNH</a></li>
+                    <li><a href="{{ route('khu-vuc-nghien-cuu.tho-nhuong') }}">THỔ NHƯỠNG</a></li>
+                    <li><a href="{{ route('khu-vuc-nghien-cuu.tham-phu-thuc-vat') }}">THẢM PHỦ THỰC VẬT RỪNG VÀ HỆ THỰC VẬT</a></li>
+                    <li><a href="{{ route('khu-vuc-nghien-cuu.he-thong-song-ngoi') }}">HỆ THỐNG SÔNG NGÒI</a></li>
                 </ul>
             </li>
             <li><a href="#">HIỆN TRẠNG KHAI THÁC, SỬ DỤNG ĐẤT VEN SÔNG</a></li>

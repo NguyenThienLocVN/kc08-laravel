@@ -5,3 +5,4 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400&display=swap" rel="stylesheet">
 <link href="{{ asset('css/styles.css') }}" rel="stylesheet"/>
 <script src="{{ asset('js/jquery-3.5.1.min.js')  }}"></script>
+<script src="{{ asset('js/bootstrap.min.js')  }}"></script>

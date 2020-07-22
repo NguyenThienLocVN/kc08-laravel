@@ -14,7 +14,7 @@ ul li, ul, li {
     list-style: none;
 }
 
-a { text-decoration: none; color: #035291; }
+a { text-decoration: none !important; color: #035291; }
 
 .container {
     width: 100%;
@@ -203,7 +203,12 @@ background: rgb(54, 78, 150);
 
 .content-right { padding: 15px; }
 
-.content-right h3 { color: #09268c; margin: 0 0 5px 0; }
+.content-right h3 { 
+    color: #09268c;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    font-size: 18px; 
+}
 .content-right h4 { margin: 5px 0; }
 
 /* Content image */
@@ -245,31 +250,31 @@ background: rgb(54, 78, 150);
 
 /* Danh sach tram */
 .list-station table { width: 100%; border-collapse: collapse;}
-.list-station table tbody .row:first-child {
+.list-station table tbody .row-station:first-child {
     background: #b9c6f7;
     line-height: 25px;
     font-weight: bold;
 }
 
-.list-station table tbody .row:nth-child(even) {
+.list-station table tbody .row-station:nth-child(even) {
     background-color: #eee;
 }
 
 
-.list-station table tbody .row td {
+.list-station table tbody .row-station td {
     border: 1px solid gray;
     padding: 5px;
 }   
 
-.list-station table tbody .row .item:first-child,
-.list-station table tbody .row .item:nth-child(3),
-.list-station table tbody .row .item:nth-child(4),
-.list-station table tbody .row .item:nth-child(5),
-.list-station table tbody .row td:nth-child(6) {
+.list-station table tbody .row-station .item:first-child,
+.list-station table tbody .row-station .item:nth-child(3),
+.list-station table tbody .row-station .item:nth-child(4),
+.list-station table tbody .row-station .item:nth-child(5),
+.list-station table tbody .row-station td:nth-child(6) {
     text-align: center;
 }
 
-.list-station table tbody .row .item:nth-child(5) { width: 30%; }
+.list-station table tbody .row-station .item:nth-child(5) { width: 30%; }
 
 /* Footer */
 footer {
@@ -492,4 +497,11 @@ footer .copyright {
     .scheme img { width: unset; }
     .scheme .name h4 { font-size: 17px;}
     .scheme strong { font-size: 18px; }
+
+
+    .list-station table {
+        height: 560px;
+        display: block;
+        overflow: scroll;
+    }
 }
