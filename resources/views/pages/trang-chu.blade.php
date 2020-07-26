@@ -1,5 +1,4 @@
 @extends('layouts.base')
-@section('title', 'TRANG CHỦ | Chương trình KC.08.28/16-20')
 
 @section('content')
     <div class="scheme">

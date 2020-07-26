@@ -504,4 +504,7 @@ footer .copyright {
         display: block;
         overflow: scroll;
     }
+
+    /* Map - Hien tuong sat lo bo song */
+    #mapid { height: 500px; }
 }

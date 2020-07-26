@@ -31,12 +31,12 @@
             <li class="has-sub-sub"><a href="#">SỐ LIỆU THỦY VĂN</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
             <ul class="sub-submenu">
                 <li><a href="{{ route('du-lieu-de-tai.danh-sach-tram') }}">DANH SÁCH TRẠM</a></li>
-                <li><a href="so-lieu-quan-trac.html">SỐ LIỆU QUAN TRẮC</a></li>
+                <li><a href="{{ route('du-lieu-de-tai.so-lieu-quan-trac') }}">SỐ LIỆU QUAN TRẮC</a></li>
             </ul>
             <li><a href="#">SỐ LIỆU BÙN CÁT</a></li>
             <li><a href="#">SỐ LIỆU CÔNG TRÌNH</a></li>
         </ul>
-    <li><a href="#">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
+    <li><a href="{{ route('hien-tuong-sat-lo') }}">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
 </ul>
 <ul class="sidebar-left" id="sidebar-left">
     <li><a href="{{ route('trang-chu') }}">TRANG CHỦ</a></li>
@@ -75,12 +75,12 @@
             <li><a href="#">SỐ LIỆU THỦY VĂN</a><i class="fa fa-caret-right" aria-hidden="true"></i>
                 <ul class="sub-submenu">
                     <li><a href="{{ route('du-lieu-de-tai.danh-sach-tram') }}">DANH SÁCH TRẠM</a></li>
-                    <li><a href="so-lieu-quan-trac.html">SỐ LIỆU QUAN TRẮC</a></li>
+                    <li><a href="{{ route('du-lieu-de-tai.so-lieu-quan-trac') }}">SỐ LIỆU QUAN TRẮC</a></li>
                 </ul>
             </li>
             <li><a href="#">SỐ LIỆU BÙN CÁT</a></li>
             <li><a href="#">SỐ LIỆU CÔNG TRÌNH</a></li>
         </ul>
     </li>
-    <li><a href="#">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
+    <li><a href="{{ route('hien-tuong-sat-lo') }}">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
 </ul>

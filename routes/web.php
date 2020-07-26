@@ -88,4 +88,13 @@ Route::group([
     Route::get('danh-sach-tram', function () {
         return view('pages.du-lieu-de-tai.danh-sach-tram');
     })->name('du-lieu-de-tai.danh-sach-tram');
+
+    Route::get('so-lieu-quan-trac', function () {
+        return view('pages.du-lieu-de-tai.so-lieu-quan-trac');
+    })->name('du-lieu-de-tai.so-lieu-quan-trac');
 });
+
+// Hien tuong sat lo bo song
+Route::get('hien-tuong-sat-lo', function () {
+    return view('pages.hien-tuong-sat-lo');
+})->name('hien-tuong-sat-lo');
