@@ -1,19 +1,13 @@
-var mymap = L.map('mapid').setView([21.288572, 103.904417], 13); // Son La Province
+var mymap = L.map('mapid').setView([21.288572, 103.904417], 8); // Son La Province
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    id: 'mapbox/streets-v11',
+    id: 'mapbox/streets-v9',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: 'pk.eyJ1Ijoibmd1eWVudGhpZW54dWFubG9jMTIiLCJhIjoiY2tkMXQ2NnI1MGlvMTJybDVoc3hpNm5qZyJ9.rkUNvwFT6U3W2fJ4_M1p0A',
 }).addTo(mymap);
-
-var baseLayers = {
-    "Mapbox": L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'),
-};
-var overlays = {};
-L.control.layers(baseLayers, overlays).addTo(mymap);
 
 var bicycleRental = {
     "type": "FeatureCollection",
@@ -128,7 +122,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 75
         },
         {
             "geometry": {
@@ -142,7 +136,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 76
         },
         {
             "geometry": {
@@ -156,7 +150,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 77
         },
         {
             "geometry": {
@@ -170,7 +164,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 78
         },
         {
             "geometry": {
@@ -184,7 +178,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 79
         },
         {
             "geometry": {
@@ -198,7 +192,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 80
         },
         {
             "geometry": {
@@ -212,7 +206,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 81
         },
         {
             "geometry": {
@@ -226,7 +220,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 82
         },
         {
             "geometry": {
@@ -240,7 +234,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 83
         },
         {
             "geometry": {
@@ -254,7 +248,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 84
         },
         {
             "geometry": {
@@ -268,7 +262,7 @@ var bicycleRental = {
             "properties": {
                 "popupContent": "This is a B-Cycle Station. Come pick up a bike and pay by the hour. What a deal!"
             },
-            "id": 74
+            "id": 85
         }
     ]
 };
@@ -296,3 +290,21 @@ var myLayer = L.geoJSON(bicycleRental, {
         return L.circleMarker(latlng, geojsonMarkerOptions);
     }
 }).addTo(mymap);
+
+// Select option change map layer
+var legend = L.control({position: 'topright'});
+legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML = '<select id="baseMap"><option value="outdoor">Ngoài trời</option><option value="satellite-streets">Vệ tinh</option><option value="streets">Đường phố</option></select>';
+    div.firstChild.onmousedown = div.firstChild.ondblclick = L.DomEvent.stopPropagation;
+    return div;
+};
+legend.addTo(mymap);
+
+
+var outdoors = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {id: 'mapbox/outdoors-v9', tileSize: 512, zoomOffset: -1, accessToken: 'pk.eyJ1Ijoibmd1eWVudGhpZW54dWFubG9jMTIiLCJhIjoiY2tkMXQ2NnI1MGlvMTJybDVoc3hpNm5qZyJ9.rkUNvwFT6U3W2fJ4_M1p0A' });
+var streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {id: 'mapbox/streets-v9', tileSize: 512, zoomOffset: -1, accessToken: 'pk.eyJ1Ijoibmd1eWVudGhpZW54dWFubG9jMTIiLCJhIjoiY2tkMXQ2NnI1MGlvMTJybDVoc3hpNm5qZyJ9.rkUNvwFT6U3W2fJ4_M1p0A' });
+var streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {id: 'mapbox/satellite-streets-v9', tileSize: 512, zoomOffset: -1, accessToken: 'pk.eyJ1Ijoibmd1eWVudGhpZW54dWFubG9jMTIiLCJhIjoiY2tkMXQ2NnI1MGlvMTJybDVoc3hpNm5qZyJ9.rkUNvwFT6U3W2fJ4_M1p0A' });
+$('#baseMap').change(function(){
+    console.log(this.value);
+});
