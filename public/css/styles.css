@@ -196,6 +196,7 @@ background: rgb(54, 78, 150);
 }
 
 /* Content */
+.content { position: relative; }
 .content .file-action { padding: 10px 0; }
 .content .file-action a { margin-right: 15px; }
 .excerpt { text-align: justify; }
@@ -276,6 +277,9 @@ background: rgb(54, 78, 150);
 
 .list-station table tbody .row-station .item:nth-child(5) { width: 30%; }
 
+/* Map */
+#map { height: 100%; width: 100vw; }
+
 /* Footer */
 footer {
     clear: both;
@@ -299,11 +303,16 @@ footer .copyright {
         background: #035291;
         width: 100%;
         height: 35px;
+        display: block;
         line-height: 35px;
-        display: flex;
-        justify-content: flex-end;
         margin-top: -5px;
         border-bottom: 2px solid lightblue;
+    }
+
+    .text-banner-tablet li:first-child { float: left; }
+
+    .text-banner-tablet li {
+        float: right;
     }
     
     .text-banner-item {
@@ -507,4 +516,12 @@ footer .copyright {
 
     /* Map - Hien tuong sat lo bo song */
     #mapid { height: 500px; }
+    #basemaps-wrapper {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 400;
+        background: white;
+        padding: 8px 5px;
+    }
 }

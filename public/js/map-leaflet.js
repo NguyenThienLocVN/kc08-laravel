@@ -1,22 +1,4 @@
-
-var outdoors = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoibmd1eWVudGhpZW54dWFubG9jMTIiLCJhIjoiY2tkMXQ2NnI1MGlvMTJybDVoc3hpNm5qZyJ9.rkUNvwFT6U3W2fJ4_M1p0A', {id: 'outdoors-v9', tileSize: 512, zoomOffset: -1 });
-var streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoibmd1eWVudGhpZW54dWFubG9jMTIiLCJhIjoiY2tkMXQ2NnI1MGlvMTJybDVoc3hpNm5qZyJ9.rkUNvwFT6U3W2fJ4_M1p0A', {id: 'streets-v9', tileSize: 512, zoomOffset: -1 });
-var satellite = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoibmd1eWVudGhpZW54dWFubG9jMTIiLCJhIjoiY2tkMXQ2NnI1MGlvMTJybDVoc3hpNm5qZyJ9.rkUNvwFT6U3W2fJ4_M1p0A', {id: 'satellite-streets-v9', tileSize: 512, zoomOffset: -1});
 var mymap = L.map('mapid').setView([21.288572, 103.904417], 8); // Son La Province
-
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/satellite-streets-v9',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1Ijoibmd1eWVudGhpZW54dWFubG9jMTIiLCJhIjoiY2tkMXQ2NnI1MGlvMTJybDVoc3hpNm5qZyJ9.rkUNvwFT6U3W2fJ4_M1p0A',
-    layer: [outdoors, streets, satellite]
-}).addTo(mymap);
-
-var overlays = {};
-
-
 
 var bicycleRental = {
     "type": "FeatureCollection",
@@ -301,30 +283,39 @@ var myLayer = L.geoJSON(bicycleRental, {
 }).addTo(mymap);
 
 // Select option change map layer
-var legend = L.control({position: 'topright'});
-legend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'info legend');
-    div.innerHTML = '<select id="select-baseMap"><option value="satellite">Vệ tinh</option><option value="outdoors">Ngoài trời</option><option value="streets">Đường phố</option></select>';
-    div.firstChild.onmousedown = div.firstChild.ondblclick = L.DomEvent.stopPropagation;
-    return div;
-};
-legend.addTo(mymap);
+var layer = L.esri.basemapLayer('Imagery').addTo(mymap);
+var layerLabels;
+layerLabels = L.esri.basemapLayer('Imagery' + 'Labels');
+mymap.addLayer(layerLabels);
 
-$('#select-baseMap').on('change', function(){
-    if($(this).val() == 'outdoors') {
-        mymap.removeLayer(streets);
-        mymap.removeLayer(satellite);
-        mymap.addLayer(outdoors);
+function setBasemap (basemap) {
+    if (layer) {
+        mymap.removeLayer(layer);
     }
-    else if($(this).val() == 'streets') { 
-        mymap.removeLayer(outdoors);
-        mymap.removeLayer(satellite);
-        mymap.addLayer(streets);
+
+    layer = L.esri.basemapLayer(basemap);
+
+    mymap.addLayer(layer);
+
+    if (layerLabels) {
+        mymap.removeLayer(layerLabels);
     }
-    else { 
-        mymap.removeLayer(streets);
-        mymap.removeLayer(outdoors);
-        mymap.addLayer(satellite);
-    } 
+
+    if (basemap === 'ShadedRelief'
+    || basemap === 'Oceans'
+    || basemap === 'Gray'
+    || basemap === 'Imagery'
+    ) {
+        layerLabels = L.esri.basemapLayer(basemap + 'Labels');
+        mymap.addLayer(layerLabels);
+    } else if (basemap.includes('Imagery')) {
+        layerLabels = L.esri.basemapLayer('ImageryLabels');
+        mymap.addLayer(layerLabels);
+    }
+}
+
+document.querySelector('#basemaps').addEventListener('change', function (e) {
+    var basemap = e.target.value;
+    setBasemap(basemap);
 });
 
