@@ -39,7 +39,6 @@
     <li><a href="{{ route('hien-tuong-sat-lo') }}">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
 </ul>
 <ul class="sidebar-left" id="sidebar-left">
-    <li><a href="{{ route('trang-chu') }}">TRANG CHỦ</a></li>
     <li><a href="#">THÔNG TIN CHUNG</a><i class="fa fa-caret-right" aria-hidden="true"></i>
         <ul class="submenu">
             <li><a href="{{ route('thong-tin-chung.muc-tieu-de-tai') }}">MỤC TIÊU ĐỀ TÀI</a></li>
