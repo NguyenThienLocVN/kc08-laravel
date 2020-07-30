@@ -5,10 +5,10 @@
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Thổ nhưỡng</h3>
     <div class="content">
         <div class="file-name">
-            <span>Xem chi tiết: </span><a href="#"> tho-nhuong.docx</a>
+            
         </div>
         <div class="file-action">
-            <a href="#"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Tải xuống</a>
+            <a href="{{ asset('files/3-tho-nhuong.docx') }}"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Tải xuống</a>
             <a href="#"><i class="fa fa-search-plus" aria-hidden="true"></i>&nbsp;Xem trước</a>
         </div>
     </div>

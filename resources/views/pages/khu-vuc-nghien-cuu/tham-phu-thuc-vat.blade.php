@@ -5,10 +5,10 @@
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Thảm phủ thực vật rừng và hệ thực vật</h3>
     <div class="content">
         <div class="file-name">
-            <span>Xem chi tiết: </span><a href="#"> tham-phu-thuc-vat-rung-va-he-thuc-vat.docx</a>
+        
         </div>
         <div class="file-action">
-            <a href="#"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Tải xuống</a>
+            <a href="{{ asset('files/4-tham-phu-thuc-vat-rung-va-he-thuc-vat.docx') }}"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Tải xuống</a>
             <a href="#"><i class="fa fa-search-plus" aria-hidden="true"></i>&nbsp;Xem trước</a>
         </div>
     </div>
