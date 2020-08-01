@@ -25,39 +25,17 @@
                 <td class="item">{{ $single_item }}</td>
             @endforeach
             
-            <td><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
+            <td><a href="#" onclick="openForm()" title="Xem chi tiết"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
         </tr>
     @endforeach
 
     </table>
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-        <h4 class="modal-title">Chi tiết trạm</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          
-        </div>
-        <div class="modal-body">
-          <div class="row mb-1">
-              <label for="" class="col-4">Ngày bắt đầu</label>
-              <input type="date" name="start-date">
-          </div>
-          <div class="row">
-              <label for="" class="col-4">Ngày kết thúc</label>
-              <input type="date" name="end-date">
-          </div>
-          <div>
-              <h4>Biểu đồ</h4>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
+<div id="overlay"></div>
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h3 class="station-name">Trạm Yên Châu</h3>
+    <button type="button" class="btn cancel" onclick="closeForm()">X</button>
+  </form>
+</div>
 @endsection('content')
