@@ -278,7 +278,7 @@ background: rgb(54, 78, 150);
 .list-station table tbody .row-station .item:nth-child(5) { width: 30%; }
 
 /* Map */
-#map { height: 100%; width: 100vw; }
+#mapid { height: 100%;}
 
 /* Footer */
 footer {
@@ -515,7 +515,11 @@ footer .copyright {
     }
 
     /* Map - Hien tuong sat lo bo song */
-    #mapid { height: 500px; }
+    #mapid { 
+        height: 500px;
+        position: relative;
+        z-index: 10;
+    }
     #basemaps-wrapper {
         position: absolute;
         top: 10px;
@@ -524,4 +528,24 @@ footer .copyright {
         background: white;
         padding: 8px 5px;
     }
+
+    #mapid.swiping::after {
+        content: 'Sử dụng 2 ngón tay để di chuyển';
+        color: #fff;
+        font-family: 'Lato', sans-serif;
+        font-size: 24px;
+        font-weight: 300;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        pointer-events: none;
+      }
 }

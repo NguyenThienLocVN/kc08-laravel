@@ -1,4 +1,31 @@
-var mymap = L.map('mapid').setView([21.288572, 103.904417], 8); // Son La Province
+var pc = true;
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  pc = false;
+}
+
+var mymap = L.map("mapid", {
+    center: [21.288572, 103.904417],
+    zoom: 8,
+    dragging: pc,
+    tap: pc
+});
+
+const mapEl = document.querySelector("#mapid");
+
+// Binds event listeners for the map and calls the function
+mapEl.addEventListener("touchstart", onTwoFingerDrag);
+mapEl.addEventListener("touchend", onTwoFingerDrag);
+  
+  
+function onTwoFingerDrag (e) {
+    if (e.type === 'touchstart' && e.touches.length === 1) {
+      e.currentTarget.classList.add('swiping')
+    } else {
+      e.currentTarget.classList.remove('swiping')
+    }
+}
+  
 
 var bicycleRental = {
     "type": "FeatureCollection",
