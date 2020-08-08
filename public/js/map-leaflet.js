@@ -11,6 +11,7 @@ var mymap = L.map("mapid", {
     tap: pc
 });
 
+
 const mapEl = document.querySelector("#mapid");
 
 // Binds event listeners for the map and calls the function
