@@ -277,6 +277,11 @@ background: rgb(54, 78, 150);
 
 .list-station table tbody .row-station .item:nth-child(5) { width: 30%; }
 
+.date-range {display: flex; margin: 10px 0;}
+.date-range div { margin: 0 30px 0 10px; }
+.date-range .search-btn { background: #035291; border: none; border-radius: 3px; padding: 3px 10px; color: #fff;}
+.popup-rainfall .header { background: #79baef; padding: 5px 10px 1px; }
+.popup-rainfall .header
 .open-button {
     background-color: #555;
     color: white;
@@ -293,20 +298,17 @@ background: rgb(54, 78, 150);
   /* The popup form - hidden by default */
   .form-popup {
     display: none;
-    position: fixed;
+    position: absolute;
     bottom: 0;
-    right: 0;
+    top: 0;
+    left: 0;
     z-index: 9;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -50px;
+    margin-left: -100px;
   }
   
   /* Add styles to the form container */
   .form-container {
-    max-width: 300px;
-    padding: 10px;
+    max-width: 700px;
     background-color: white;
   }
   
@@ -327,19 +329,21 @@ background: rgb(54, 78, 150);
   
   /* Set a style for the submit/login button */
   .form-container .btn {
-    background-color: #4CAF50;
+    background-color: transparent;
     color: white;
-    padding: 16px 20px;
+    padding: 10px 12px;
     border: none;
     cursor: pointer;
-    width: 100%;
-    margin-bottom:10px;
-    opacity: 0.8;
+    margin-bottom: 10px;
+    top: 0;
+    position: absolute;
+    border-radius: 5px;
+    right: 0;
   }
   
   /* Add a red background color to the cancel button */
   .form-container .cancel {
-    background-color: red;
+    background-color: transparent;
   }
   
   /* Add some hover effects to buttons */
@@ -358,7 +362,6 @@ background: rgb(54, 78, 150);
     bottom: 0;
     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
   }
 /* Map */
 #mapid { height: 100%;}
@@ -472,6 +475,7 @@ footer .copyright {
         left: 100%;
         width: 245px;
         transition: all 1s;
+        z-index: 99;
     }
 
     .content .sidebar-left li:hover > .submenu { display: block; }
@@ -489,6 +493,7 @@ footer .copyright {
     .content-right {
         width: 75%;
         float: right;
+        position: relative;
     }
 
     /* Scheme - Du an*/
@@ -590,6 +595,7 @@ footer .copyright {
     .scheme .name h4 { font-size: 17px;}
     .scheme strong { font-size: 18px; }
 
+    .popup-rainfall { width: 800px; max-width: 800px; height: 500px; }
 
     .list-station table {
         height: 560px;
@@ -630,5 +636,7 @@ footer .copyright {
         background: rgba(0, 0, 0, 0.5);
         z-index: 9999;
         pointer-events: none;
-      }
+    }
+
+    .leaflet-popup-content { width: 300px !important; margin: 13px !important; }
 }

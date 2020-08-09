@@ -85,9 +85,9 @@ Route::group([
     'name' => 'du-lieu-de-tai.',
     'prefix' => 'du-lieu-de-tai',
 ], function () {
-    Route::get('danh-sach-tram', function () {
-        return view('pages.du-lieu-de-tai.danh-sach-tram');
-    })->name('du-lieu-de-tai.danh-sach-tram');
+    Route::get('danh-sach-tram', 'StationController@index')->name('du-lieu-de-tai.danh-sach-tram');
+
+    Route::get('danh-sach-tram/{id}','StationController@getRain')->name('get-rain-by-id');
 
     Route::get('so-lieu-quan-trac', function () {
         return view('pages.du-lieu-de-tai.so-lieu-quan-trac');

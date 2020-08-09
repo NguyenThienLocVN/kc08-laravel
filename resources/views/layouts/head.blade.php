@@ -14,6 +14,10 @@
     <script src="https://unpkg.com/esri-leaflet@2.4.1/dist/esri-leaflet.js"
     integrity="sha512-xY2smLIHKirD03vHKDJ2u4pqeHA7OQZZ27EjtqmuhDguxiUvdsOuXMwkg16PQrm9cgTmXtoxA6kwr8KBy3cdcw=="
     crossorigin=""></script>
+    <script src="{{ asset('js/leaflet-kml/L.KML.js') }}"></script>
 @endif
+
+
 <script src="{{ asset('js/jquery-3.5.1.min.js')  }}"></script>
 <script src="{{ asset('js/bootstrap.min.js')  }}"></script>
+@stack('scripts')
