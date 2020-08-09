@@ -80,3 +80,25 @@ fetch('/files/vi-tri-sat-lo.kml')
 }).catch((e) => {
   console.log(e);
 });
+
+// Add map legend
+var legend = L.control({position: 'topright'});
+    legend.onAdd = function (mymap) {
+
+    var div = L.DomUtil.create('div', 'info-legend');
+    labels = ['<strong>Chú thích</strong>'],
+    categories = ['Sạt lở bình thường','Sạt lở nguy hiểm','Sạt lở rất nguy hiểm'];
+    colors = ['blue', 'yellow', 'red'];
+
+    for (var i = 0; i < categories.length; i++) {
+
+            div.innerHTML += 
+            labels.push(
+                '<i class="circle" style="background:' + colors[i] + '"></i> ' +
+            (categories[i] ? categories[i] : '+'));
+
+        }
+        div.innerHTML = labels.join('<br>');
+    return div;
+    };
+    legend.addTo(mymap);

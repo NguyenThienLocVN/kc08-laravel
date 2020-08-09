@@ -611,7 +611,7 @@ footer .copyright {
     }
     #basemaps-wrapper {
         position: absolute;
-        top: 10px;
+        top: 100px;
         right: 10px;
         z-index: 400;
         background: white;
@@ -639,4 +639,6 @@ footer .copyright {
     }
 
     .leaflet-popup-content { width: 300px !important; margin: 13px !important; }
+    .info-legend { background: #fff; padding: 6px 10px; border-radius: 3px; }
+    .info-legend i { width: 20px; height: 3px; display: inline-block; vertical-align: middle; }
 }
