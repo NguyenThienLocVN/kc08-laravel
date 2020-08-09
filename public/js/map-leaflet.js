@@ -63,8 +63,9 @@ document.querySelector('#basemaps').addEventListener('change', function (e) {
     setBasemap(basemap);
 });
 
+
 // Load kml file
-fetch('./public/files/vi-tri-sat-lo.kml')
+fetch('/files/vi-tri-sat-lo.kml')
   .then(res => res.text())
   .then(kmltext => {
     // Create new kml overlay
