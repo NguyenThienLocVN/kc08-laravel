@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="scheme-product">
+<div class="content scheme-product">
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Sản phẩm đề tài</h3>
     <ul class="list-scheme-product">
         <li>

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="detail-scheme-product">
+<div class="content detail-scheme-product">
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Sản phẩm đề tài</h3>
     <div class="content">
         <h4 class="name">Đề án Quy hoạc tổng thể lĩnh vực Ứng phó sự cố, thiên tai và Tìm kiếm cứu nạn đến năm 2020</h4>

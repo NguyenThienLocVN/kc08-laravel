@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="river-system">
+<div class="content river-system">
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Hệ thống sông ngòi</h3>
     <div class="content">
         <div class="file-name">

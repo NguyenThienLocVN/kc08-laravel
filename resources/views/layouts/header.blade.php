@@ -1,6 +1,8 @@
 <header>
     <div class="container">
         <img src="{{ asset('images/banner.jpg') }}" alt="image-banner" class="image-banner">
+        <div class="white-bar"></div>
+        <div class="animation-title"><p>Chương trình KC.08/16-20</p></div>
         
         <ul class="text-banner-tablet">
             <li><a href="{{ route('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i></a></li>

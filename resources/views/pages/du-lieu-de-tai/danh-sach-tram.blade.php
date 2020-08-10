@@ -16,7 +16,7 @@
     // $resultSheet = $spreadsheet->getActiveSheet()->toArray();
 ?>
 @section('content')
-<div class="list-station">
+<div class="content list-station">
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Danh sách trạm</h3>
 
     <table>

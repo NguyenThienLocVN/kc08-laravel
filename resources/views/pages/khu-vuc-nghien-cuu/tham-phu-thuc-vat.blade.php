@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="floral">
+<div class="content floral">
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Thảm phủ thực vật rừng và hệ thực vật</h3>
     <div class="content">
         <div class="file-name">

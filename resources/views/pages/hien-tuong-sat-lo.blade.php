@@ -5,7 +5,7 @@
 
     <main>
         <div class="container">
-            <div class="content">
+            <div>
                 <div id="mapid"></div>
                 <div id="basemaps-wrapper" class="leaflet-bar">
                     <select id="basemaps">

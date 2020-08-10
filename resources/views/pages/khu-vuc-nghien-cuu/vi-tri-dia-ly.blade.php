@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="geographical-location">
+<div class="content geographical-location">
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Vị trí địa lý</h3>
     <div class="content">
         <div class="file-name">

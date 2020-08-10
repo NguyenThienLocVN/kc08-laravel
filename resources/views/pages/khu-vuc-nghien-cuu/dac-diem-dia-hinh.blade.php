@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="topographic-characteristics">
+<div class="content topographic-characteristics">
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Đặc điểm địa hình</h3>
     <div class="content">
         <div class="file-name">

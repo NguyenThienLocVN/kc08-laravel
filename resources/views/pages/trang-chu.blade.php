@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="scheme">
+    <div class="content scheme">
         <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Tên đề tài</h3>
         <div class="name">
             <h4>Nghiên cứu dự báo diễn biến sạt lở, đề xuất các giải pháp để ổn định bờ sông và quy hoạch sử dụng vùng ven sông phục vụ mục tiêu phát triển kinh tế - xã hội vùng hạ du hệ thống sông Đồng Nai</h4>

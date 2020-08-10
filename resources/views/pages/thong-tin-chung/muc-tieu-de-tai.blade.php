@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="common-target">
+<div class="content common-target">
     <img src="{{ asset('images/muc-tieu-chung.png')  }}" alt="muc-tieu-chung">
 </div>
 

@@ -8,12 +8,9 @@
 
     <main>
         <div class="container">
-            <div class="content">
+            <div class="wrap">
                 @include('layouts.sidebar')
-
-                <div class="content-right">
-                    @yield('content')
-                </div>
+                @yield('content')
             </div>
         </div>
     </main>
