@@ -40,7 +40,7 @@
 </ul>
 
 <ul class="sidebar-left" id="sidebar-left-desktop">
-    <li><a href="#">THÔNG TIN CHUNG</a><i class="fa fa-caret-down" aria-hidden="true"></i>
+    <li><a href="#" class="item-link">THÔNG TIN CHUNG</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu">
             <li><a href="{{ route('thong-tin-chung.muc-tieu-de-tai') }}">Mục tiêu đề tài</a></li>
             <li><a href="{{ route('thong-tin-chung.san-pham-de-tai') }}">Sản phẩm đề tài</a></li>
@@ -48,14 +48,14 @@
             <li><a href="#">Các sản phẩm đã công bố</a></li>
         </ul>
     </li>
-    <li><a href="#">CÁC BÁO CÁO SẢN PHẨM</a><i class="fa fa-caret-down" aria-hidden="true"></i>
+    <li><a href="#" class="item-link">CÁC BÁO CÁO SẢN PHẨM</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu">
             <li><a href="#">Báo cáo sản phẩm A</a></li>
             <li><a href="#">Báo cáo sản phẩm B</a></li>
             <li><a href="#">Báo cáo sản phẩm C</a></li>
         </ul>
     </li>
-    <li><a href="#">KHU VỰC NGHIÊN CỨU</a><i class="fa fa-caret-down" aria-hidden="true"></i>
+    <li><a href="#" class="item-link">KHU VỰC NGHIÊN CỨU</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu">
             <li><a href="#">Đặc điểm điều kiện tự nhiên</a><i class="fa fa-caret-right" aria-hidden="true"></i>
                 <ul class="sub-submenu">
@@ -69,7 +69,7 @@
             <li><a href="#">Hiện trạng khai thác, sử dụng đất ven sông</a></li>
         </ul>
     </li>
-    <li><a href="#">DỮ LIỆU ĐỀ TÀI</a><i class="fa fa-caret-down" aria-hidden="true"></i>
+    <li><a href="#" class="item-link">DỮ LIỆU ĐỀ TÀI</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu scheme-data-ul">
             <li><a href="#">Số liệu khí tượng</a></li>
             <li><a href="#">Số liệu thủy văn</a><i class="fa fa-caret-right" aria-hidden="true"></i>
@@ -82,5 +82,5 @@
             <li><a href="#">Số liệu công trình</a></li>
         </ul>
     </li>
-    <li><a href="{{ route('hien-tuong-sat-lo') }}">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
+    <li><a href="{{ route('hien-tuong-sat-lo') }}" class="item-link">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
 </ul>
