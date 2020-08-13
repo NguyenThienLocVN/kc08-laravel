@@ -2,19 +2,6 @@
 @push('scripts')
     <script src="https://code.highcharts.com/highcharts.js"></script>
 @endpush
-<?php
-    // $inputFileName = public_path()."/files/Danhsach.xlsx";
-
-    // /**  Identify the type of $inputFileName  **/
-    // $inputFileType = \PhpOffice\PhpSpreadsheet\IOFactory::identify($inputFileName);
-
-    // /**  Create a new Reader of the type that has been identified  **/
-    // $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
-
-    // /**  Load $inputFileName to a Spreadsheet Object  **/
-    // $spreadsheet = $reader->load($inputFileName);
-    // $resultSheet = $spreadsheet->getActiveSheet()->toArray();
-?>
 @section('content')
 <div class="content list-station">
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Danh sách trạm</h3>

@@ -305,9 +305,8 @@ background: rgb(54, 78, 150);
     position: absolute;
     bottom: 0;
     top: 0;
-    left: 0;
     z-index: 9;
-    margin-left: -100px;
+    left: calc(50% - 350px);
   }
   
   /* Add styles to the form container */
@@ -615,8 +614,6 @@ footer .copyright {
 
     .list-station table {
         height: 560px;
-        display: block;
-        overflow: scroll;
     }
 
     /* Map - Hien tuong sat lo bo song */

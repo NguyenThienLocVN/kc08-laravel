@@ -9,11 +9,11 @@
             <div class="date-range">
                 <div class="start">
                     <label for="">Từ ngày</label>
-                    <input type="date" class="start-picker">
+                    <input type="date" class="start-picker" id="start-picker">
                 </div>
                 <div class="end">
                     <label for="">Đến ngày</label>
-                    <input type="date" class="end-picker">
+                    <input type="date" class="end-picker" id="end-picker">
                 </div>
                 <input type="submit" value="Tìm kiếm" class="search-btn">
             </div>

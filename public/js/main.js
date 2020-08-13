@@ -41,13 +41,30 @@ function loadRainfall(id){
     //   $(".loading-gif").hide();
     // },
     data:{id:id},
-    success:function(data){ //dữ liệu nhận về
-      
-    // Get date and send to input hidden
-    var date = "";
-     data.filterRain.forEach(function(e){
-      console.log(e.Date_Time)
+    success:function(data){
+    
+
+    var arrayDate = [];
+    var indexOfFrom;
+
+     data.rainFall.forEach(function(e){
+      arrayDate.push(e.Date_Time);
      })
+
+    var fromDate = arrayDate[arrayDate.length - 90];
+    var toDate = arrayDate[arrayDate.length - 1];
+
+    document.getElementById('start-picker').value = fromDate;
+    document.getElementById('end-picker').value = toDate;
+
+     indexOfFrom = arrayDate.indexOf('2004-12-31');
+     console.log(indexOfFrom)
+
+     var rain = [];
+     data.rainFall.forEach(function(e){
+      rain.push(e.Result);
+     })
+    
 
      $('#container').highcharts({
       title: {
@@ -61,7 +78,7 @@ function loadRainfall(id){
       },
 
       xAxis: {
-          categories: ['1/1/1961', '1/1/1962', '1/1/1963', '1/1/1964', '1/1/1965', '1/1/1966', '1/1/1967', '1/1/1968', '1/1/1969', '1/1/1970', '1/1/1971', '1/1/1972'],
+          categories: arrayDate,
       },
 
       legend: {
@@ -80,7 +97,7 @@ function loadRainfall(id){
 
       series: [{
               name: 'Nước mưa',
-              data: [0, 1.2, 2, 3.8, 1, 2, 5, 3]
+              data: rain
           },
       ],
 
