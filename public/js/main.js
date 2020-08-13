@@ -42,29 +42,40 @@ function loadRainfall(id){
     // },
     data:{id:id},
     success:function(data){
-    
+    //  Show station name
+    $('#station-name').html(data.station[0].Station_Name);
 
     var arrayDate = [];
-    var indexOfFrom;
 
+    // Get array of all date
      data.rainFall.forEach(function(e){
       arrayDate.push(e.Date_Time);
      })
 
+    // Get the last date in data, and retrieved 90 days earlier
     var fromDate = arrayDate[arrayDate.length - 90];
     var toDate = arrayDate[arrayDate.length - 1];
 
+    // Set that values for input
     document.getElementById('start-picker').value = fromDate;
     document.getElementById('end-picker').value = toDate;
 
-     indexOfFrom = arrayDate.indexOf('2004-12-31');
-     console.log(indexOfFrom)
+    // Get index of this date in data
+    var indexOfFrom = arrayDate.indexOf(fromDate);
+    var indexOfTo = arrayDate.indexOf(toDate) + 1;
+  
+    // Filter data by fromDate and toDate
+    var filterArray = data.rainFall.slice(indexOfFrom, indexOfTo)
 
-     var rain = [];
-     data.rainFall.forEach(function(e){
-      rain.push(e.Result);
+    var filterRain = [];
+    filterArray.forEach(function(e){
+      filterRain.push(e.Result);
      })
     
+    var filterDate = [];
+    filterArray.forEach(function(e){
+      filterDate.push(e.Date_Time);
+     })
 
      $('#container').highcharts({
       title: {
@@ -78,7 +89,7 @@ function loadRainfall(id){
       },
 
       xAxis: {
-          categories: arrayDate,
+          categories: filterDate,
       },
 
       legend: {
@@ -97,7 +108,7 @@ function loadRainfall(id){
 
       series: [{
               name: 'Nước mưa',
-              data: rain
+              data: filterRain
           },
       ],
 
@@ -117,8 +128,32 @@ function loadRainfall(id){
       }
     });
 
-    //  Show station name
-     $('#station-name').html(data.station[0].Station_Name);
+    // Filter by date picker
+    document.getElementById('search-rain-btn').addEventListener('click', function(){
+      var inputFrom = document.getElementById('start-picker').value;
+      var inputTo = document.getElementById('end-picker').value;
+
+      // Get index
+      var indexOfInputFrom = arrayDate.indexOf(inputFrom);
+      var indexOfInputTo = arrayDate.indexOf(inputTo) + 1;
+
+      // Filter data
+      var filterArrayByInput = data.rainFall.slice(indexOfInputFrom, indexOfInputTo);
+
+      var filterRainByInput = [];
+      filterArrayByInput.forEach(function(e){
+        filterRainByInput.push(e.Result);
+      })
+      
+      var filterDateByInput = [];
+      filterArrayByInput.forEach(function(e){
+        filterDateByInput.push(e.Date_Time);
+      })
+
+      var chart = $('#container').highcharts();
+      chart.series[0].setData(filterRainByInput);
+      chart.xAxis[0].setCategories(filterDateByInput);
+    })
    }
  });
 }
