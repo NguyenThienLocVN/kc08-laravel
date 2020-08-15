@@ -85,9 +85,13 @@ Route::group([
     'name' => 'du-lieu-de-tai.',
     'prefix' => 'du-lieu-de-tai',
 ], function () {
-    Route::get('danh-sach-tram', 'StationController@index')->name('du-lieu-de-tai.danh-sach-tram');
+    //So lieu bun cat
+    Route::get('so-lieu-bun-cat/danh-sach-tram', 'StationsController@muddySandStations')->name('du-lieu-de-tai.so-lieu-bun-cat.danh-sach-tram');
+    Route::get('so-lieu-bun-cat/danh-sach-tram/{id}','StationsController@getMuddySandData');
 
-    Route::get('danh-sach-tram/{id}','StationController@getRain')->name('get-rain-by-id');
+    // So lieu thuy van
+    Route::get('so-lieu-thuy-van/danh-sach-tram', 'StationsController@hydrologicalStations')->name('du-lieu-de-tai.so-lieu-thuy-van.danh-sach-tram');
+    Route::get('so-lieu-thuy-van/danh-sach-tram/{id}','StationsController@getRain');
 
     Route::get('so-lieu-quan-trac', function () {
         return view('pages.du-lieu-de-tai.so-lieu-quan-trac');

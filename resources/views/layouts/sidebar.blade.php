@@ -30,10 +30,14 @@
             <li><a href="#">SỐ LIỆU KHÍ TƯỢNG</a></li>
             <li class="has-sub-sub"><a href="#">SỐ LIỆU THỦY VĂN</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
             <ul class="sub-submenu">
-                <li><a href="{{ route('du-lieu-de-tai.danh-sach-tram') }}">DANH SÁCH TRẠM</a></li>
-                <li><a href="{{ route('du-lieu-de-tai.so-lieu-quan-trac') }}">SỐ LIỆU QUAN TRẮC</a></li>
+                <li><a href="{{ route('du-lieu-de-tai.so-lieu-thuy-van.danh-sach-tram') }}">DANH SÁCH TRẠM</a></li>
+                <li><a href="#">SỐ LIỆU QUAN TRẮC</a></li>
             </ul>
-            <li><a href="#">SỐ LIỆU BÙN CÁT</a></li>
+            <li class="has-sub-sub"><a href="#">SỐ LIỆU BÙN CÁT</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
+            <ul class="sub-submenu">
+                <li><a href="{{ route('du-lieu-de-tai.so-lieu-bun-cat.danh-sach-tram') }}">DANH SÁCH TRẠM</a></li>
+                <li><a href="#">SỐ LIỆU QUAN TRẮC</a></li>
+            </ul>
             <li><a href="#">SỐ LIỆU CÔNG TRÌNH</a></li>
         </ul>
     <li><a href="{{ route('hien-tuong-sat-lo') }}">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
@@ -74,11 +78,16 @@
             <li><a href="#">Số liệu khí tượng</a></li>
             <li><a href="#">Số liệu thủy văn</a><i class="fa fa-caret-right" aria-hidden="true"></i>
                 <ul class="sub-submenu">
-                    <li><a href="{{ route('du-lieu-de-tai.danh-sach-tram') }}">Danh sách trạm</a></li>
-                    <li><a href="{{ route('du-lieu-de-tai.so-lieu-quan-trac') }}">Số liệu quan trắc</a></li>
+                    <li><a href="{{ route('du-lieu-de-tai.so-lieu-thuy-van.danh-sach-tram') }}">Danh sách trạm</a></li>
+                    <li><a href="#">Số liệu quan trắc</a></li>
                 </ul>
             </li>
-            <li><a href="#">Số liệu bùn cát</a></li>
+            <li><a href="#">Số liệu bùn cát</a><i class="fa fa-caret-right" aria-hidden="true"></i>
+                <ul class="sub-submenu">
+                    <li><a href="{{ route('du-lieu-de-tai.so-lieu-bun-cat.danh-sach-tram') }}">Danh sách trạm</a></li>
+                    <li><a href="#">Số liệu quan trắc</a></li>
+                </ul>
+            </li>
             <li><a href="#">Số liệu công trình</a></li>
         </ul>
     </li>

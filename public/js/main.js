@@ -28,7 +28,7 @@ jQuery(function($){
   })
 })
 
-function loadRainfall(id){
+function loadMuddySand(id){
   
   $.ajax({
     url:"danh-sach-tram/"+id, // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
@@ -48,7 +48,7 @@ function loadRainfall(id){
     var arrayDate = [];
 
     // Get array of all date
-     data.rainFall.forEach(function(e){
+     data.muddySand.forEach(function(e){
       arrayDate.push(e.Date_Time);
      })
 
@@ -65,11 +65,11 @@ function loadRainfall(id){
     var indexOfTo = arrayDate.indexOf(toDate) + 1;
   
     // Filter data by fromDate and toDate
-    var filterArray = data.rainFall.slice(indexOfFrom, indexOfTo)
+    var filterArray = data.muddySand.slice(indexOfFrom, indexOfTo)
 
-    var filterRain = [];
+    var filterMuddySand = [];
     filterArray.forEach(function(e){
-      filterRain.push(e.Result);
+      filterMuddySand.push(e.Result);
      })
     
     var filterDate = [];
@@ -79,16 +79,17 @@ function loadRainfall(id){
 
      $('#container').highcharts({
       title: {
-        text: 'BIỂU ĐỒ LƯỢNG MƯA TRẠM'
+        text: 'BIỂU ĐỒ SỐ LIỆU BÙN CÁT'
       },
 
       yAxis: {
           title: {
-              text: 'Lượng mưa (mm)'
+              text: '(g/m3)'
           }
       },
 
       xAxis: {
+          gridLineWidth: 1,
           categories: filterDate,
       },
 
@@ -107,8 +108,8 @@ function loadRainfall(id){
       },
 
       series: [{
-              name: 'Nước mưa',
-              data: filterRain
+              name: 'Bùn cát',
+              data: filterMuddySand
           },
       ],
 
@@ -138,11 +139,11 @@ function loadRainfall(id){
       var indexOfInputTo = arrayDate.indexOf(inputTo) + 1;
 
       // Filter data
-      var filterArrayByInput = data.rainFall.slice(indexOfInputFrom, indexOfInputTo);
+      var filterArrayByInput = data.muddySand.slice(indexOfInputFrom, indexOfInputTo);
 
-      var filterRainByInput = [];
+      var filterMuddySandByInput = [];
       filterArrayByInput.forEach(function(e){
-        filterRainByInput.push(e.Result);
+        filterMuddySandByInput.push(e.Result);
       })
       
       var filterDateByInput = [];
@@ -151,15 +152,15 @@ function loadRainfall(id){
       })
 
       var chart = $('#container').highcharts();
-      chart.series[0].setData(filterRainByInput);
+      chart.series[0].setData(filterMuddySandByInput);
       chart.xAxis[0].setCategories(filterDateByInput);
     })
    }
  });
 }
 
-function openForm(id) {
-  loadRainfall(id);
+function openMuddySand(id) {
+  loadMuddySand(id);
 
   $("#myForm").show();
   $("#overlay").show();

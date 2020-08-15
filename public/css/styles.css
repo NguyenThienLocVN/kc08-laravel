@@ -279,7 +279,7 @@ background: rgb(54, 78, 150);
     text-align: center;
 }
 
-.list-station table tbody .row-station .item:nth-child(5) { width: 30%; }
+.list-station table tbody .row-station .item:nth-child(5) { width: 30%; text-align: left;  }
 
 .date-range {display: flex; margin: 10px 0;}
 .date-range div { margin: 0 30px 0 10px; }
@@ -469,7 +469,6 @@ footer .copyright {
     }
 
     .sidebar-left .submenu {
-        border-top: 3px solid #0c74c7;
         opacity: 0;
         visibility: hidden;
         position: absolute;
@@ -603,6 +602,7 @@ footer .copyright {
         }
       }
 
+    .sidebar-left .scheme-data-ul, .sidebar-left .scheme-data-ul .sub-submenu { width: 200px !important; }
     #sidebar-left-desktop li a { font-size: 14px; }
     .intro-content .intro-text h2 { font-size: x-large; line-height: unset; }
     .info-contact { padding: 15px 35px; }
@@ -615,6 +615,8 @@ footer .copyright {
     .list-station table {
         height: 560px;
     }
+
+    .list-station table tbody .row-station .item:nth-child(5) { width: 50%;}
 
     /* Map - Hien tuong sat lo bo song */
     #mapid { 
