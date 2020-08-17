@@ -11,13 +11,13 @@ class StationsController extends Controller
     // Danh sach tram thuy van
     public function hydrologicalStations(){
         $stations = Stations::all();
-        return view('pages.du-lieu-de-tai.so-lieu-thuy-van.danh-sach-tram', ['stations' => $stations]);
+        return view('pages.du-lieu-de-tai.so-lieu-thuy-van', ['stations' => $stations]);
     }
 
     // Danh sach tram bun cat
     public function muddySandStations(){
         $stations = Stations::all();
-        return view('pages.du-lieu-de-tai.so-lieu-bun-cat.danh-sach-tram', ['stations' => $stations]);
+        return view('pages.du-lieu-de-tai.so-lieu-bun-cat', ['stations' => $stations]);
     }
 
     // Du lieu bun cat

@@ -86,12 +86,12 @@ Route::group([
     'prefix' => 'du-lieu-de-tai',
 ], function () {
     //So lieu bun cat
-    Route::get('so-lieu-bun-cat/danh-sach-tram', 'StationsController@muddySandStations')->name('du-lieu-de-tai.so-lieu-bun-cat.danh-sach-tram');
-    Route::get('so-lieu-bun-cat/danh-sach-tram/{id}','StationsController@getMuddySandData');
+    Route::get('so-lieu-bun-cat', 'StationsController@muddySandStations')->name('du-lieu-de-tai.so-lieu-bun-cat');
+    Route::get('so-lieu-bun-cat/{id}','StationsController@getMuddySandData');
 
     // So lieu thuy van
-    Route::get('so-lieu-thuy-van/danh-sach-tram', 'StationsController@hydrologicalStations')->name('du-lieu-de-tai.so-lieu-thuy-van.danh-sach-tram');
-    Route::get('so-lieu-thuy-van/danh-sach-tram/{id}','StationsController@getRain');
+    Route::get('so-lieu-thuy-van', 'StationsController@hydrologicalStations')->name('du-lieu-de-tai.so-lieu-thuy-van');
+    Route::get('so-lieu-thuy-van/{id}','StationsController@getRain');
 
     Route::get('so-lieu-quan-trac', function () {
         return view('pages.du-lieu-de-tai.so-lieu-quan-trac');
@@ -102,3 +102,8 @@ Route::group([
 Route::get('hien-tuong-sat-lo', function () {
     return view('pages.hien-tuong-sat-lo');
 })->name('hien-tuong-sat-lo');
+
+// Ban do nguy co sat lo
+Route::get('ban-do-nguy-co-sat-lo', function () {
+    return view('pages.ban-do-nguy-co-sat-lo');
+})->name('ban-do-nguy-co-sat-lo');

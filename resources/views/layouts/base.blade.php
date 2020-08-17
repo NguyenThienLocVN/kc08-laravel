@@ -9,7 +9,7 @@
     <main>
         <div class="container">
             <div class="wrap">
-                @include('layouts.sidebar')
+                @include('layouts.navigation')
                 @yield('content')
             </div>
         </div>

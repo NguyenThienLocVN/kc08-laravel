@@ -11,7 +11,7 @@ body {
 
 .wrap { background: #fff; }
 
-ul li, ul, li {
+ul li, ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -366,6 +366,30 @@ background: rgb(54, 78, 150);
     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   }
+
+  /* Landslide risk map - Ban do nguy co sat lo */
+  ol {list-style: none;counter-reset: item;}
+  .landslide-risk-list-pdf li {
+    background: #cee5f7;
+    border-radius: 0.5rem;
+    padding: 10px;
+    margin-top: 10px;
+    min-height: 2rem;
+    max-width: 300px;
+    position: relative;
+    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05), 0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
+    counter-increment: item;
+  }
+  .landslide-risk-list-pdf li::before {
+    margin-right: 10px;
+    content: counter(item);
+    background: #07599a;
+    border-radius: 100%;
+    color: white;
+    width: 1.2em;
+    text-align: center;
+    display: inline-block;
+  }
 /* Map */
 #mapid { height: 100%;}
 
@@ -377,7 +401,7 @@ footer {
 footer .copyright {
     background: #035291;
     text-align: center;
-    padding: 10px 0;
+    padding: 8px 0;
     color: #fff;
 }
 
@@ -456,10 +480,6 @@ footer .copyright {
     
     /* Content */
     .sidebar-left { display: block; }
-
-    #sidebar-left-desktop li:hover > a {
-        
-    }
 
     .sidebar-left li a { 
         font-size: 13px;
@@ -617,6 +637,7 @@ footer .copyright {
     }
 
     .list-station table tbody .row-station .item:nth-child(5) { width: 50%;}
+    .btn-view-detail { cursor: pointer; }
 
     /* Map - Hien tuong sat lo bo song */
     #mapid { 

@@ -31,7 +31,7 @@ jQuery(function($){
 function loadMuddySand(id){
   
   $.ajax({
-    url:"danh-sach-tram/"+id, // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
+    url:window.location.href+"/"+id, // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
     method:"GET", // phương thức gửi dữ liệu.
     // beforeSend: function () {
     //   $(".loading-gif").show();
@@ -41,9 +41,9 @@ function loadMuddySand(id){
     //   $(".loading-gif").hide();
     // },
     data:{id:id},
-    success:function(data){
+    success:function(data){console.log(window.location.href+"/"+id)
     //  Show station name
-    $('#station-name').html(data.station[0].Station_Name);
+    $('#station-name').html("Biểu đồ lưu lượng bùn cát tại trạm "+data.station[0].Station_Name);
 
     var arrayDate = [];
 
@@ -108,7 +108,7 @@ function loadMuddySand(id){
       },
 
       series: [{
-              name: 'Bùn cát',
+              name: 'Độ đục',
               data: filterMuddySand
           },
       ],
