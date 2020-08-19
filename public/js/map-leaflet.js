@@ -67,7 +67,7 @@ var currentURL = document.URL.substr(document.URL.length - 4, document.URL.lengt
 if(currentURL == '2025')
 {
 
-  fetch('./files/Tong_dis_Intersect_UnsplitLi.kml')
+  fetch('../files/Tong_dis_Intersect_UnsplitLi.kml')
   .then(res => res.text())
   .then(kmltext => {
     // Create new kml overlay
@@ -85,7 +85,7 @@ if(currentURL == '2025')
 }
 else {
   // Load kml file
-  fetch('./files/vi-tri-sat-lo.kml')
+  fetch('../files/vi-tri-sat-lo.kml')
     .then(res => res.text())
     .then(kmltext => {
       // Create new kml overlay
