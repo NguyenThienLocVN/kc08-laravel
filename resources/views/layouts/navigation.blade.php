@@ -32,7 +32,7 @@
             <li><a href="{{ route('du-lieu-de-tai.so-lieu-bun-cat') }}">SỐ LIỆU BÙN CÁT</a></li>
             <li><a href="#">SỐ LIỆU CÔNG TRÌNH</a></li>
         </ul>
-    <li><a href="{{ route('hien-tuong-sat-lo') }}">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
+    <li><a href="{{ route('hien-trang-sat-lo-2020') }}">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
 </ul>
 
 <ul class="sidebar-left" id="sidebar-left-desktop">
@@ -73,6 +73,11 @@
             <li><a href="#">Số liệu công trình</a></li>
         </ul>
     </li>
-    <li><a href="{{ route('hien-tuong-sat-lo') }}" class="item-link">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
+    <li><a href="#" class="item-link">HIỆN TRẠNG SẠT LỞ BỜ SÔNG</a><i class="fa fa-caret-down" aria-hidden="true"></i>
+        <ul class="submenu scheme-data-ul">
+            <li><a href="{{ route('hien-trang-sat-lo-2020') }}">Sạt lở hiện trạng 2020</a></li>
+            <li><a href="{{ route('hien-trang-sat-lo-2025') }}">Sạt lở hiện trạng 2025</a></li>
+        </ul>
+    </li>
     <li><a href="{{ route('ban-do-nguy-co-sat-lo') }}" class="item-link">BẢN ĐỒ NGUY CƠ SẠT LỞ</a></li>
 </ul>

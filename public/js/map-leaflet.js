@@ -63,7 +63,11 @@ document.querySelector('#basemaps').addEventListener('change', function (e) {
     setBasemap(basemap);
 });
 
-fetch('/files/Tong_dis_Intersect_UnsplitLi.kml')
+var currentURL = document.URL.substr(document.URL.length - 4, document.URL.length);
+if(currentURL == '2025')
+{
+
+  fetch('./files/Tong_dis_Intersect_UnsplitLi.kml')
   .then(res => res.text())
   .then(kmltext => {
     // Create new kml overlay
@@ -75,26 +79,30 @@ fetch('/files/Tong_dis_Intersect_UnsplitLi.kml')
     // Adjust map to show the kml
     const bounds = track.getBounds();
     mymap.fitBounds(bounds);
-}).catch((e) => {
-  console.log(e);
-});
+  }).catch((e) => {
+    console.log(e);
+  });
+}
+else {
+  // Load kml file
+  fetch('./files/vi-tri-sat-lo.kml')
+    .then(res => res.text())
+    .then(kmltext => {
+      // Create new kml overlay
+      const parser = new DOMParser();
+      const kml = parser.parseFromString(kmltext, 'text/xml');
+      const track = new L.KML(kml, 'text/xml');
+      mymap.addLayer(track);
 
-// Load kml file
-fetch('/files/vi-tri-sat-lo.kml')
-  .then(res => res.text())
-  .then(kmltext => {
-    // Create new kml overlay
-    const parser = new DOMParser();
-    const kml = parser.parseFromString(kmltext, 'text/xml');
-    const track = new L.KML(kml, 'text/xml');
-    mymap.addLayer(track);
+      // Adjust map to show the kml
+      const bounds = track.getBounds();
+      mymap.fitBounds(bounds);
+  }).catch((e) => {
+    console.log(e);
+  });
+}
 
-    // Adjust map to show the kml
-    const bounds = track.getBounds();
-    mymap.fitBounds(bounds);
-}).catch((e) => {
-  console.log(e);
-});
+
 
 // Add map legend
 var legend = L.control({position: 'topright'});

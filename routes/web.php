@@ -98,10 +98,22 @@ Route::group([
     })->name('du-lieu-de-tai.so-lieu-quan-trac');
 });
 
-// Hien tuong sat lo bo song
-Route::get('hien-tuong-sat-lo', function () {
-    return view('pages.hien-tuong-sat-lo');
-})->name('hien-tuong-sat-lo');
+
+
+Route::group([
+    'name' => 'hien-trang-sat-lo.',
+    'prefix' => 'hien-trang-sat-lo',
+], function () {
+    // Hien trang sat lo bo song 2020
+    Route::get('2020', function () {
+        return view('pages.hien-trang-sat-lo-2020');
+    })->name('hien-trang-sat-lo-2020');
+
+    // Hien trang sat lo bo song 2020
+    Route::get('2025', function () {
+        return view('pages.hien-trang-sat-lo-2025');
+    })->name('hien-trang-sat-lo-2025');
+});
 
 // Ban do nguy co sat lo
 Route::get('ban-do-nguy-co-sat-lo', function () {
