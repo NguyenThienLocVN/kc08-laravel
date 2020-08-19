@@ -63,6 +63,21 @@ document.querySelector('#basemaps').addEventListener('change', function (e) {
     setBasemap(basemap);
 });
 
+fetch('/files/Tong_dis_Intersect_UnsplitLi.kml')
+  .then(res => res.text())
+  .then(kmltext => {
+    // Create new kml overlay
+    const parser = new DOMParser();
+    const kml = parser.parseFromString(kmltext, 'text/xml');
+    const track = new L.KML(kml, 'text/xml');
+    mymap.addLayer(track);
+
+    // Adjust map to show the kml
+    const bounds = track.getBounds();
+    mymap.fitBounds(bounds);
+}).catch((e) => {
+  console.log(e);
+});
 
 // Load kml file
 fetch('/files/vi-tri-sat-lo.kml')

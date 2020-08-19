@@ -238,6 +238,9 @@ background: rgb(54, 78, 150);
 .scheme-product .list-scheme-product li a { color: #d25426}
 .scheme-product .list-scheme-product .read-more { float: right; }
 
+.main-content { display: flex; }
+.main-content .description, .main-content .illustration { width: 50%; }
+
 /* Vi tri dia ly & Dac diem dia hinh */
 .geographical-location .img-location,
 .topographic-characteristics .img-location { text-align: center; }
