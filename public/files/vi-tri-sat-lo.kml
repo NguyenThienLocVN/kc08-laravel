@@ -9,7 +9,7 @@
 		</LabelStyle>
 		<LineStyle>
 			<color>ffff7000</color>
-			<width>2</width>
+			<width>4</width>
 		</LineStyle>
 		<PolyStyle>
 			<color>00000000</color>
@@ -23,7 +23,7 @@
 		</LabelStyle>
 		<LineStyle>
 			<color>ff0000ff</color>
-			<width>2</width>
+			<width>4</width>
 		</LineStyle>
 		<PolyStyle>
 			<color>00000000</color>
@@ -37,7 +37,7 @@
 		</LabelStyle>
 		<LineStyle>
 			<color>ff00ffff</color>
-			<width>2</width>
+			<width>4</width>
 		</LineStyle>
 		<PolyStyle>
 			<color>00000000</color>

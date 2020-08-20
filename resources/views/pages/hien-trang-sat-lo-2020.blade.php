@@ -26,6 +26,18 @@
                     <h4>BẢN ĐỒ</h4>
                     <h4>HIỆN TRẠNG SẠT LỞ BỜ SÔNG</h4>
                 </div>
+                <div class="content">
+
+                </div>
+
+                <div class="note">
+                    <h5>CHÚ THÍCH</h5>
+                    <ul>
+                        <li class="note-item"><span style="background: blue;"></span>&nbsp; Sạt lở bình thường</li>
+                        <li class="note-item"><span style="background: yellow;"></span>&nbsp; Sạt lở nguy hiểm</li>
+                        <li class="note-item"><span style="background: red;"></span>&nbsp; Sạt lở rất nguy hiểm</li>
+                    </ul>
+                </div>
             </div>
             <div id="mapid"></div>
             <div id="basemaps-wrapper" class="leaflet-bar">

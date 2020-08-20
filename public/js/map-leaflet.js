@@ -8,9 +8,10 @@ var mymap = L.map("mapid", {
     center: [10.765933, 106.654556],
     zoom: 13,
     dragging: pc,
-    tap: pc
+    tap: pc,
+    zoomControl: true
 });
-
+mymap.zoomControl.setPosition('bottomright');
 
 const mapEl = document.querySelector("#mapid");
 // Binds event listeners for the map and calls the function
@@ -67,7 +68,7 @@ var currentURL = document.URL.substr(document.URL.length - 4, document.URL.lengt
 if(currentURL == '2025')
 {
 
-  fetch('../files/Tong_dis_Intersect_UnsplitLi.kml')
+  fetch('../public/files/Tong_dis_Intersect_UnsplitLi.kml')
   .then(res => res.text())
   .then(kmltext => {
     // Create new kml overlay
@@ -85,7 +86,7 @@ if(currentURL == '2025')
 }
 else {
   // Load kml file
-  fetch('../files/vi-tri-sat-lo.kml')
+  fetch('../public/files/vi-tri-sat-lo.kml')
     .then(res => res.text())
     .then(kmltext => {
       // Create new kml overlay
@@ -101,27 +102,3 @@ else {
     console.log(e);
   });
 }
-
-
-
-// Add map legend
-var legend = L.control({position: 'topright'});
-    legend.onAdd = function (mymap) {
-
-    var div = L.DomUtil.create('div', 'info-legend');
-    labels = ['<strong>Chú thích</strong>'],
-    categories = ['Sạt lở bình thường','Sạt lở nguy hiểm','Sạt lở rất nguy hiểm'];
-    colors = ['blue', 'yellow', 'red'];
-
-    for (var i = 0; i < categories.length; i++) {
-
-            div.innerHTML += 
-            labels.push(
-                '<i class="circle" style="background:' + colors[i] + '"></i> ' +
-            (categories[i] ? categories[i] : '+'));
-
-        }
-        div.innerHTML = labels.join('<br>');
-    return div;
-    };
-    legend.addTo(mymap);
