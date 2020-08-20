@@ -26,6 +26,23 @@ jQuery(function($){
   $("#sidebar-left-mobile .has-sub-sub").click(function(){
     $(this).find('i').toggleClass('fa-caret-down fa-caret-right');
   })
+
+  // Click toggle show map control 
+  $("#btn-toggle-map").click(function() {
+    // $('.map-control').animate({width: 'toggle'});
+    $('.map-control').toggle();
+    $(this).find('i').toggleClass('fa-chevron-left fa-chevron-right');
+    $(this).toggleClass('btn-hide-map btn-show-map');
+    var toggleWidth;
+    console.log($(".map-control").css('display'));
+    if($(".map-control").css('display') == 'none'){
+        toggleWidth = "100%";
+    }
+    else {
+        toggleWidth = "75%";
+    }
+    $('#mapid').animate({ width: toggleWidth });
+  });
 })
 
 function loadMuddySand(id){

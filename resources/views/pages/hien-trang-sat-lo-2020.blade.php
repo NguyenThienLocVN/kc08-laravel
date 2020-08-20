@@ -18,24 +18,31 @@
 
     <main>
         <div class="container">
-            <div>
-                <div id="mapid"></div>
-                <div id="basemaps-wrapper" class="leaflet-bar">
-                    <select id="basemaps">
-                        <option value="Imagery">Bản đồ vệ tinh</option>
-                        <option value="Topographic">Bản đồ địa hình</option>
-                        <option value="Streets">Bản đồ đường</option>
-                        <option value="NationalGeographic">Bản đồ địa lý</option>
-                        <option value="Oceans">Bản đồ đại dương</option>
-                        <option value="Gray">Bản đồ xám</option>
-                        <option value="ShadedRelief">Bản đồ bóng</option>
-                    </select>
+            <div id="btn-toggle-map" class="btn-show-map">
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            <div class="map-control">
+                <div class="header">
+                    <h4>BẢN ĐỒ</h4>
+                    <h4>HIỆN TRẠNG SẠT LỞ BỜ SÔNG</h4>
                 </div>
+            </div>
+            <div id="mapid"></div>
+            <div id="basemaps-wrapper" class="leaflet-bar">
+                <select id="basemaps">
+                    <option value="Imagery">Bản đồ vệ tinh</option>
+                    <option value="Topographic">Bản đồ địa hình</option>
+                    <option value="Streets">Bản đồ đường</option>
+                    <option value="NationalGeographic">Bản đồ địa lý</option>
+                    <option value="Oceans">Bản đồ đại dương</option>
+                    <option value="Gray">Bản đồ xám</option>
+                    <option value="ShadedRelief">Bản đồ bóng</option>
+                </select>
             </div>
         </div>
     </main>
 
     <!-- Include map js -->
     <script src="{{ asset('js/map-leaflet.js') }}"></script>
-    
+    <script src="{{ asset('js/main.js') }}"></script>    
 </body>

@@ -644,10 +644,17 @@ footer .copyright {
     .btn-view-detail { cursor: pointer; }
 
     /* Map - Hien tuong sat lo bo song */
+    .map-control { width: 25%; background: white; height: 100vh; left: 0; position: absolute; }
+    .btn-show-map { background: #b1aeae; top: 0; position: absolute; left: 25%; padding: 10px 5px; color: #035291; z-index: 11;}
+    .btn-hide-map { background: #b1aeae; top: 0; position: absolute; left: 0; padding: 10px 5px; color: #035291; z-index: 11;}
+    .map-control .header { background: #d9e6f1; padding: 10px; text-align: center; white-space: nowrap; }
+    .map-control .header h4 { margin: 0; padding-bottom: 5px; }
     #mapid { 
+        width: 75%;
         height: 100vh;
         position: relative;
         z-index: 10;
+        float: right;
     }
     #basemaps-wrapper {
         position: absolute;
