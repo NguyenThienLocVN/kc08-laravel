@@ -4,18 +4,20 @@
     @include('layouts.head')
 </head>
 <body>
-    @include('layouts.header')
 
-    <main>
-        <div class="container">
+    <div class="container">
+        @include('layouts.header')
+
+        <main>
             <div class="wrap">
                 @include('layouts.navigation')
                 @yield('content')
             </div>
-        </div>
-    </main>
+        </main>
 
-    @include('layouts.footer')
+        @include('layouts.footer')
+    </div>
+
     <!-- Include js -->
     <script src="{{ asset('js/main.js') }}"></script>
 </body>

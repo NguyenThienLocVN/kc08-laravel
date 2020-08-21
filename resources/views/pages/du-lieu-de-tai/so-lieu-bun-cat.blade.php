@@ -15,15 +15,15 @@
             <td class="item" style="text-align: center;">Thời kỳ đo đạc</td>
             <td></td>
         </tr>
-        @foreach( $stations as $st )          
+        @foreach( $stations as $st )
             <tr class="row-station">
                 <td class="item">{{ $st->Station_ID }}</td>
                 <td class="item">{{ $st->Station_Name }}</td>
                 <td class="item">{{ $st->Basin_Name }}</td>
                 <td class="item">{{ $st->Elevation }}</td>
                 <td class="item">{{ $st->Measurement_Time }}</td>
-                
-                <td><a class="btn-view-detail" onclick="openMuddySand({{ $st->Station_ID }})" title="Xem chi tiết"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
+
+                <td><a class="btn-view-detail" data-toggle="modal" data-target="#exampleModal" title="Xem chi tiết"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
             </tr>
         @endforeach
 
