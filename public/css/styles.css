@@ -20,12 +20,6 @@ ul li, ul {
 a { text-decoration: none !important; color: #035291; }
 .center { text-align: center; }
 
-.container {
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-}
-
 /* Scroll bar */
 /* width */
 ::-webkit-scrollbar {
@@ -34,7 +28,7 @@ a { text-decoration: none !important; color: #035291; }
 
 /* Track */
 ::-webkit-scrollbar-track {
-background: #f1f1f1; 
+background: #f1f1f1;
 }
 
 /* Handle */
@@ -84,6 +78,7 @@ background: rgb(54, 78, 150);
 
 .text-banner-tablet input{
     margin: 0 10px;
+    height: 100%;
 }
 
 .button-start {
@@ -102,9 +97,9 @@ background: rgb(54, 78, 150);
     border-radius: 25px;
 }
 
-.info-contact { 
-    color: #fff; 
-    margin-top: 105px; 
+.info-contact {
+    color: #fff;
+    margin-top: 105px;
     font-size: 15px;
     position: absolute;
     bottom: 0;
@@ -181,7 +176,7 @@ background: rgb(54, 78, 150);
 #sidebar-left-mobile li i { float: right; }
 
 .sidebar-left li i, .sidebar-left li a {
-    color: #fff; 
+    color: #fff;
 }
 
 #sidebar-left-mobile .submenu, #sidebar-left-mobile .sub-submenu {
@@ -209,11 +204,11 @@ background: rgb(54, 78, 150);
 
 .content { padding: 15px; clear: both;}
 
-.content h3 { 
+.content h3 {
     color: #09268c;
     margin: 0 0 5px 0;
     font-weight: bold;
-    font-size: 18px; 
+    font-size: 18px;
 }
 .content h4 { margin: 5px 0; }
 
@@ -273,7 +268,7 @@ background: rgb(54, 78, 150);
 .list-station table tbody .row-station td {
     border-bottom: 1px solid gray;
     padding: 5px;
-}   
+}
 
 .list-station table tbody .row-station .item:first-child,
 .list-station table tbody .row-station .item:nth-child(3),
@@ -302,7 +297,7 @@ background: rgb(54, 78, 150);
     right: 28px;
     width: 280px;
   }
-  
+
   /* The popup form - hidden by default */
   .form-popup {
     display: none;
@@ -312,13 +307,13 @@ background: rgb(54, 78, 150);
     z-index: 9;
     left: calc(50% - 350px);
   }
-  
+
   /* Add styles to the form container */
   .form-container {
     max-width: 700px;
     background-color: white;
   }
-  
+
   /* Full-width input fields */
   .form-container input[type=text], .form-container input[type=password] {
     width: 100%;
@@ -327,13 +322,13 @@ background: rgb(54, 78, 150);
     border: none;
     background: #f1f1f1;
   }
-  
+
   /* When the inputs get focus, do something */
   .form-container input[type=text]:focus, .form-container input[type=password]:focus {
     background-color: #ddd;
     outline: none;
   }
-  
+
   /* Set a style for the submit/login button */
   .form-container .btn {
     background-color: transparent;
@@ -347,17 +342,17 @@ background: rgb(54, 78, 150);
     border-radius: 5px;
     right: 0;
   }
-  
+
   /* Add a red background color to the cancel button */
   .form-container .cancel {
     background-color: transparent;
   }
-  
+
   /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
   }
-  
+
   #overlay {
     position: fixed; /* Sit on top of the page content */
     display: none; /* Hidden by default */
@@ -413,7 +408,7 @@ footer .copyright {
 @media screen and (min-width: 768px)
 {
     .container { width: 90%; }
-    #sidebar-left-desktop { height: 37px; }
+    #sidebar-left-desktop { height: 37px; display: flex}
     #sidebar-left-desktop li a { margin-right: 5px; font-size: 9px;}
 
     .text-banner-mobile { display: none; }
@@ -433,18 +428,18 @@ footer .copyright {
     .text-banner-tablet li {
         float: right;
     }
-    
+
     .text-banner-item {
        display: none;
     }
-    
-    .text-banner-tablet a { 
+
+    .text-banner-tablet a {
         color: #fff;
         padding: 0 10px;
         border-right: 1px solid #fff;
         font-size: 14px;
     }
-    
+
     .text-banner-tablet .fa-search {
         margin-right: 10px;
         color: #fff;
@@ -475,17 +470,17 @@ footer .copyright {
         background-repeat: no-repeat;
     }
 
-    .intro-content .intro-text h2 { 
-        line-height: 24px; 
+    .intro-content .intro-text h2 {
+        line-height: 24px;
         font-size: 18px;
     }
 
     .info-contact { margin-top: 75px; }
-    
+
     /* Content */
     .sidebar-left { display: block; }
 
-    .sidebar-left li a { 
+    .sidebar-left li a {
         font-size: 13px;
         width: 100%;
         display: block;
@@ -581,7 +576,7 @@ footer .copyright {
 
     .detail-scheme-product .content a { color: #af1717; }
 
-    .detail-scheme-product .content .author { 
+    .detail-scheme-product .content .author {
         float: right;
     }
 
@@ -600,8 +595,8 @@ footer .copyright {
     .geographical-location .img-location img,
     .topographic-characteristics .img-location img { width: 80%; }
 
-    .geographical-location .content, 
-    .topographic-characteristics .content { 
+    .geographical-location .content,
+    .topographic-characteristics .content {
         display: flex;
         flex-direction: column;
     }
@@ -611,14 +606,19 @@ footer .copyright {
         list-style: disc;
         margin-left: 20px;
     }
+
+    /*  Customize width size for modal bootstrap  */
+    .modal-dialog {
+        max-width: 700px; /* New width for default modal */
+    }
 }
 
 @media screen and (min-width: 1024px)
 {
     .image-banner { height: 100px; }
     /* Animation title */
-    .white-bar { width: 100%; height: 28px; background: #0c74c7; margin-top: -5px; }
-    .animation-title { position: absolute; bottom: 36px; left: 0px; width: 200px; animation: leftRight linear 15s infinite;}
+    .white-bar { width: 100%; height: 28px; background: #0c74c7; margin-top: -5px; position: relative}
+    .animation-title { position: absolute; bottom: 0; left: 0px; width: 200px; animation: leftRight linear 15s infinite;}
     .animation-title p { margin: 0; color: #fff; }
     @keyframes leftRight {
         100% {
@@ -628,7 +628,7 @@ footer .copyright {
       }
 
     .sidebar-left .scheme-data-ul, .sidebar-left .scheme-data-ul .sub-submenu { width: 200px !important; }
-    #sidebar-left-desktop li a { font-size: 14px; }
+    #sidebar-left-desktop li a { font-size: 13px; }
     .intro-content .intro-text h2 { font-size: x-large; line-height: unset; }
     .info-contact { padding: 15px 35px; }
     .scheme img { width: unset; }
@@ -655,7 +655,7 @@ footer .copyright {
     .map-control .note h5 { background: #9fd4ff; padding: 10px; margin: 0;}
     .map-control .note-item { background: #e4e4e4ee; padding: 8px; font-size: 14px; }
     .map-control .note-item span { width: 40px; height: 5px; display: inline-block; }
-    #mapid { 
+    #mapid {
         width: 75%;
         height: 100vh;
         position: relative;

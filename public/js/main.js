@@ -27,7 +27,7 @@ jQuery(function($){
     $(this).find('i').toggleClass('fa-caret-down fa-caret-right');
   })
 
-  // Click toggle show map control 
+  // Click toggle show map control
   $("#btn-toggle-map").click(function() {
     // $('.map-control').animate({width: 'toggle'});
     $('.map-control').toggle();
@@ -45,9 +45,8 @@ jQuery(function($){
   });
 })
 
-function loadMuddySand(id){
-  
-  $.ajax({
+const loadMuddySand = (id) => {
+    $.ajax({
     url:window.location.href+"/"+id, // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
     method:"GET", // phương thức gửi dữ liệu.
     // beforeSend: function () {
@@ -60,37 +59,37 @@ function loadMuddySand(id){
     data:{id:id},
     success:function(data){console.log(window.location.href+"/"+id)
     //  Show station name
-    $('#station-name').html("Biểu đồ lưu lượng bùn cát tại trạm "+data.station[0].Station_Name);
+    $('#rainfallModalLabel').html("Biểu đồ lưu lượng bùn cát tại trạm "+data.station[0].Station_Name);
 
-    var arrayDate = [];
+        const arrayDate = [];
 
-    // Get array of all date
+        // Get array of all date
      data.muddySand.forEach(function(e){
       arrayDate.push(e.Date_Time);
      })
 
     // Get the last date in data, and retrieved 90 days earlier
-    var fromDate = arrayDate[arrayDate.length - 90];
-    var toDate = arrayDate[arrayDate.length - 1];
+        const fromDate = arrayDate[arrayDate.length - 90];
+        const toDate = arrayDate[arrayDate.length - 1];
 
-    // Set that values for input
+        // Set that values for input
     document.getElementById('start-picker').value = fromDate;
     document.getElementById('end-picker').value = toDate;
 
     // Get index of this date in data
-    var indexOfFrom = arrayDate.indexOf(fromDate);
-    var indexOfTo = arrayDate.indexOf(toDate) + 1;
-  
-    // Filter data by fromDate and toDate
-    var filterArray = data.muddySand.slice(indexOfFrom, indexOfTo)
+        const indexOfFrom = arrayDate.indexOf(fromDate);
+        const indexOfTo = arrayDate.indexOf(toDate) + 1;
 
-    var filterMuddySand = [];
-    filterArray.forEach(function(e){
+        // Filter data by fromDate and toDate
+        const filterArray = data.muddySand.slice(indexOfFrom, indexOfTo);
+
+        const filterMuddySand = [];
+        filterArray.forEach(function(e){
       filterMuddySand.push(e.Result);
      })
-    
-    var filterDate = [];
-    filterArray.forEach(function(e){
+
+        const filterDate = [];
+        filterArray.forEach(function(e){
       filterDate.push(e.Date_Time);
      })
 
@@ -162,7 +161,7 @@ function loadMuddySand(id){
       filterArrayByInput.forEach(function(e){
         filterMuddySandByInput.push(e.Result);
       })
-      
+
       var filterDateByInput = [];
       filterArrayByInput.forEach(function(e){
         filterDateByInput.push(e.Date_Time);
@@ -176,11 +175,11 @@ function loadMuddySand(id){
  });
 }
 
-function openMuddySand(id) {
+const openMuddySand = (id) => {
   loadMuddySand(id);
 
-  $("#myForm").show();
-  $("#overlay").show();
+  // $("#myForm").show();
+  // $("#overlay").show();
 }
 
 function closeForm() {

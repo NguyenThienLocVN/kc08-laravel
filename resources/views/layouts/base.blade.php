@@ -20,5 +20,7 @@
 
     <!-- Include js -->
     <script src="{{ asset('js/main.js') }}"></script>
+
+    @stack('scripts')
 </body>
 </html>

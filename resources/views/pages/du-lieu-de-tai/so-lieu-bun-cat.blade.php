@@ -23,7 +23,7 @@
                 <td class="item">{{ $st->Elevation }}</td>
                 <td class="item">{{ $st->Measurement_Time }}</td>
 
-                <td><a class="btn-view-detail" data-toggle="modal" data-target="#exampleModal" title="Xem chi tiết"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
+                <td><a class="btn-view-detail" data-toggle="modal" data-target="#rainfallModal" title="Xem chi tiết" station-name="{{ $st->Station_Name }}" onclick="openMuddySand({{ $st->Station_ID }})"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
             </tr>
         @endforeach
 
@@ -32,5 +32,5 @@
 <div id="overlay"></div>
 <img src="{{ asset('images/loading.gif') }}" class="loading-gif" alt="loading" style="display: none;">
 
-<x-rainfall-popup></x-rainfall-popup>
+<x-rainfall-modal></x-rainfall-modal>
 @endsection('content')
