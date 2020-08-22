@@ -11,13 +11,14 @@
     crossorigin=""></script>
     <script src="{{ asset('js/leaflet-kml/L.KML.js') }}"></script>
 @endpush
+
 @include('layouts.head')
 
 <body>
-    @include('layouts.header')
+    <div class="container">
+        @include('layouts.header')
 
-    <main>
-        <div class="container">
+        <main>
             <div id="btn-toggle-map" class="btn-show-map">
                 <i class="fa fa-chevron-left"></i>
             </div>
@@ -51,8 +52,10 @@
                     <option value="ShadedRelief">Bản đồ bóng</option>
                 </select>
             </div>
-        </div>
-    </main>
+            
+            <textarea id="normalJson" class="display-none">{!! $normalJson !!}</textarea>
+        </main>
+    </div>
 
     <!-- Include map js -->
     <script src="{{ asset('js/map-leaflet.js') }}"></script>

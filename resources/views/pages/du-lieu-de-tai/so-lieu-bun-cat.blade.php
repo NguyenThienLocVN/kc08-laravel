@@ -29,7 +29,6 @@
 
     </table>
 </div>
-<div id="overlay"></div>
 <img src="{{ asset('images/loading.gif') }}" class="loading-gif" alt="loading" style="display: none;">
 
 <x-rainfall-modal></x-rainfall-modal>

@@ -6,7 +6,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 var mymap = L.map("mapid", {
     center: [10.765933, 106.654556],
-    zoom: 13,
+    zoom: 10,
     dragging: pc,
     tap: pc,
     zoomControl: true
@@ -26,6 +26,40 @@ function onTwoFingerDrag (e) {
       e.currentTarget.classList.remove('swiping')
     }
 }
+
+var currentURL = document.URL.substr(document.URL.length - 4, document.URL.length);
+if(currentURL == '2020')
+{
+  var bicycleRental = JSON.parse(document.getElementById('normalJson').value);
+}
+
+
+
+var geojsonMarkerOptions = {
+  radius: 8,
+  fillColor: "#ff7800",
+  color: "#000",
+  weight: 1,
+  opacity: 1,
+  fillOpacity: 0.8
+};
+
+// Click to show popup
+function onEachFeature(feature, layer) {
+  if (feature.properties && feature.properties.popupContent) {
+      layer.bindPopup(feature.properties.popupContent);
+      layer.on('mouseover', function() { layer.openPopup(); });
+      layer.on('mouseout', function() { layer.closePopup(); });
+  }
+}
+
+// Draw circle each point
+var myLayer = L.geoJSON(bicycleRental, {
+  onEachFeature: onEachFeature,
+  pointToLayer: function (feature, latlng) {
+      return L.circleMarker(latlng, geojsonMarkerOptions);
+  }
+}).addTo(mymap);
 
 // Select option change map layer
 var layer = L.esri.basemapLayer('Imagery').addTo(mymap);
@@ -63,42 +97,3 @@ document.querySelector('#basemaps').addEventListener('change', function (e) {
     var basemap = e.target.value;
     setBasemap(basemap);
 });
-
-var currentURL = document.URL.substr(document.URL.length - 4, document.URL.length);
-if(currentURL == '2025')
-{
-
-  fetch('../public/files/Tong_dis_Intersect_UnsplitLi.kml')
-  .then(res => res.text())
-  .then(kmltext => {
-    // Create new kml overlay
-    const parser = new DOMParser();
-    const kml = parser.parseFromString(kmltext, 'text/xml');
-    const track = new L.KML(kml, 'text/xml');
-    mymap.addLayer(track);
-
-    // Adjust map to show the kml
-    const bounds = track.getBounds();
-    mymap.fitBounds(bounds);
-  }).catch((e) => {
-    console.log(e);
-  });
-}
-else {
-  // Load kml file
-  fetch('../public/files/vi-tri-sat-lo.kml')
-    .then(res => res.text())
-    .then(kmltext => {
-      // Create new kml overlay
-      const parser = new DOMParser();
-      const kml = parser.parseFromString(kmltext, 'text/xml');
-      const track = new L.KML(kml, 'text/xml');
-      mymap.addLayer(track);
-
-      // Adjust map to show the kml
-      const bounds = track.getBounds();
-      mymap.fitBounds(bounds);
-  }).catch((e) => {
-    console.log(e);
-  });
-}
