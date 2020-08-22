@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
     background: #d8d5d5;
 }
 
@@ -20,6 +20,32 @@ ul li, ul {
 a { text-decoration: none !important; color: #035291; }
 .center { text-align: center; }
 .display-none { display: none; }
+
+input[type='checkbox'] {
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 10px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+input[type='checkbox']:checked {
+    background: #275EFE;
+    transition: 0.5s;
+}
+
+input[type='checkbox']:checked:after {
+    content: '\2713';
+    font-size: 14px;
+    color: #fff;
+    position: absolute;
+	top: 0px;
+	left: 5px;
+}
 
 /* Scroll bar */
 /* width */
@@ -91,9 +117,7 @@ background: rgb(54, 78, 150);
     margin: auto;
 }
 
-.button-start:hover {
-    border-radius: 25px;
-}
+.button-start:hover {border-radius: 25px; color: #fff;}
 
 .info-contact {
     color: #fff;
@@ -135,7 +159,7 @@ background: rgb(54, 78, 150);
     height: 100%;
 }
 
-.intro-content .intro-text h2 { color: #035291; font-size: 15px; }
+.intro-content .intro-text h2 { color: #035291; font-size: 15px;}
 
 .intro-content { position: relative; }
 
@@ -651,7 +675,7 @@ footer .copyright {
     .map-control .header h4 { margin: 0; padding-bottom: 5px; font-size: unset; font-weight: bold;}
     .map-control .content { height: 50%; }
     .map-control .note { position: absolute; width: 100%; bottom: 10px; }
-    .map-control .note h5 { background: #9fd4ff; padding: 10px; margin: 0;}
+    .map-control .note h5, .map-control .panel h5 { background: #9fd4ff; padding: 10px; margin: 0; font-size: 15px;}
     .map-control .note-item { background: #e4e4e4ee; padding: 8px; font-size: 14px; }
     .map-control .note-item span { width: 40px; height: 5px; display: inline-block; }
     #mapid {

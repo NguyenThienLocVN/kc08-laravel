@@ -29,12 +29,12 @@
                 <div class="img-background" id="img-background"></div>
 
                 <div class="intro-text">
-                    <h2>CHƯƠNG TRÌNH KC.08/16-20 <br>
+                    <h2 class="font-weight-bold">CHƯƠNG TRÌNH KC.08/16-20 <br>
                         “Nghiên cứu khoa học và công nghệ phục vụ bảo vệ môi trường và phòng tránh thiên tai”
                     </h2>
 
 
-                    <h2>
+                    <h2 class="font-weight-bold">
                         <div class="container">
                             ĐỀ TÀI <br>
                             NGHIÊN CỨU DỰ BÁO DIỄN BIẾN SẠT LỞ, ĐỀ XUẤT CÁC GIẢI PHÁP ĐỂ ỔN ĐỊNH BỜ SÔNG VÀ QUY HOẠCH SỬ DỤNG VÙNG VEN SÔNG PHỤC VỤ MỤC TIÊU PHÁT TRIỂN KINH TẾ - XÃ HỘI VÙNG HẠ DU HỆ THỐNG SÔNG ĐỒNG NAI
@@ -64,7 +64,9 @@
         </div>
     </main>
 
+    <div class="container">
     @include('layouts.footer')
+    </div>
     <!-- Include js -->
     <script src="{{ asset('js/main.js') }}"></script>
 </body>

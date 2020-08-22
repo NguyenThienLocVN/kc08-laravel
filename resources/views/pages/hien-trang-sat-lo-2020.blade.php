@@ -27,8 +27,16 @@
                     <h4>BẢN ĐỒ</h4>
                     <h4>HIỆN TRẠNG SẠT LỞ BỜ SÔNG</h4>
                 </div>
-                <div class="content">
-
+                <div class="panel">
+                    <h5>THÔNG TIN CHUNG</h5>
+                    <div class="content">
+                        <p>Tình trạng sạt lở</p>
+                        <ul>
+                            <li class="d-flex mb-2 align-items-center"><input type="checkbox" id="normal-checkbox" checked>&nbsp; <span>Sạt lở bình thường</span> </li>
+                            <li class="d-flex mb-2 align-items-center"><input type="checkbox" id="danger-checkbox" checked>&nbsp; <span>Sạt lở nguy hiểm</span> </li>
+                            <li class="d-flex mb-2 align-items-center"><input type="checkbox" id="very-danger-checkbox" checked>&nbsp; <span>Sạt lở rất nguy hiểm</span> </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="note">
@@ -54,6 +62,8 @@
             </div>
             
             <textarea id="normalJson" class="display-none">{!! $normalJson !!}</textarea>
+            <textarea id="dangerJson" class="display-none">{!! $dangerJson !!}</textarea>
+            <textarea id="veryDangerJson" class="display-none">{!! $veryDangerJson !!}</textarea>
         </main>
     </div>
 
