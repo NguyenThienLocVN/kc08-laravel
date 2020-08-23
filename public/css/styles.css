@@ -11,7 +11,7 @@ body {
 
 .wrap { background: #fff; }
 
-ul li, ul {
+ul li, ul, li {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -31,20 +31,21 @@ input[type='checkbox'] {
     display: inline-block;
     position: relative;
     transition: 0.5s;
+    font-family: "FontAwesome";
 }
 
 input[type='checkbox']:checked {
-    background: #275EFE;
+    background: #fff;
     transition: 0.5s;
 }
 
 input[type='checkbox']:checked:after {
-    content: '\2713';
+    content: "\f00c";
     font-size: 14px;
-    color: #fff;
+    color: #275EFE;
     position: absolute;
 	top: 0px;
-	left: 5px;
+	left: 3px;
 }
 
 /* Scroll bar */
@@ -677,7 +678,15 @@ footer .copyright {
     .map-control .note { position: absolute; width: 100%; bottom: 10px; }
     .map-control .note h5, .map-control .panel h5 { background: #9fd4ff; padding: 10px; margin: 0; font-size: 15px;}
     .map-control .note-item { background: #e4e4e4ee; padding: 8px; font-size: 14px; }
-    .map-control .note-item span { width: 40px; height: 5px; display: inline-block; }
+    .map-control .note-item span { width: 60px; height: 5px; display: inline-block; }
+    .map-control .note-item span::after { content:''; width: 15px; height: 15px; display: block; border-radius: 50%; position: absolute; left: 23px; top: -5px}
+    .map-control .note-item .note-blue::after { background: #007bff; }
+    .map-control .note-item .note-yellow::after { background: yellow; }
+    .map-control .note-item .note-red::after { background: red; }
+    .map-control .panel .content ul span { color: #0D47A1; }
+    .map-control .btn-home { padding: 2px 5px; display: block; background: rgba(0,123,255,.5); font-size: 14px;}
+    .landslide-popup { width: 280px; }
+    .landslide-popup .title { border-bottom: 1px solid rgb(107, 107, 107); padding-bottom: 5px; }
     #mapid {
         width: 75%;
         height: 100vh;

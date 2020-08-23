@@ -16,13 +16,13 @@
 
 <body>
     <div class="container">
-        @include('layouts.header')
 
         <main>
             <div id="btn-toggle-map" class="btn-show-map">
                 <i class="fa fa-chevron-left"></i>
             </div>
             <div class="map-control">
+                <a href="{{route('trang-chu')}}" class="btn-home"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; <span>TRANG CHỦ</span> </a>
                 <div class="header">
                     <h4>BẢN ĐỒ</h4>
                     <h4>HIỆN TRẠNG SẠT LỞ BỜ SÔNG</h4>
@@ -30,11 +30,14 @@
                 <div class="panel">
                     <h5>THÔNG TIN CHUNG</h5>
                     <div class="content">
-                        <p>Tình trạng sạt lở</p>
                         <ul>
-                            <li class="d-flex mb-2 align-items-center"><input type="checkbox" id="normal-checkbox" checked>&nbsp; <span>Sạt lở bình thường</span> </li>
-                            <li class="d-flex mb-2 align-items-center"><input type="checkbox" id="danger-checkbox" checked>&nbsp; <span>Sạt lở nguy hiểm</span> </li>
-                            <li class="d-flex mb-2 align-items-center"><input type="checkbox" id="very-danger-checkbox" checked>&nbsp; <span>Sạt lở rất nguy hiểm</span> </li>
+                            <p class="font-weight-bold"><i class="fa fa-file mr-2" aria-hidden="true"></i><span>I. SẠT LỞ BỜ SÔNG</span></p>
+                            <li class="ml-4 d-flex mb-2 align-items-center"><input type="checkbox" id="normal-checkbox"
+                                    checked><i class="fa fa-file-text-o mx-2" aria-hidden="true"></i><span class="font-weight-bold">Bình thường</span> </li>
+                            <li class="ml-4 d-flex mb-2 align-items-center"><input type="checkbox" id="danger-checkbox"
+                                    checked><i class="fa fa-file-text-o mx-2" aria-hidden="true"></i><span class="font-weight-bold">Nguy hiểm</span> </li>
+                            <li class="ml-4 d-flex mb-2 align-items-center"><input type="checkbox" id="very-danger-checkbox"
+                                    checked><i class="fa fa-file-text-o mx-2" aria-hidden="true"></i><span class="font-weight-bold">Rất nguy hiểm</span> </li>
                         </ul>
                     </div>
                 </div>
@@ -42,9 +45,9 @@
                 <div class="note">
                     <h5>CHÚ THÍCH</h5>
                     <ul>
-                        <li class="note-item"><span style="background: blue;"></span>&nbsp; Sạt lở bình thường</li>
-                        <li class="note-item"><span style="background: yellow;"></span>&nbsp; Sạt lở nguy hiểm</li>
-                        <li class="note-item"><span style="background: red;"></span>&nbsp; Sạt lở rất nguy hiểm</li>
+                        <li class="note-item"><span class="note-blue position-relative" style="background: #007bff;"></span>&nbsp; Sạt lở bình thường</li>
+                        <li class="note-item"><span class="note-yellow position-relative" style="background: yellow;"></span>&nbsp; Sạt lở nguy hiểm</li>
+                        <li class="note-item"><span class="note-red position-relative" style="background: red;"></span>&nbsp; Sạt lở rất nguy hiểm</li>
                     </ul>
                 </div>
             </div>
@@ -60,14 +63,19 @@
                     <option value="ShadedRelief">Bản đồ bóng</option>
                 </select>
             </div>
-            
+
             <textarea id="normalJson" class="display-none">{!! $normalJson !!}</textarea>
             <textarea id="dangerJson" class="display-none">{!! $dangerJson !!}</textarea>
             <textarea id="veryDangerJson" class="display-none">{!! $veryDangerJson !!}</textarea>
+
+            <textarea id="normalLineJson" class="display-none">{!! $normalLineJson !!}</textarea>
+            <textarea id="dangerLineJson" class="display-none">{!! $dangerLineJson !!}</textarea>
+            <textarea id="veryDangerLineJson" class="display-none">{!! $veryDangerLineJson !!}</textarea>
+            
         </main>
     </div>
 
     <!-- Include map js -->
     <script src="{{ asset('js/map-leaflet.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>    
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>

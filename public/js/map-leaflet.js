@@ -38,25 +38,72 @@ if(currentURL == '2020')
 
   // Load all very-danger level location 
   var veryDangerLocations = JSON.parse(document.getElementById('veryDangerJson').value);
+
+  // Load line 
+  var normalLineLocations = JSON.parse(document.getElementById('normalLineJson').value);
+  var dangerLineLocations = JSON.parse(document.getElementById('dangerLineJson').value);
+  var veryDangerLineLocations = JSON.parse(document.getElementById('veryDangerLineJson').value);
 }
+
 
 // Click to show popup
 function onEachFeature(feature, layer) {
-  if (feature.properties && feature.properties.popupContent) {
-      layer.bindPopup(feature.properties.popupContent);
-      layer.on('mouseover', function() { layer.openPopup(); });
-      layer.on('mouseout', function() { layer.closePopup(); });
+  if (feature.properties && feature.properties.hoverContent) {
+      layer.on('click', function() { layer.bindPopup(feature.properties.detailContent, {closeOnClick: true, autoClose: false}).openPopup()});
+      layer.on('mouseover', function() { layer.bindPopup(feature.properties.hoverContent).openPopup()});
   }
 }
+
+// Draw line
+var normalLine = normalLineLocations;
+
+var normalColor = {
+  color: "#007bff",
+  weight: 4,
+  opacity: 1,
+  className: "normal-line"
+};
+
+L.geoJSON(normalLine, {
+  style: normalColor
+}).addTo(mymap);
+
+// Draw line
+var dangerLine = dangerLineLocations;
+
+var dangerColor = {
+  color: "yellow",
+  weight: 4,
+  opacity: 1,
+  className: "danger-line"
+};
+
+L.geoJSON(dangerLine, {
+  style: dangerColor
+}).addTo(mymap);
+
+// Draw line
+var veryDangerLine = veryDangerLineLocations;
+
+var veryDangerColor = {
+  color: "red",
+  weight: 4,
+  opacity: 1,
+  className: "very-danger-line"
+};
+
+L.geoJSON(veryDangerLine, {
+  style: veryDangerColor
+}).addTo(mymap);
 
 // Define color for normal level marker
 var normalLevelColor = {
   radius: 7,
   fillColor: "#007bff",
-  color: "#000",
+  color: "#007bff",
   weight: 1,
   opacity: 1,
-  fillOpacity: 0.8,
+  fillOpacity: 1,
   className: 'normalMarker'
 };
 // Draw circle each point
@@ -71,11 +118,12 @@ var myLayer = L.geoJSON(normalLocations, {
 var dangerLevelColor = {
   radius: 7,
   fillColor: "yellow",
-  color: "#000",
+  color: "yellow",
   weight: 1,
   opacity: 1,
-  fillOpacity: 0.8,
-  className: 'dangerMarker'
+  fillOpacity: 1,
+  className: 'dangerMarker',
+  zIndexOffset : 999
 };
 // Draw circle each point
 var myLayer = L.geoJSON(dangerLocations, {
@@ -89,10 +137,10 @@ var myLayer = L.geoJSON(dangerLocations, {
 var veryDangerLevelColor = {
   radius: 7,
   fillColor: "red",
-  color: "#000",
+  color: "red",
   weight: 1,
   opacity: 1,
-  fillOpacity: 0.8,
+  fillOpacity: 1,
   className: 'veryDangerMarker'
 };
 // Draw circle each point
@@ -102,6 +150,8 @@ var myLayer = L.geoJSON(veryDangerLocations, {
       return L.circleMarker(latlng, veryDangerLevelColor);
   }
 }).addTo(mymap);
+
+
 
 // Select option change map layer
 var layer = L.esri.basemapLayer('Imagery').addTo(mymap);
@@ -142,24 +192,39 @@ document.querySelector('#basemaps').addEventListener('change', function (e) {
 
 // Checkbox to show/hide normal marker
 $('#normal-checkbox').change(function () {
-  if (!this.checked) 
-     $('.normalMarker').fadeOut('slow');
+  if (!this.checked) {
+    $('.normalMarker').fadeOut('normal');
+    $('.normal-line').fadeOut('normal');
+  }
   else 
-      $('.normalMarker').fadeIn('slow');
+  {
+    $('.normalMarker').fadeIn('normal');
+    $('.normal-line').fadeIn('normal');
+  }
+    
 });
 
 // Checkbox to show/hide danger marker
 $('#danger-checkbox').change(function () {
-  if (!this.checked) 
-     $('.dangerMarker').fadeOut('slow');
-  else 
-      $('.dangerMarker').fadeIn('slow');
+  if (!this.checked){
+    $('.dangerMarker').fadeOut('normal');
+    $('.danger-line').fadeOut('normal');
+  }
+  else {
+    $('.dangerMarker').fadeIn('normal');
+    $('.danger-line').fadeIn('normal');
+  } 
 });
 
 // Checkbox to show/hide very danger marker
 $('#very-danger-checkbox').change(function () {
-  if (!this.checked) 
-     $('.veryDangerMarker').fadeOut('slow');
+  if (!this.checked) {
+    $('.veryDangerMarker').fadeOut('normal');
+    $('.very-danger-line').fadeOut('normal');
+  }
   else 
-      $('.veryDangerMarker').fadeIn('slow');
+  {
+    $('.veryDangerMarker').fadeIn('normal');
+    $('.very-danger-line').fadeIn('normal');
+  }
 });

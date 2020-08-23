@@ -33,15 +33,17 @@ jQuery(function($){
     $('.map-control').toggle();
     $(this).find('i').toggleClass('fa-chevron-left fa-chevron-right');
     $(this).toggleClass('btn-hide-map btn-show-map');
-    var toggleWidth;
-    console.log($(".map-control").css('display'));
     if($(".map-control").css('display') == 'none'){
         toggleWidth = "100%";
+        toggleLeft = "0";
     }
     else {
         toggleWidth = "75%";
+        toggleLeft = "25%";
     }
+    $('#mapid').animate({ left: toggleLeft });
     $('#mapid').animate({ width: toggleWidth });
+    
   });
 })
 
