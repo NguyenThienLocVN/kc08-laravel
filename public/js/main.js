@@ -59,7 +59,7 @@ const loadMuddySand = (id) => {
     //   $(".loading-gif").hide();
     // },
     data:{id:id},
-    success:function(data){console.log(window.location.href+"/"+id)
+    success:function(data){
     //  Show station name
     $('#rainfallModalLabel').html("Biểu đồ lưu lượng bùn cát tại trạm "+data.station[0].Station_Name);
 
@@ -94,6 +94,96 @@ const loadMuddySand = (id) => {
         filterArray.forEach(function(e){
       filterDate.push(e.Date_Time);
      })
+
+    //  Max do duc trong thang
+     function maxOfMonth(month){
+       return Math.max.apply(Math, month);
+     }
+
+     // Do duc trung binh cua thang
+      function averageOfMonth(month){
+        var sum = 0;
+        var avg;
+        
+        for(var i = 0; i < month.length; i++)
+        {
+          sum += parseFloat(month[i]);
+          avg = sum / month.length;
+        } return avg;
+      }
+
+      // Get data of month by index
+      var JanuaryTurbidity, FebruaryTurbidity, MarchTurbidity, AprilTurbidity, MayTurbidity, JuneTurbidity, JulyTurbidity, AugustTurbidity, SeptemberTurbidity, OctorberTurbidity, NovemberTurbidity, DecemberTurbidity;
+      function getMonthData(year){
+        var indexOfFirstDay = arrayDate.indexOf(year+"-01-01");
+        var indexOfLastDay = arrayDate.indexOf(year+"-12-31")+1;
+        const filterArray = data.muddySand.slice(indexOfFirstDay, indexOfLastDay);
+  
+        const muddySandOfYear = [];
+          filterArray.forEach(function(e){
+          muddySandOfYear.push(e.Result);
+        })
+  
+        JanuaryTurbidity = muddySandOfYear.slice(0,31);
+        
+        if(startYear % 4 == 0){ 
+          FebruaryTurbidity = muddySandOfYear.slice(31, 60); 
+          MarchTurbidity = muddySandOfYear.slice(60, 91);
+          AprilTurbidity = muddySandOfYear.slice(91, 121);
+          MayTurbidity = muddySandOfYear.slice(121, 152);
+          JuneTurbidity = muddySandOfYear.slice(152, 182);
+          JulyTurbidity = muddySandOfYear.slice(182, 213);
+          AugustTurbidity = muddySandOfYear.slice(213, 244);
+          SeptemberTurbidity = muddySandOfYear.slice(244, 274);
+          OctorberTurbidity = muddySandOfYear.slice(274, 305);
+          NovemberTurbidity = muddySandOfYear.slice(305, 335);
+          DecemberTurbidity = muddySandOfYear.slice(335, 366);
+        } 
+        else 
+        { 
+          FebruaryTurbidity = muddySandOfYear.slice(31, 59); 
+          MarchTurbidity = muddySandOfYear.slice(59, 90);
+          AprilTurbidity = muddySandOfYear.slice(90, 120);
+          MayTurbidity = muddySandOfYear.slice(120, 151);
+          JuneTurbidity = muddySandOfYear.slice(151, 181);
+          JulyTurbidity = muddySandOfYear.slice(181, 212);
+          AugustTurbidity = muddySandOfYear.slice(212, 243);
+          SeptemberTurbidity = muddySandOfYear.slice(243, 273);
+          OctorberTurbidity = muddySandOfYear.slice(273, 304);
+          NovemberTurbidity = muddySandOfYear.slice(304, 334);
+          DecemberTurbidity = muddySandOfYear.slice(334, 365);
+        }
+      }
+
+     function averageTurbidityOfYear(year){
+      getMonthData(year);
+      var avgMonth = [averageOfMonth(JanuaryTurbidity).toFixed(1), averageOfMonth(FebruaryTurbidity).toFixed(1), 
+        averageOfMonth(MarchTurbidity).toFixed(1), averageOfMonth(AprilTurbidity).toFixed(1), averageOfMonth(MayTurbidity).toFixed(1),
+        averageOfMonth(JuneTurbidity).toFixed(1), averageOfMonth(JulyTurbidity).toFixed(1), averageOfMonth(AugustTurbidity).toFixed(1),
+        averageOfMonth(SeptemberTurbidity).toFixed(1), averageOfMonth(OctorberTurbidity).toFixed(1), averageOfMonth(NovemberTurbidity).toFixed(1),
+        averageOfMonth(DecemberTurbidity).toFixed(1) ]
+      return avgMonth;
+     }
+
+     function maxTurbidityOfYear(year){
+      getMonthData(year);
+      var maxMonth = [maxOfMonth(JanuaryTurbidity).toFixed(1), maxOfMonth(FebruaryTurbidity).toFixed(1), 
+        maxOfMonth(MarchTurbidity).toFixed(1), maxOfMonth(AprilTurbidity).toFixed(1), maxOfMonth(MayTurbidity).toFixed(1),
+        maxOfMonth(JuneTurbidity).toFixed(1), maxOfMonth(JulyTurbidity).toFixed(1), maxOfMonth(AugustTurbidity).toFixed(1),
+        maxOfMonth(SeptemberTurbidity).toFixed(1), maxOfMonth(OctorberTurbidity).toFixed(1), maxOfMonth(NovemberTurbidity).toFixed(1),
+        maxOfMonth(DecemberTurbidity).toFixed(1) ]
+      return maxMonth;
+     }
+      
+    var startTime = new Date(document.getElementById('start-picker').value)
+    var endTime = new Date(document.getElementById('end-picker').value)
+    var startYear = startTime.getFullYear();
+    var endYear = endTime.getFullYear();
+    if(startYear == endYear)
+    {
+      averageTurbidityOfYear(startYear);
+      maxTurbidityOfYear(startYear);
+    }
 
      $('#container').highcharts({
       title: {
@@ -172,6 +262,44 @@ const loadMuddySand = (id) => {
       var chart = $('#container').highcharts();
       chart.series[0].setData(filterMuddySandByInput);
       chart.xAxis[0].setCategories(filterDateByInput);
+
+
+    var startTime = new Date(inputFrom)
+    var endTime = new Date(inputTo)
+    var startYear = startTime.getFullYear();
+    var endYear = endTime.getFullYear();
+    if(startYear == endYear)
+    {
+      averageTurbidityOfYear(startYear);
+      maxTurbidityOfYear(startYear);
+    }
+    else {
+      var sum = [0,0,0,0,0,0,0,0,0,0,0,0];
+      var avg = [];
+      for(var j = 0; j < 12; j++)
+      {
+        for(var i=startYear; i<=endYear; i++)
+        {
+          sum[j] += parseFloat(averageTurbidityOfYear(i)[j])
+        }
+        avg[j] = (sum[j] / (endYear - startYear + 1)).toFixed(1)
+      }
+
+
+      // Max
+      var max = [0,0,0,0,0,0,0,0,0,0,0,0];
+      for(var j = 0; j < 12; j++)
+      {
+        for(var i=startYear; i<=endYear; i++)
+        {
+          if(max[j] < parseFloat(maxTurbidityOfYear(i)[j]))
+          {
+            max[j] = parseFloat(maxTurbidityOfYear(i)[j])
+          }
+        }
+      }
+      console.log(max);
+    }
     })
    }
  });

@@ -37,6 +37,9 @@ Route::group([
 
     // Chi tiet san pham de tai
     Route::get('san-pham-de-tai/{Scheme_ID}', 'SchemeProductController@getDetail')->name('thong-tin-chung.chi-tiet-san-pham-de-tai');
+    // Sua ten san pham de tai
+    Route::get('san-pham-de-tai/{Scheme_ID}/edit', 'SchemeProductController@showEdit')->name('thong-tin-chung.sua-san-pham-de-tai');
+    Route::post('san-pham-de-tai/{Scheme_ID}/edit', 'SchemeProductController@doEdit');
 
     // Dong gop moi cua de tai
     Route::get('dong-gop-moi-de-tai', function () {

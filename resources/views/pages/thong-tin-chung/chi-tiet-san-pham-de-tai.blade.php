@@ -1,11 +1,18 @@
+@section('title', 'Chi tiết sản phẩm đề tài | Chương trình KC.08/16-20')
 @extends('layouts.base')
 
 @section('content')
 <div class="content detail-scheme-product">
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Sản phẩm đề tài</h3>
     <div class="content">
-        <h4 class="name">{{ $schemeProduct->Scheme_Name }}</h4>
-        <a href="{{ $schemeProduct->Scheme_Url }}" class="btn-download" download><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Tải về</a>
+        <h4 class="name font-weight-bold">{{ $schemeProduct->Scheme_Name }}</h4>
+        <p>{{ $schemeProduct->Scheme_Description }}</p>
+        <a class="mr-3" href="{{route('thong-tin-chung.sua-san-pham-de-tai', $schemeProduct->Scheme_ID)}}">Chỉnh sửa tên</a>&nbsp;<a href="{{ $schemeProduct->Scheme_Url }}" class="btn-download" download><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Tải về</a>
         <a href="#" class="author"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Ban chủ nhiệm đề tài KC 08.28/16-20</a>
     </div>
 
@@ -19,15 +26,6 @@
             <textarea name="comment-input-textarea" id="" cols="30" rows="10" placeholder="Nội dung"></textarea>
             <input type="submit" value="Gửi thông tin" class="comment-btn-submit">
         </form>
-    </div>
-
-    <div class="other-post">
-        <p class="title"><b>Các tin khác</b></p>
-        <ul class="list-other-post">
-            <li><a href="chi-tiet-san-pham-de-tai.html">Đề án nâng cao nhận thức cộng đồng và quản lý rủi ro dựa vào cộng đồng (23/26/2015 15:00)</a></li>
-            <li><a href="chi-tiet-san-pham-de-tai.html">Chương trình củng cố, nâng cấp hệ thống đê biển từ Quảng Ngãi đến Kiên Giang (23/26/2015 15:00)</a></li>
-            <li><a href="chi-tiet-san-pham-de-tai.html">Đề án nâng cao nhận thức cộng đồng và quản lý rủi ro dựa vào cộng đồng (23/26/2015 15:00)</a></li>
-        </ul>
     </div>
 </div>
 @endsection('content')
