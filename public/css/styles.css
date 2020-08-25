@@ -255,7 +255,6 @@ main, .content { position: relative; }
 }
 
 .scheme-product .list-scheme-product li a { color: #d25426}
-.scheme-product .list-scheme-product .read-more { float: right; }
 
 .main-content { display: flex; }
 .main-content .description, .main-content .illustration { width: 50%; }

@@ -33,14 +33,10 @@ Route::group([
     })->name('thong-tin-chung.muc-tieu-de-tai');
 
     // San pham de tai
-    Route::get('san-pham-de-tai', function () {
-        return view('pages.thong-tin-chung.san-pham-de-tai');
-    })->name('thong-tin-chung.san-pham-de-tai');
+    Route::get('san-pham-de-tai', 'SchemeProductController@showAll' )->name('thong-tin-chung.san-pham-de-tai');
 
     // Chi tiet san pham de tai
-    Route::get('san-pham-de-tai/chi-tiet', function () {
-        return view('pages.thong-tin-chung.chi-tiet-san-pham-de-tai');
-    })->name('thong-tin-chung.chi-tiet-san-pham-de-tai');
+    Route::get('san-pham-de-tai/{Scheme_ID}', 'SchemeProductController@getDetail')->name('thong-tin-chung.chi-tiet-san-pham-de-tai');
 
     // Dong gop moi cua de tai
     Route::get('dong-gop-moi-de-tai', function () {
@@ -117,3 +113,22 @@ Route::group([
 Route::get('ban-do-nguy-co-sat-lo', function () {
     return view('pages.ban-do-nguy-co-sat-lo');
 })->name('ban-do-nguy-co-sat-lo');
+
+
+// Route::get('files/{file}', function($file){
+//     $exists = Storage::disk('s3');
+//     dd($exists);
+// });
+
+// Route::get('files/{file}', function($file){
+//     $filePath = Storage::disk('s3')->url($file);
+//     // Storage::setVisibility($filePath, 'public');
+//     // $filePath = Storage::disk('s3')->files('/');
+//     $headers = [
+//         'Content-Type' => 'application/pdf'
+//     ];
+
+    
+//     return response($filePath);
+//     // return redirect($filePath);
+// });
