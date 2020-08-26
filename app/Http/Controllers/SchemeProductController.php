@@ -8,7 +8,7 @@ use App\Models\SchemeProduct;
 class SchemeProductController extends Controller
 {
     public function showAll(){
-        $schemeProducts = SchemeProduct::all();
+        $schemeProducts = SchemeProduct::paginate(5);
         return view('pages.thong-tin-chung.san-pham-de-tai', ['schemeProducts' => $schemeProducts]);
     }
     

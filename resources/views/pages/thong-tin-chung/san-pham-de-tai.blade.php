@@ -12,5 +12,9 @@
         </li>
         @endforeach
     </ul>
+
+    <div class="text-center">
+        {{ $schemeProducts->links() }}
+    </div>
 </div>
 @endsection('content')

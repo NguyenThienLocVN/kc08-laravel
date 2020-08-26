@@ -242,11 +242,15 @@ main, .content { position: relative; }
 /* Scheme product */
 .scheme-product .list-scheme-product li {
     padding: 10px 15px;
-    background: #efef7b;
+    background: #f5f5a8;
     margin-bottom: 20px;
     display: inline-block;
     width: 100%;
+    cursor: pointer;
+    transition: 0.5s;
 }
+
+.scheme-product .list-scheme-product li:hover { box-shadow: 5px 5px 5px #ccc; background: #efef7b;}
 
 .list-scheme-product .title {
     padding-bottom: 3px;
