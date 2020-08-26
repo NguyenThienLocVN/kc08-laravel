@@ -7,7 +7,6 @@
         <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">ĐÓNG GÓP MỚI CỦA ĐỀ TÀI</a></li>
         <li><a href="#">CÁC SẢN PHẨM ĐÃ CÔNG BỐ</a></li>
     </ul>
-    <li class="has-sub"><a href="#">CÁC BÁO CÁO SẢN PHẨM</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
     <ul class="submenu">
         <li><a href="#">BÁO CÁO SẢN PHẨM A</a></li>
         <li><a href="#">BÁO CÁO SẢN PHẨM B</a></li>
@@ -42,13 +41,6 @@
             <li><a href="{{ route('thong-tin-chung.san-pham-de-tai') }}">Sản phẩm đề tài</a></li>
             <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">Đóng góp mới của đề tài</a></li>
             <li><a href="#">Các sản phẩm đã công bố</a></li>
-        </ul>
-    </li>
-    <li><a href="#" class="item-link">CÁC BÁO CÁO SẢN PHẨM</a><i class="fa fa-caret-down" aria-hidden="true"></i>
-        <ul class="submenu">
-            <li><a href="#">Báo cáo sản phẩm A</a></li>
-            <li><a href="#">Báo cáo sản phẩm B</a></li>
-            <li><a href="#">Báo cáo sản phẩm C</a></li>
         </ul>
     </li>
     <li><a href="#" class="item-link">KHU VỰC NGHIÊN CỨU</a><i class="fa fa-caret-down" aria-hidden="true"></i>
