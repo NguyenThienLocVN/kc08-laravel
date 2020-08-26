@@ -1,3 +1,4 @@
+@section('title', 'Hệ thống sông ngòi | Chương trình KC.08/16-20')
 @extends('layouts.base')
 
 @section('content')

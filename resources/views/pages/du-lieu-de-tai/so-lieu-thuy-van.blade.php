@@ -1,3 +1,4 @@
+@section('title', 'Số liệu thủy văn | Chương trình KC.08/16-20')
 @extends('layouts.base')
 @push('scripts')
     <script src="https://code.highcharts.com/highcharts.js"></script>

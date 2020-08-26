@@ -1,3 +1,4 @@
+@section('title', 'Thảm phủ thực vật | Chương trình KC.08/16-20')
 @extends('layouts.base')
 
 @section('content')
