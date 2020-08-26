@@ -16,7 +16,6 @@
             </div>
             <div class="illustration img-location">
                 <img src="{{ asset('images/vi-tri-dia-ly.png')  }}" alt="vi-tri-dia-ly-song-dong-nai"><br>
-                <i>Hình 1.38: Lưu Vực Sông Đồng Nai (DNRB)</i>
             </div>
         </div>
     </div>

@@ -261,7 +261,7 @@ main, .content { position: relative; }
 .scheme-product .list-scheme-product li a { color: #d25426}
 
 .main-content { display: flex; }
-.main-content .description, .main-content .illustration { width: 50%; }
+.main-content .description, .main-content .illustration, .img-location { width: 50%; }
 
 /* Vi tri dia ly & Dac diem dia hinh */
 .geographical-location .img-location,
@@ -616,7 +616,7 @@ footer .copyright {
     /* Geographical Location - Vi tri dia ly*/
 
     .geographical-location .img-location img,
-    .topographic-characteristics .img-location img { width: 80%; }
+    .img-location img { width: 80%; }
 
     .geographical-location .content,
     .topographic-characteristics .content {
