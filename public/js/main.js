@@ -155,14 +155,34 @@ const loadMuddySand = (id) => {
         }
       }
 
+      function showTurbidityHTML(array, i){
+        var tbody = $(".turbidity-ele")[i];console.log(tbody);
+        
+        array.map((value,index) =>{
+          var title = index + 1;
+
+          var month = document.createElement('span');
+          month.innerHTML = '<small>'+ title +'</small>';
+          month.className = 'span-item position-relative';
+
+          var label = document.createElement('span');
+          label.className = 'badge badge-secondary position-absolute p-1 display-none';
+          label.innerHTML = value+' g/m3';
+
+          tbody.appendChild(month);
+          month.appendChild(label);
+        })
+      }
+
      function averageTurbidityOfYear(year){
       getMonthData(year);
       var avgMonth = [averageOfMonth(JanuaryTurbidity).toFixed(1), averageOfMonth(FebruaryTurbidity).toFixed(1), 
         averageOfMonth(MarchTurbidity).toFixed(1), averageOfMonth(AprilTurbidity).toFixed(1), averageOfMonth(MayTurbidity).toFixed(1),
         averageOfMonth(JuneTurbidity).toFixed(1), averageOfMonth(JulyTurbidity).toFixed(1), averageOfMonth(AugustTurbidity).toFixed(1),
         averageOfMonth(SeptemberTurbidity).toFixed(1), averageOfMonth(OctorberTurbidity).toFixed(1), averageOfMonth(NovemberTurbidity).toFixed(1),
-        averageOfMonth(DecemberTurbidity).toFixed(1) ]
-      return avgMonth;
+        averageOfMonth(DecemberTurbidity).toFixed(1) ];
+
+        showTurbidityHTML(avgMonth, 0);
      }
 
      function maxTurbidityOfYear(year){
@@ -172,7 +192,8 @@ const loadMuddySand = (id) => {
         maxOfMonth(JuneTurbidity).toFixed(1), maxOfMonth(JulyTurbidity).toFixed(1), maxOfMonth(AugustTurbidity).toFixed(1),
         maxOfMonth(SeptemberTurbidity).toFixed(1), maxOfMonth(OctorberTurbidity).toFixed(1), maxOfMonth(NovemberTurbidity).toFixed(1),
         maxOfMonth(DecemberTurbidity).toFixed(1) ]
-      return maxMonth;
+        
+        showTurbidityHTML(maxMonth, 1);
      }
       
     var startTime = new Date(document.getElementById('start-picker').value)
@@ -183,6 +204,7 @@ const loadMuddySand = (id) => {
     {
       averageTurbidityOfYear(startYear);
       maxTurbidityOfYear(startYear);
+      
     }
 
      $('#container').highcharts({

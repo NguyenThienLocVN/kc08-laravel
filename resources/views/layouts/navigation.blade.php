@@ -7,11 +7,6 @@
         <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">ĐÓNG GÓP MỚI CỦA ĐỀ TÀI</a></li>
         <li><a href="#">CÁC SẢN PHẨM ĐÃ CÔNG BỐ</a></li>
     </ul>
-    <ul class="submenu">
-        <li><a href="#">BÁO CÁO SẢN PHẨM A</a></li>
-        <li><a href="#">BÁO CÁO SẢN PHẨM B</a></li>
-        <li><a href="#">BÁO CÁO SẢN PHẨM C</a></li>
-    </ul>
     <li class="has-sub"><a href="#">GIỚI THIỆU KHU VỰC NGHIÊN CỨU</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
     <ul class="submenu">
         <li class="has-sub-sub"><a href="#">ĐẶC ĐIỂM ĐIỀU KIỆN TỰ NHIÊN</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
@@ -60,7 +55,7 @@
     <li><a href="#" class="item-link">DỮ LIỆU ĐỀ TÀI</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu scheme-data-ul">
             <li><a href="#">Số liệu khí tượng</a></li>
-            <li><a href="{{ route('du-lieu-de-tai.so-lieu-thuy-van') }}">Số liệu thủy văn</a></li>
+            <li><a href="#">Số liệu thủy văn</a></li>
             <li><a href="{{ route('du-lieu-de-tai.so-lieu-bun-cat') }}">Số liệu bùn cát</a></li>
             <li><a href="#">Số liệu công trình</a></li>
         </ul>
