@@ -6,13 +6,13 @@ jQuery(function($){
 
   // Click to show submenu on mobile
   $('.has-sub').click(function(){
-    var target = $(this).next(".submenu");
+    const target = $(this).next(".submenu");
     $(target).slideToggle();
   });
 
   // Click to show sub-submenu on mobile
   $('.has-sub-sub').click(function(){
-    var target = $(this).next(".sub-submenu");
+    const target = $(this).next(".sub-submenu");
     $(target).slideToggle();
   });
 
@@ -33,17 +33,17 @@ jQuery(function($){
     $('.map-control').toggle();
     $(this).find('i').toggleClass('fa-chevron-left fa-chevron-right');
     $(this).toggleClass('btn-hide-map btn-show-map');
-    if($(".map-control").css('display') == 'none'){
-        toggleWidth = "100%";
-        toggleLeft = "0";
-    }
-    else {
-        toggleWidth = "75%";
-        toggleLeft = "25%";
+    let toggleWidth;
+    if ($(".map-control").css('display') === 'none') {
+      toggleWidth = "100%";
+      toggleLeft = "0";
+    } else {
+      toggleWidth = "75%";
+      toggleLeft = "25%";
     }
     $('#mapid').animate({ left: toggleLeft });
     $('#mapid').animate({ width: toggleWidth });
-    
+
   });
 })
 
@@ -104,7 +104,7 @@ const loadMuddySand = (id) => {
       function averageOfMonth(month){
         var sum = 0;
         var avg;
-        
+
         for(var i = 0; i < month.length; i++)
         {
           sum += parseFloat(month[i]);
@@ -118,16 +118,16 @@ const loadMuddySand = (id) => {
         var indexOfFirstDay = arrayDate.indexOf(year+"-01-01");
         var indexOfLastDay = arrayDate.indexOf(year+"-12-31")+1;
         const filterArray = data.muddySand.slice(indexOfFirstDay, indexOfLastDay);
-  
+
         const muddySandOfYear = [];
           filterArray.forEach(function(e){
           muddySandOfYear.push(e.Result);
         })
-  
+
         JanuaryTurbidity = muddySandOfYear.slice(0,31);
-        
-        if(startYear % 4 == 0){ 
-          FebruaryTurbidity = muddySandOfYear.slice(31, 60); 
+
+        if(startYear % 4 === 0){
+          FebruaryTurbidity = muddySandOfYear.slice(31, 60);
           MarchTurbidity = muddySandOfYear.slice(60, 91);
           AprilTurbidity = muddySandOfYear.slice(91, 121);
           MayTurbidity = muddySandOfYear.slice(121, 152);
@@ -138,10 +138,10 @@ const loadMuddySand = (id) => {
           OctorberTurbidity = muddySandOfYear.slice(274, 305);
           NovemberTurbidity = muddySandOfYear.slice(305, 335);
           DecemberTurbidity = muddySandOfYear.slice(335, 366);
-        } 
-        else 
-        { 
-          FebruaryTurbidity = muddySandOfYear.slice(31, 59); 
+        }
+        else
+        {
+          FebruaryTurbidity = muddySandOfYear.slice(31, 59);
           MarchTurbidity = muddySandOfYear.slice(59, 90);
           AprilTurbidity = muddySandOfYear.slice(90, 120);
           MayTurbidity = muddySandOfYear.slice(120, 151);
@@ -156,27 +156,31 @@ const loadMuddySand = (id) => {
       }
 
       function showTurbidityHTML(array, i){
-        var tbody = $(".turbidity-ele")[i];console.log(tbody);
-        
-        array.map((value,index) =>{
-          var title = index + 1;
+        var tbody = $(".turbidity-ele")[i];
 
-          var month = document.createElement('span');
-          month.innerHTML = '<small>'+ title +'</small>';
-          month.className = 'span-item position-relative';
+        const item = document.getElementsByClassName('span-item');
 
-          var label = document.createElement('span');
-          label.className = 'badge badge-secondary position-absolute p-1 display-none';
-          label.innerHTML = value+' g/m3';
+        if (item.length === 0) {
+          array.map((value,index) =>{
+            var title = index + 1;
 
-          tbody.appendChild(month);
-          month.appendChild(label);
-        })
+            var month = document.createElement('span');
+            month.innerHTML = '<small>'+ title +'</small>';
+            month.className = 'span-item position-relative';
+
+            var label = document.createElement('span');
+            label.className = 'badge badge-secondary position-absolute p-1 display-none';
+            label.innerHTML = value+' g/m3';
+
+            tbody.appendChild(month);
+            month.appendChild(label);
+          })
+        }
       }
 
      function averageTurbidityOfYear(year){
       getMonthData(year);
-      var avgMonth = [averageOfMonth(JanuaryTurbidity).toFixed(1), averageOfMonth(FebruaryTurbidity).toFixed(1), 
+      var avgMonth = [averageOfMonth(JanuaryTurbidity).toFixed(1), averageOfMonth(FebruaryTurbidity).toFixed(1),
         averageOfMonth(MarchTurbidity).toFixed(1), averageOfMonth(AprilTurbidity).toFixed(1), averageOfMonth(MayTurbidity).toFixed(1),
         averageOfMonth(JuneTurbidity).toFixed(1), averageOfMonth(JulyTurbidity).toFixed(1), averageOfMonth(AugustTurbidity).toFixed(1),
         averageOfMonth(SeptemberTurbidity).toFixed(1), averageOfMonth(OctorberTurbidity).toFixed(1), averageOfMonth(NovemberTurbidity).toFixed(1),
@@ -187,24 +191,24 @@ const loadMuddySand = (id) => {
 
      function maxTurbidityOfYear(year){
       getMonthData(year);
-      var maxMonth = [maxOfMonth(JanuaryTurbidity).toFixed(1), maxOfMonth(FebruaryTurbidity).toFixed(1), 
+      var maxMonth = [maxOfMonth(JanuaryTurbidity).toFixed(1), maxOfMonth(FebruaryTurbidity).toFixed(1),
         maxOfMonth(MarchTurbidity).toFixed(1), maxOfMonth(AprilTurbidity).toFixed(1), maxOfMonth(MayTurbidity).toFixed(1),
         maxOfMonth(JuneTurbidity).toFixed(1), maxOfMonth(JulyTurbidity).toFixed(1), maxOfMonth(AugustTurbidity).toFixed(1),
         maxOfMonth(SeptemberTurbidity).toFixed(1), maxOfMonth(OctorberTurbidity).toFixed(1), maxOfMonth(NovemberTurbidity).toFixed(1),
         maxOfMonth(DecemberTurbidity).toFixed(1) ]
-        
+
         showTurbidityHTML(maxMonth, 1);
      }
-      
+
     var startTime = new Date(document.getElementById('start-picker').value)
     var endTime = new Date(document.getElementById('end-picker').value)
     var startYear = startTime.getFullYear();
     var endYear = endTime.getFullYear();
-    if(startYear == endYear)
+    if(startYear === endYear)
     {
       averageTurbidityOfYear(startYear);
       maxTurbidityOfYear(startYear);
-      
+
     }
 
      $('#container').highcharts({
@@ -290,7 +294,7 @@ const loadMuddySand = (id) => {
     var endTime = new Date(inputTo)
     var startYear = startTime.getFullYear();
     var endYear = endTime.getFullYear();
-    if(startYear == endYear)
+    if(startYear === endYear)
     {
       averageTurbidityOfYear(startYear);
       maxTurbidityOfYear(startYear);
