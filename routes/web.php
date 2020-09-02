@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('dang-nhap', 'Auth\LoginController@index')->name('login');
+    Route::post('dang-nhap', 'Auth\LoginController@post')->name('post-login');
+});
+
 Route::get('/', function () {
     return view('pages.index');
 });
@@ -131,7 +136,7 @@ Route::get('ban-do-nguy-co-sat-lo', function () {
 //         'Content-Type' => 'application/pdf'
 //     ];
 
-    
+
 //     return response($filePath);
 //     // return redirect($filePath);
 // });
