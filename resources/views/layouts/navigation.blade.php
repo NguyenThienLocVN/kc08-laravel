@@ -21,7 +21,7 @@
     </ul>
     <li class="has-sub"><a href="#">DỮ LIỆU ĐỀ TÀI</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
     <ul class="submenu">
-            <li><a href="#">SỐ LIỆU KHÍ TƯỢNG</a></li>
+            <li><a href="{{ route('du-lieu-de-tai.so-lieu-khi-tuong') }}">SỐ LIỆU KHÍ TƯỢNG</a></li>
             <li><a href="#">SỐ LIỆU THỦY VĂN</a></li>
             <li><a href="{{ route('du-lieu-de-tai.so-lieu-bun-cat') }}">SỐ LIỆU BÙN CÁT</a></li>
             <li><a href="#">SỐ LIỆU CÔNG TRÌNH</a></li>
@@ -54,7 +54,7 @@
     </li>
     <li><a href="#" class="item-link">DỮ LIỆU ĐỀ TÀI</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu scheme-data-ul">
-            <li><a href="#">Số liệu khí tượng</a></li>
+            <li><a href="{{ route('du-lieu-de-tai.so-lieu-khi-tuong') }}">Số liệu khí tượng</a></li>
             <li><a href="#">Số liệu thủy văn</a></li>
             <li><a href="{{ route('du-lieu-de-tai.so-lieu-bun-cat') }}">Số liệu bùn cát</a></li>
             <li><a href="#">Số liệu công trình</a></li>

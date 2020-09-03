@@ -89,6 +89,9 @@ Route::group([
     'name' => 'du-lieu-de-tai.',
     'prefix' => 'du-lieu-de-tai',
 ], function () {
+    //So lieu khi tuong
+    Route::get('so-lieu-khi-tuong', 'MeteorologyStationsController@showStations')->name('du-lieu-de-tai.so-lieu-khi-tuong');
+
     //So lieu bun cat
     Route::get('so-lieu-bun-cat', 'StationsController@muddySandStations')->name('du-lieu-de-tai.so-lieu-bun-cat');
     Route::get('so-lieu-bun-cat/{id}','StationsController@getMuddySandData');
@@ -121,22 +124,3 @@ Route::group([
 Route::get('ban-do-nguy-co-sat-lo', function () {
     return view('pages.ban-do-nguy-co-sat-lo');
 })->name('ban-do-nguy-co-sat-lo');
-
-
-// Route::get('files/{file}', function($file){
-//     $exists = Storage::disk('s3');
-//     dd($exists);
-// });
-
-// Route::get('files/{file}', function($file){
-//     $filePath = Storage::disk('s3')->url($file);
-//     // Storage::setVisibility($filePath, 'public');
-//     // $filePath = Storage::disk('s3')->files('/');
-//     $headers = [
-//         'Content-Type' => 'application/pdf'
-//     ];
-
-
-//     return response($filePath);
-//     // return redirect($filePath);
-// });
