@@ -301,7 +301,7 @@ main, .content { position: relative; }
     text-align: center;
 }
 
-.list-station table tbody .row-station .item:nth-child(5) { width: 30%; text-align: left;  }
+.muddy-sand-stations table tbody .row-station .item:nth-child(5) { width: 30%; text-align: left;  }
 
 .date-range {display: flex; margin-bottom: 10px;}
 .date-range div { margin: 0 30px 0 10px; }
@@ -635,6 +635,7 @@ footer .copyright {
     .modal-body .statistical-space { width: 30%; }
     .modal-body .statistical-space h5 { background: #7cb5ec; }
     .modal-body .chart-space { width: 70%; }
+    .highcharts-title { display: none; }
 }
 
 @media screen and (min-width: 1024px)
@@ -666,7 +667,7 @@ footer .copyright {
         height: 560px;
     }
 
-    .list-station table tbody .row-station .item:nth-child(5) { width: 50%;}
+    .muddy-sand-stations table tbody .row-station .item:nth-child(5) { width: 50%;}
     .btn-view-detail { cursor: pointer; }
 
     /* Map - Hien tuong sat lo bo song */

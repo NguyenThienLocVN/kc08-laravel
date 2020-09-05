@@ -2,9 +2,11 @@
 @extends('layouts.base')
 @push('scripts')
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 @endpush
 @section('content')
-<div class="content list-station">
+<div class="content list-station muddy-sand-stations">
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Danh sách trạm | Số liệu bùn cát</h3>
 
     <table>

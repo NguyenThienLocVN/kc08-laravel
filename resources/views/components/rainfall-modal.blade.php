@@ -37,21 +37,24 @@
                 <div class="space-wrapper d-flex">
                     <div class="statistical-space">
                         <h5 class="text-center font-weight-bold p-2">THỐNG KÊ</h5>
-                        <p class="m-0">Trung bình năm</p>
+                        <label class="m-0">Trung bình năm</label>
                         <div class="d-flex justify-content-around mb-3 turbidity-ele"></div>
 
-                        <p class="m-0">Giá trị lớn nhất</p>
+                        <label class="m-0">Giá trị lớn nhất</label>
                         <div class="d-flex justify-content-around mb-3 turbidity-ele"></div>
+
+                        <span>Ngày lớn nhất</span><span class="max-date font-weight-bold"></span>
+
                     </div>
                     <div class="chart-space">
                         <div class="date-range">
                             <div class="start">
                                 <label for="">Từ ngày</label>
-                                <input type="date" class="start-picker" id="start-picker">
+                                <input data-date-format="dd/mm/yyyy" class="start-picker" id="start-picker">
                             </div>
                             <div class="end">
                                 <label for="">Đến ngày</label>
-                                <input type="date" class="end-picker" id="end-picker">
+                                <input data-date-format="dd/mm/yyyy" class="end-picker" id="end-picker">
                             </div>
                             <div>
                             <label for="">&nbsp;</label>

@@ -45,6 +45,9 @@ jQuery(function($){
     $('#mapid').animate({ width: toggleWidth });
 
   });
+
+  $('.start-picker').datepicker();
+  $('.end-picker').datepicker();
 })
 
 const loadMuddySand = (id) => {
@@ -115,8 +118,8 @@ const loadMuddySand = (id) => {
       // Get data of month by index
       var JanuaryTurbidity, FebruaryTurbidity, MarchTurbidity, AprilTurbidity, MayTurbidity, JuneTurbidity, JulyTurbidity, AugustTurbidity, SeptemberTurbidity, OctorberTurbidity, NovemberTurbidity, DecemberTurbidity;
       function getMonthData(year){
-        var indexOfFirstDay = arrayDate.indexOf(year+"-01-01");
-        var indexOfLastDay = arrayDate.indexOf(year+"-12-31")+1;
+        var indexOfFirstDay = arrayDate.indexOf("01/01/"+year);
+        var indexOfLastDay = arrayDate.indexOf("31/12/"+year)+1;
         const filterArray = data.muddySand.slice(indexOfFirstDay, indexOfLastDay);
 
         const muddySandOfYear = [];
@@ -158,9 +161,6 @@ const loadMuddySand = (id) => {
       function showTurbidityHTML(array, i){
         var tbody = $(".turbidity-ele")[i];
 
-        const item = document.getElementsByClassName('span-item');
-
-        if (item.length === 0) {
           array.map((value,index) =>{
             var title = index + 1;
 
@@ -175,7 +175,6 @@ const loadMuddySand = (id) => {
             tbody.appendChild(month);
             month.appendChild(label);
           })
-        }
       }
 
      function averageTurbidityOfYear(year){
@@ -197,14 +196,16 @@ const loadMuddySand = (id) => {
         maxOfMonth(SeptemberTurbidity).toFixed(1), maxOfMonth(OctorberTurbidity).toFixed(1), maxOfMonth(NovemberTurbidity).toFixed(1),
         maxOfMonth(DecemberTurbidity).toFixed(1) ]
 
+      var maxOfYear = Math.max.apply(Math, maxMonth);
+      console.log(maxOfYear);
+
         showTurbidityHTML(maxMonth, 1);
      }
 
-    var startTime = new Date(document.getElementById('start-picker').value)
-    var endTime = new Date(document.getElementById('end-picker').value)
-    var startYear = startTime.getFullYear();
-    var endYear = endTime.getFullYear();
-    if(startYear === endYear)
+    var startYear = document.getElementById('start-picker').value.slice(-4);
+    var endYear = document.getElementById('end-picker').value.slice(-4);
+    
+    if(startYear == endYear)
     {
       averageTurbidityOfYear(startYear);
       maxTurbidityOfYear(startYear);
