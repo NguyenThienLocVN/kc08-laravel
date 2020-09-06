@@ -1,27 +1,4 @@
-{{--<!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->--}}
-{{--<div class="form-popup" id="myForm">--}}
-{{--    <input type="hidden" class="x-data">--}}
-{{--    <form action="/" class="form-container popup-rainfall">--}}
-{{--        <div class="header">--}}
-{{--            <h3 id="station-name"></h3>--}}
-{{--        </div>--}}
-{{--        <div class="chart-space">--}}
-{{--        <div class="date-range">--}}
-{{--            <div class="start">--}}
-{{--                <label for="">Từ ngày</label>--}}
-{{--                <input type="date" class="start-picker" id="start-picker">--}}
-{{--            </div>--}}
-{{--            <div class="end">--}}
-{{--                <label for="">Đến ngày</label>--}}
-{{--                <input type="date" class="end-picker" id="end-picker">--}}
-{{--            </div>--}}
-{{--            <input type="button" value="Tìm kiếm" class="search-btn" id="search-rain-btn">--}}
-{{--        </div>--}}
-{{--        </div>--}}
-{{--        <div id="container" style="width:100%; height:400px;"></div>--}}
-{{--        <button type="button" class="btn cancel" onclick="closeForm()">X</button>--}}
-{{--    </form>--}}
-{{--</div>--}}
+<!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->
 
 <div class="modal fade" id="rainfallModal" tabindex="-1" role="dialog" aria-labelledby="rainfallModalLabel"
      aria-hidden="true">
@@ -36,14 +13,13 @@
             <div class="modal-body">
                 <div class="space-wrapper d-flex">
                     <div class="statistical-space">
-                        <h5 class="text-center font-weight-bold p-2">THỐNG KÊ</h5>
                         <label class="m-0">Trung bình năm</label>
-                        <div class="d-flex justify-content-around mb-3 turbidity-ele"></div>
+                        <div id="avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>
 
                         <label class="m-0">Giá trị lớn nhất</label>
-                        <div class="d-flex justify-content-around mb-3 turbidity-ele"></div>
+                        <div id="max-chart" class="max-chart turbidity-ele" style="width:100%; height:200px;"></div>
 
-                        <span>Ngày lớn nhất</span><span class="max-date font-weight-bold"></span>
+                        <span>Ngày lớn nhất &nbsp;</span><span class="max-date-of-year font-weight-bold"></span>
 
                     </div>
                     <div class="chart-space">

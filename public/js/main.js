@@ -117,14 +117,18 @@ const loadMuddySand = (id) => {
 
       // Get data of month by index
       var JanuaryTurbidity, FebruaryTurbidity, MarchTurbidity, AprilTurbidity, MayTurbidity, JuneTurbidity, JulyTurbidity, AugustTurbidity, SeptemberTurbidity, OctorberTurbidity, NovemberTurbidity, DecemberTurbidity;
+      var muddySandOfYear = [], arrayDateOfYear = [];
       function getMonthData(year){
         var indexOfFirstDay = arrayDate.indexOf("01/01/"+year);
         var indexOfLastDay = arrayDate.indexOf("31/12/"+year)+1;
         const filterArray = data.muddySand.slice(indexOfFirstDay, indexOfLastDay);
 
-        const muddySandOfYear = [];
-          filterArray.forEach(function(e){
+        filterArray.forEach(function(e){
           muddySandOfYear.push(e.Result);
+        })
+
+        filterArray.forEach(function(e){
+          arrayDateOfYear.push(e.Date_Time);
         })
 
         JanuaryTurbidity = muddySandOfYear.slice(0,31);
@@ -158,25 +162,6 @@ const loadMuddySand = (id) => {
         }
       }
 
-      function showTurbidityHTML(array, i){
-        var tbody = $(".turbidity-ele")[i];
-
-          array.map((value,index) =>{
-            var title = index + 1;
-
-            var month = document.createElement('span');
-            month.innerHTML = '<small>'+ title +'</small>';
-            month.className = 'span-item position-relative';
-
-            var label = document.createElement('span');
-            label.className = 'badge badge-secondary position-absolute p-1 display-none';
-            label.innerHTML = value+' g/m3';
-
-            tbody.appendChild(month);
-            month.appendChild(label);
-          })
-      }
-
      function averageTurbidityOfYear(year){
       getMonthData(year);
       var avgMonth = [averageOfMonth(JanuaryTurbidity).toFixed(1), averageOfMonth(FebruaryTurbidity).toFixed(1),
@@ -185,7 +170,11 @@ const loadMuddySand = (id) => {
         averageOfMonth(SeptemberTurbidity).toFixed(1), averageOfMonth(OctorberTurbidity).toFixed(1), averageOfMonth(NovemberTurbidity).toFixed(1),
         averageOfMonth(DecemberTurbidity).toFixed(1) ];
 
-        showTurbidityHTML(avgMonth, 0);
+      var avgTurbidityOfYear = [];
+      avgMonth.forEach(function(e){
+        avgTurbidityOfYear.push(parseFloat(e))
+      })
+      return avgTurbidityOfYear;
      }
 
      function maxTurbidityOfYear(year){
@@ -196,10 +185,18 @@ const loadMuddySand = (id) => {
         maxOfMonth(SeptemberTurbidity).toFixed(1), maxOfMonth(OctorberTurbidity).toFixed(1), maxOfMonth(NovemberTurbidity).toFixed(1),
         maxOfMonth(DecemberTurbidity).toFixed(1) ]
 
-      var maxOfYear = Math.max.apply(Math, maxMonth);
-      console.log(maxOfYear);
+        var maxxTurbidityOfYear = [];
+        maxMonth.forEach(function(e){
+          maxxTurbidityOfYear.push(parseFloat(e))
+        });
 
-        showTurbidityHTML(maxMonth, 1);
+        var maxValue = Math.max.apply(Math, maxMonth);
+        var indexOfMaxValue = muddySandOfYear.indexOf(maxValue);
+        var dateMaxOfYear = arrayDateOfYear[indexOfMaxValue];
+
+        $('.max-date-of-year').html(dateMaxOfYear+"("+maxValue+"g/m<sup>3</sup>)");
+
+        return maxxTurbidityOfYear;
      }
 
     var startYear = document.getElementById('start-picker').value.slice(-4);
@@ -212,6 +209,7 @@ const loadMuddySand = (id) => {
 
     }
 
+    // Draw line chart 
      $('#container').highcharts({
       title: {
         text: 'BIỂU ĐỒ SỐ LIỆU BÙN CÁT'
@@ -263,6 +261,62 @@ const loadMuddySand = (id) => {
           }]
       }
     });
+
+    // Draw avg colummn chart
+    $('#avg-chart').highcharts({
+      chart: {
+        type: 'column'
+    },
+    xAxis: {
+        categories: [
+            'Tháng 1',
+            'Tháng 2',
+            'Tháng 3',
+            'Tháng 4',
+            'Tháng 5',
+            'Tháng 6',
+            'Tháng 7',
+            'Tháng 8',
+            'Tháng 9',
+            'Tháng 10',
+            'Tháng 11',
+            'Tháng 12'
+        ],
+        crosshair: true
+    },
+    series: [{
+        name: "Độ đục",
+        data: averageTurbidityOfYear(startYear)
+    }]
+    })
+
+    // Draw max colummn chart
+    $('#max-chart').highcharts({
+      chart: {
+        type: 'column'
+    },
+    xAxis: {
+        categories: [
+            'Tháng 1',
+            'Tháng 2',
+            'Tháng 3',
+            'Tháng 4',
+            'Tháng 5',
+            'Tháng 6',
+            'Tháng 7',
+            'Tháng 8',
+            'Tháng 9',
+            'Tháng 10',
+            'Tháng 11',
+            'Tháng 12'
+        ],
+        crosshair: true
+    },
+    series: [{
+        name: "Độ đục",
+        data: maxTurbidityOfYear(startYear)
+    }]
+    })
 
     // Filter by date picker
     document.getElementById('search-rain-btn').addEventListener('click', function(){

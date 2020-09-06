@@ -632,10 +632,9 @@ footer .copyright {
 
     /*  Customize width size for modal bootstrap  */
     .modal-dialog { max-width: 700px; }
-    .modal-body .statistical-space { width: 30%; }
-    .modal-body .statistical-space h5 { background: #7cb5ec; }
-    .modal-body .chart-space { width: 70%; }
-    .highcharts-title { display: none; }
+    .modal-body .statistical-space { width: 32%; }
+    .modal-body .chart-space { width: 68%; }
+    .highcharts-title, .avg-chart .highcharts-axis-title, .max-chart .highcharts-axis-title, .highcharts-credits, .avg-chart .highcharts-legend, .max-chart .highcharts-legend { display: none; }
 }
 
 @media screen and (min-width: 1024px)
@@ -690,7 +689,7 @@ footer .copyright {
     .landslide-popup { width: 280px; }
     .landslide-popup .title { border-bottom: 1px solid rgb(107, 107, 107); padding-bottom: 5px; }
 
-    .modal-dialog { max-width: 850px; }
+    .modal-dialog { max-width: 900px; }
     .span-item { border: 1px solid; border-radius: 50%; width: 16px; height: 14px; display: table; float: left; font-size: 12px; text-align: center; vertical-align: middle; cursor: pointer;}
     .span-item:hover { background: #035291; color: #fff; }
     .span-item:hover .badge { display: block; }
