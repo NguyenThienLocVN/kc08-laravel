@@ -190,6 +190,25 @@ document.querySelector('#basemaps').addEventListener('change', function (e) {
     setBasemap(basemap);
 });
 
+// Add map legend
+var legend = L.control({position: 'topright'});
+    legend.onAdd = function (mymap) {
+
+    var div = L.DomUtil.create('div', 'info-legend');
+    labels = ['<strong>Chú thích</strong>'],
+    categories = ['Sạt lở bình thường','Sạt lở nguy hiểm','Sạt lở rất nguy hiểm'];
+    colors = ['blue', 'yellow', 'red'];
+
+    div.innerHTML += "<ul>";
+    div.innerHTML += "<li class='d-flex mb-2 align-items-center'><input type='checkbox' id='normal-checkbox' checked>&nbsp;<span class='font-weight-bold'>Bình thường</span> </li>";
+    div.innerHTML += "<li class='d-flex mb-2 align-items-center'><input type='checkbox' id='danger-checkbox' checked>&nbsp;<span class='font-weight-bold'>Nguy hiểm</span> </li>";
+    div.innerHTML += "<li class='d-flex mb-2 align-items-center'><input type='checkbox' id='very-danger-checkbox' checked>&nbsp;<span class='font-weight-bold'>Rất nguy hiểm</span> </li>";
+    div.innerHTML += "</ul>";
+    return div;
+};
+legend.addTo(mymap);
+
+    
 // Checkbox to show/hide normal marker
 $('#normal-checkbox').change(function () {
   if (!this.checked) {

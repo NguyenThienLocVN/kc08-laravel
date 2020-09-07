@@ -64,7 +64,7 @@ const loadMuddySand = (id) => {
     data:{id:id},
     success:function(data){
     //  Show station name
-    $('#rainfallModalLabel').html("Biểu đồ lưu lượng bùn cát tại trạm "+data.station[0].Station_Name);
+    $('#rainfallModalLabel').html("TỔNG HỢP SỐ LIỆU BÙN CÁT TRẠM "+data.station[0].Station_Name);
 
         const arrayDate = [];
 
@@ -190,12 +190,6 @@ const loadMuddySand = (id) => {
           maxxTurbidityOfYear.push(parseFloat(e))
         });
 
-        var maxValue = Math.max.apply(Math, maxMonth);
-        var indexOfMaxValue = muddySandOfYear.indexOf(maxValue);
-        var dateMaxOfYear = arrayDateOfYear[indexOfMaxValue];
-
-        $('.max-date-of-year').html(dateMaxOfYear+"("+maxValue+"g/m<sup>3</sup>)");
-
         return maxxTurbidityOfYear;
      }
 
@@ -210,9 +204,9 @@ const loadMuddySand = (id) => {
     }
 
     // Draw line chart 
-     $('#container').highcharts({
+     $('#muddy-sand-container').highcharts({
       title: {
-        text: 'BIỂU ĐỒ SỐ LIỆU BÙN CÁT'
+        text: 'BIỂU ĐỒ ĐỘ ĐỤC BÙN CÁT NGÀY'
       },
 
       yAxis: {
@@ -249,14 +243,7 @@ const loadMuddySand = (id) => {
       responsive: {
           rules: [{
               condition: {
-                  maxWidth: 500
-              },
-              chartOptions: {
-                  legend: {
-                      layout: 'horizontal',
-                      align: 'center',
-                      verticalAlign: 'bottom'
-                  }
+                  maxWidth: 550
               }
           }]
       }
@@ -266,21 +253,24 @@ const loadMuddySand = (id) => {
     $('#avg-chart').highcharts({
       chart: {
         type: 'column'
-    },
+      },
+      title: {
+        text: 'BIỂU ĐỒ ĐỘ ĐỤC TRUNG BÌNH THÁNG NĂM'
+      },
     xAxis: {
         categories: [
-            'Tháng 1',
-            'Tháng 2',
-            'Tháng 3',
-            'Tháng 4',
-            'Tháng 5',
-            'Tháng 6',
-            'Tháng 7',
-            'Tháng 8',
-            'Tháng 9',
-            'Tháng 10',
-            'Tháng 11',
-            'Tháng 12'
+            'I',
+            'II',
+            'III',
+            'IV',
+            'V',
+            'VI',
+            'VI',
+            'VII',
+            'IX',
+            'X',
+            'XI',
+            'XII'
         ],
         crosshair: true
     },
@@ -295,21 +285,24 @@ const loadMuddySand = (id) => {
       chart: {
         type: 'column'
     },
+    title: {
+      text: 'BIỂU ĐỒ ĐỘ ĐỤC LỚN NHẤT THÁNG NĂM'
+    },
     xAxis: {
         categories: [
-            'Tháng 1',
-            'Tháng 2',
-            'Tháng 3',
-            'Tháng 4',
-            'Tháng 5',
-            'Tháng 6',
-            'Tháng 7',
-            'Tháng 8',
-            'Tháng 9',
-            'Tháng 10',
-            'Tháng 11',
-            'Tháng 12'
-        ],
+          'I',
+          'II',
+          'III',
+          'IV',
+          'V',
+          'VI',
+          'VI',
+          'VII',
+          'IX',
+          'X',
+          'XI',
+          'XII'
+      ],
         crosshair: true
     },
     series: [{

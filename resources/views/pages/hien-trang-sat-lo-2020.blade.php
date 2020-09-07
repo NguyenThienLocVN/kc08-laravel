@@ -28,18 +28,7 @@
                     <h4>HIỆN TRẠNG SẠT LỞ BỜ SÔNG</h4>
                 </div>
                 <div class="panel">
-                    <h5>THÔNG TIN CHUNG</h5>
-                    <div class="content">
-                        <ul>
-                            <p class="font-weight-bold"><i class="fa fa-file mr-2" aria-hidden="true"></i><span>I. SẠT LỞ BỜ SÔNG</span></p>
-                            <li class="ml-4 d-flex mb-2 align-items-center"><input type="checkbox" id="normal-checkbox"
-                                    checked><i class="fa fa-file-text-o mx-2" aria-hidden="true"></i><span class="font-weight-bold">Bình thường</span> </li>
-                            <li class="ml-4 d-flex mb-2 align-items-center"><input type="checkbox" id="danger-checkbox"
-                                    checked><i class="fa fa-file-text-o mx-2" aria-hidden="true"></i><span class="font-weight-bold">Nguy hiểm</span> </li>
-                            <li class="ml-4 d-flex mb-2 align-items-center"><input type="checkbox" id="very-danger-checkbox"
-                                    checked><i class="fa fa-file-text-o mx-2" aria-hidden="true"></i><span class="font-weight-bold">Rất nguy hiểm</span> </li>
-                        </ul>
-                    </div>
+                    
                 </div>
 
                 <div class="note">
