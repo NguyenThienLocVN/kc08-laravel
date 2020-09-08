@@ -57,30 +57,12 @@ Route::group([
     'name' => 'khu-vuc-nghien-cuu.',
     'prefix' => 'khu-vuc-nghien-cuu',
 ], function () {
-    // Vi tri dia ly
-    Route::get('vi-tri-dia-ly', function () {
-        return view('pages.khu-vuc-nghien-cuu.vi-tri-dia-ly');
-    })->name('khu-vuc-nghien-cuu.vi-tri-dia-ly');
+    // Hien thi
+    Route::get('{slug}', 'ResearchAreasController@index');
 
-    // Dac diem dia hinh
-    Route::get('dac-diem-dia-hinh', function () {
-        return view('pages.khu-vuc-nghien-cuu.dac-diem-dia-hinh');
-    })->name('khu-vuc-nghien-cuu.dac-diem-dia-hinh');
-
-    // Tho nhuong
-    Route::get('tho-nhuong', function () {
-        return view('pages.khu-vuc-nghien-cuu.tho-nhuong');
-    })->name('khu-vuc-nghien-cuu.tho-nhuong');
-
-    // Tham phu thuc vat
-    Route::get('tham-phu-thuc-vat', function () {
-        return view('pages.khu-vuc-nghien-cuu.tham-phu-thuc-vat');
-    })->name('khu-vuc-nghien-cuu.tham-phu-thuc-vat');
-
-    // He thong song ngoi
-    Route::get('he-thong-song-ngoi', function () {
-        return view('pages.khu-vuc-nghien-cuu.he-thong-song-ngoi');
-    })->name('khu-vuc-nghien-cuu.he-thong-song-ngoi');
+    // Chinh sua
+    Route::get('{slug}/edit', 'ResearchAreasController@showEdit');
+    Route::post('{slug}/edit', 'ResearchAreasController@doEdit');
 });
 
 

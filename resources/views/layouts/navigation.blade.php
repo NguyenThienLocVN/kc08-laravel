@@ -11,11 +11,11 @@
     <ul class="submenu">
         <li class="has-sub-sub"><a href="#">ĐẶC ĐIỂM ĐIỀU KIỆN TỰ NHIÊN</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
         <ul class="sub-submenu">
-            <li><a href="{{ route('khu-vuc-nghien-cuu.vi-tri-dia-ly') }}">VỊ TRÍ ĐỊA LÝ</a></li>
-            <li><a href="{{ route('khu-vuc-nghien-cuu.dac-diem-dia-hinh') }}">ĐẶC ĐIỂM ĐỊA HÌNH</a></li>
-            <li><a href="{{ route('khu-vuc-nghien-cuu.tho-nhuong') }}">THỔ NHƯỠNG</a></li>
-            <li><a href="{{ route('khu-vuc-nghien-cuu.tham-phu-thuc-vat') }}">THẢM PHỦ THỰC VẬT RỪNG VÀ HỆ THỰC VẬT</a></li>
-            <li><a href="{{ route('khu-vuc-nghien-cuu.he-thong-song-ngoi') }}">HỆ THỐNG SÔNG NGÒI</a></li>
+            <li><a href="{{ url('/khu-vuc-nghien-cuu/vi-tri-dia-ly') }}">VỊ TRÍ ĐỊA LÝ</a></li>
+            <li><a href="{{ url('/khu-vuc-nghien-cuu/dac-diem-dia-hinh') }}">ĐẶC ĐIỂM ĐỊA HÌNH</a></li>
+            <li><a href="{{ url('/khu-vuc-nghien-cuu/tho-nhuong') }}">THỔ NHƯỠNG</a></li>
+            <li><a href="{{ url('/khu-vuc-nghien-cuu/tham-phu-thuc-vat') }}">THẢM PHỦ THỰC VẬT RỪNG VÀ HỆ THỰC VẬT</a></li>
+            <li><a href="{{ url('/khu-vuc-nghien-cuu/he-thong-song-ngoi') }}">HỆ THỐNG SÔNG NGÒI</a></li>
         </ul>
         <li><a href="#">HIỆN TRẠNG KHAI THÁC, SỬ DỤNG ĐẤT VEN SÔNG</a></li>
     </ul>
@@ -42,11 +42,11 @@
         <ul class="submenu">
             <li><a href="#">Đặc điểm điều kiện tự nhiên</a><i class="fa fa-caret-right" aria-hidden="true"></i>
                 <ul class="sub-submenu">
-                    <li><a href="{{ route('khu-vuc-nghien-cuu.vi-tri-dia-ly') }}">Vị trí địa lý</a></li>
-                    <li><a href="{{ route('khu-vuc-nghien-cuu.dac-diem-dia-hinh') }}">Đặc điểm địa hình</a></li>
-                    <li><a href="{{ route('khu-vuc-nghien-cuu.tho-nhuong') }}">Thổ nhưỡng</a></li>
-                    <li><a href="{{ route('khu-vuc-nghien-cuu.tham-phu-thuc-vat') }}">Thảm phủ thực vật rừng và hệ thực vật</a></li>
-                    <li><a href="{{ route('khu-vuc-nghien-cuu.he-thong-song-ngoi') }}">Hệ thống sông ngòi</a></li>
+                    <li><a href="{{ url('/khu-vuc-nghien-cuu/vi-tri-dia-ly') }}">Vị trí địa lý</a></li>
+                    <li><a href="{{ url('/khu-vuc-nghien-cuu/dac-diem-dia-hinh') }}">Đặc điểm địa hình</a></li>
+                    <li><a href="{{ url('/khu-vuc-nghien-cuu/tho-nhuong') }}">Thổ nhưỡng</a></li>
+                    <li><a href="{{ url('/khu-vuc-nghien-cuu/tham-phu-thuc-vat') }}">Thảm phủ thực vật rừng và hệ thực vật</a></li>
+                    <li><a href="{{ url('/khu-vuc-nghien-cuu/he-thong-song-ngoi') }}">Hệ thống sông ngòi</a></li>
                 </ul>
             </li>
             <li><a href="#">Hiện trạng khai thác, sử dụng đất ven sông</a></li>

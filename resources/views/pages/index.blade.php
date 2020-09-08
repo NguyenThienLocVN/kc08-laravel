@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @section('title', 'Chương trình KC.08/16-20 | Nghiên cứu khoa học và công nghệ phục vụ bảo vệ môi trường và phòng tránh thiên tai')
     @include('layouts.head')
 </head>
 <body>

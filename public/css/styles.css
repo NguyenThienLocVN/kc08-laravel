@@ -428,6 +428,9 @@ footer .copyright {
 /* Modal */
 .modal-header { background: #b4deff; }
 
+/* CKEditor */
+.ck-editor__editable_inline { height: 350px; }
+
 @media screen and (min-width: 768px)
 {
     .container { width: 90%; }
