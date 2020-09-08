@@ -632,11 +632,16 @@ footer .copyright {
 
     /*  Customize width size for modal bootstrap  */
     .modal-dialog { max-width: 700px; }
-    .modal-body .statistical-space { width: 35%; font-size: 14px; }
+    .modal-body .statistical-space { width: 35%; font-size: 13px; }
     .modal-body .statistical-space .basic-info { background: #f5e4d0; }
     .modal-body .statistical-space .monitoring-info { background: #dcf3e1; }
-    .modal-body .chart-space { width: 65%; }
-    .avg-chart .highcharts-axis-title, .max-chart .highcharts-axis-title, .highcharts-credits, .highcharts-legend { display: none; }
+    .modal-body .statistical-space .wet-season { background: rgb(223, 167, 63); }
+    .modal-body .statistical-space .dry-season { background: lightblue; }
+    .modal-body .chart-space { width: 65%; position: relative; }
+    .avg-chart .highcharts-axis-title, .max-chart .highcharts-axis-title, .min-chart .highcharts-axis-title, .highcharts-credits, .highcharts-legend { display: none; }
+    .avg-chart .highcharts-title { font-size: 14px !important; }
+    .date-appear table td:first-child { width: 10%; }
+    .date-appear table td:not(:first-child) {width: 7.4%;}
 }
 
 @media screen and (min-width: 1024px)
@@ -670,6 +675,8 @@ footer .copyright {
 
     .muddy-sand-stations table tbody .row-station .item:nth-child(5) { width: 50%;}
     .btn-view-detail { cursor: pointer; }
+    .date-max-appear {position: absolute; width: 100%; top: 62%; }
+    .date-min-appear {position: absolute; width: 100%; top: 87.5%; }
 
     /* Map - Hien tuong sat lo bo song */
     .map-control { width: 25%; background: white; height: 100vh; left: 0; position: absolute; }

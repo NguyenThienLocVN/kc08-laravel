@@ -177,6 +177,10 @@ const loadMuddySand = (id) => {
       return avgTurbidityOfYear;
      }
 
+     function indexOfMaxInMonth(month, value){
+      return month.indexOf(value);
+     }
+
      function maxTurbidityOfYear(year){
       getMonthData(year);
       var maxMonth = [maxOfMonth(JanuaryTurbidity).toFixed(1), maxOfMonth(FebruaryTurbidity).toFixed(1),
@@ -184,6 +188,8 @@ const loadMuddySand = (id) => {
         maxOfMonth(JuneTurbidity).toFixed(1), maxOfMonth(JulyTurbidity).toFixed(1), maxOfMonth(AugustTurbidity).toFixed(1),
         maxOfMonth(SeptemberTurbidity).toFixed(1), maxOfMonth(OctorberTurbidity).toFixed(1), maxOfMonth(NovemberTurbidity).toFixed(1),
         maxOfMonth(DecemberTurbidity).toFixed(1) ]
+
+        console.log(indexOfMaxInMonth(JanuaryTurbidity, parseFloat(maxOfMonth(JanuaryTurbidity).toFixed(1))));
 
         var maxxTurbidityOfYear = [];
         maxMonth.forEach(function(e){
@@ -255,7 +261,7 @@ const loadMuddySand = (id) => {
         type: 'column'
       },
       title: {
-        text: 'BIỂU ĐỒ ĐỘ ĐỤC TRUNG BÌNH THÁNG NĂM'
+        text: 'BIỂU ĐỒ ĐỘ ĐỤC TRUNG BÌNH THÁNG / NĂM'
       },
     xAxis: {
         categories: [
@@ -311,6 +317,37 @@ const loadMuddySand = (id) => {
     }]
     })
 
+    // Draw min colummn chart
+    $('#min-chart').highcharts({
+      chart: {
+        type: 'column'
+    },
+    title: {
+      text: 'BIỂU ĐỒ ĐỘ ĐỤC NHỎ NHẤT THÁNG NĂM'
+    },
+    xAxis: {
+        categories: [
+          'I',
+          'II',
+          'III',
+          'IV',
+          'V',
+          'VI',
+          'VI',
+          'VII',
+          'IX',
+          'X',
+          'XI',
+          'XII'
+      ],
+        crosshair: true
+    },
+    series: [{
+        name: "Độ đục",
+        data: maxTurbidityOfYear(startYear)
+    }]
+    })
+
     // Filter by date picker
     document.getElementById('search-rain-btn').addEventListener('click', function(){
       var inputFrom = document.getElementById('start-picker').value;
@@ -333,7 +370,7 @@ const loadMuddySand = (id) => {
         filterDateByInput.push(e.Date_Time);
       })
 
-      var chart = $('#container').highcharts();
+      var chart = $('#muddy-sand-container').highcharts();
       chart.series[0].setData(filterMuddySandByInput);
       chart.xAxis[0].setCategories(filterDateByInput);
 

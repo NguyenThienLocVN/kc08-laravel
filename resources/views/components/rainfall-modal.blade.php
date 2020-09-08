@@ -41,7 +41,7 @@
                                 <div class="col-5 font-weight-bold">03/10/2007 - 31/12/2007</div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Trung bình nhiều năm : </div>
+                                <div class="col-7 pr-0">Trung bình năm (nhiều năm) : </div>
                                 <div class="col-5 font-weight-bold"></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
@@ -61,6 +61,51 @@
                                 <div class="col-5 font-weight-bold">01/01/1999</div>
                             </div>
                         </div>
+                        <div class="wet-season py-2">
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="col-7">MÙA MƯA </div>
+                                <div class="col-5 font-weight-bold"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="col-7">Lớn nhất : </div>
+                                <div class="col-5 font-weight-bold">888 g/m<sup>3</sup></div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="col-7">Ngày xuất hiện : </div>
+                                <div class="col-5 font-weight-bold">12/12/2007</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="col-7">Nhỏ nhất : </div>
+                                <div class="col-5 font-weight-bold">888 g/m<sup>3</sup></div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="col-7">Ngày xuất hiện : </div>
+                                <div class="col-5 font-weight-bold">01/01/1999</div>
+                            </div>
+                        </div>
+                        <div class="dry-season py-2">
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="col-7">MÙA KHÔ </div>
+                                <div class="col-5 font-weight-bold"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="col-7">Lớn nhất : </div>
+                                <div class="col-5 font-weight-bold">888 g/m<sup>3</sup></div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="col-7">Ngày xuất hiện : </div>
+                                <div class="col-5 font-weight-bold">12/12/2007</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="col-7">Nhỏ nhất : </div>
+                                <div class="col-5 font-weight-bold">888 g/m<sup>3</sup></div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <div class="col-7">Ngày xuất hiện : </div>
+                                <div class="col-5 font-weight-bold">01/01/1999</div>
+                            </div>
+                        </div>
+                        <div id="avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>
                     </div>
                     <div class="chart-space">
                         <div class="date-range d-flex mb-2 align-items-center">
@@ -78,13 +123,50 @@
                         </div>
                         <div id="muddy-sand-container" style="width:100%; height:300px;"></div>
                         
-                        <div id="avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>
-                        
                         <div id="max-chart" class="max-chart turbidity-ele" style="width:100%; height:200px;"></div>
+                        <div class="date-max-appear date-appear">
+                            <table border=1 class="w-100 text-center">
+                                <tr>
+                                    <td>Ngày</td>
+                                    <td>11</td>
+                                    <td>22</td>
+                                    <td>31</td>
+                                    <td>12</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>10</td>
+                                    <td>11</td>
+                                    <td>12</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div id="min-chart" class="min-chart turbidity-ele" style="width:100%; height:200px;"></div>
+                        <div class="date-min-appear date-appear">
+                            <table border=1 class="w-100 text-center">
+                                <tr>
+                                    <td>Ngày</td>
+                                    <td>11</td>
+                                    <td>22</td>
+                                    <td>31</td>
+                                    <td>12</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>10</td>
+                                    <td>11</td>
+                                    <td>12</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-//
