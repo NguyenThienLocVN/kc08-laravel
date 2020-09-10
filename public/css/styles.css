@@ -20,6 +20,7 @@ ul li, ul, li {
 a { text-decoration: none !important; color: #035291; }
 .center { text-align: center; }
 .display-none { display: none; }
+.font-14 { font-size: 14px; }
 
 input[type='checkbox'] {
     -webkit-appearance: none;
@@ -319,6 +320,8 @@ main, .content { position: relative; }
     width: 280px;
   }
 
+  #start-picker, #end-picker { width: 35%; }
+
   /* The popup form - hidden by default */
   .form-popup {
     display: none;
@@ -430,6 +433,11 @@ footer .copyright {
 
 /* CKEditor */
 .ck-editor__editable_inline { height: 350px; }
+
+/* Calendar Jquery UI */
+.ui-widget-header { background: #035291 !important; border: none !important; }
+.ui-widget-content .ui-state-active { border: 1px solid #5090fb !important; color: #035291 !important; }
+.ui-datepicker-trigger { border: none; background: #bce1ff; }
 
 @media screen and (min-width: 768px)
 {
@@ -638,8 +646,8 @@ footer .copyright {
     .modal-body .statistical-space { width: 35%; font-size: 13px; }
     .modal-body .statistical-space .basic-info { background: #f5e4d0; }
     .modal-body .statistical-space .monitoring-info { background: #dcf3e1; }
-    .modal-body .statistical-space .wet-season { background: rgb(223, 167, 63); }
-    .modal-body .statistical-space .dry-season { background: lightblue; }
+    .modal-body .statistical-space .wet-season { background: lightblue;  }
+    .modal-body .statistical-space .dry-season { background: rgb(230 195 130);}
     .modal-body .chart-space { width: 65%; position: relative; }
     .avg-chart .highcharts-axis-title, .max-chart .highcharts-axis-title, .min-chart .highcharts-axis-title, .highcharts-credits, .highcharts-legend { display: none; }
     .avg-chart .highcharts-title { font-size: 14px !important; }
@@ -678,8 +686,7 @@ footer .copyright {
 
     .muddy-sand-stations table tbody .row-station .item:nth-child(5) { width: 50%;}
     .btn-view-detail { cursor: pointer; }
-    .date-max-appear {position: absolute; width: 100%; top: 62%; }
-    .date-min-appear {position: absolute; width: 100%; top: 87.5%; }
+    .date-max-appear, .date-min-appear {position: absolute; width: 100%; bottom: 14%; }
 
     /* Map - Hien tuong sat lo bo song */
     .map-control { width: 25%; background: white; height: 100vh; left: 0; position: absolute; }

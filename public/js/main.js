@@ -46,8 +46,17 @@ jQuery(function($){
 
   });
 
-  $('.start-picker').datepicker();
-  $('.end-picker').datepicker();
+  $('#start-picker').datepicker({
+    showOn: "button",
+    dateFormat: 'dd/mm/yy',
+    buttonText: '<i class="fa fa-calendar" aria-hidden="true"></i>'
+  });
+
+  $('#end-picker').datepicker({
+    showOn: "button",
+    dateFormat: 'dd/mm/yy',
+    buttonText: '<i class="fa fa-calendar" aria-hidden="true"></i>'
+  });
 })
 
 const loadMuddySand = (id) => {
@@ -65,43 +74,51 @@ const loadMuddySand = (id) => {
     success:function(data){
     //  Show station name
     $('#rainfallModalLabel').html("TỔNG HỢP SỐ LIỆU BÙN CÁT TRẠM "+data.station[0].Station_Name);
+    $('#station-value').html(data.station[0].Station_Name);
+    $('#longitude-value').html(data.station[0].Longitude);
+    $('#latitude-value').html(data.station[0].Latitude);
+    $('#river-value').html(data.station[0].Basin_Name);
 
-        const arrayDate = [];
-
-        // Get array of all date
+    const arrayDate = [];
+    // Get array of all date
      data.muddySand.forEach(function(e){
       arrayDate.push(e.Date_Time);
      })
 
     // Get the last date in data, and retrieved 90 days earlier
-        const fromDate = arrayDate[arrayDate.length - 90];
-        const toDate = arrayDate[arrayDate.length - 1];
+    const fromDate = arrayDate[arrayDate.length - 90];
+    const toDate = arrayDate[arrayDate.length - 1];
 
-        // Set that values for input
+    // Set that values for input
     document.getElementById('start-picker').value = fromDate;
     document.getElementById('end-picker').value = toDate;
 
     // Get index of this date in data
-        const indexOfFrom = arrayDate.indexOf(fromDate);
-        const indexOfTo = arrayDate.indexOf(toDate) + 1;
+    const indexOfFrom = arrayDate.indexOf(fromDate);
+    const indexOfTo = arrayDate.indexOf(toDate) + 1;
 
-        // Filter data by fromDate and toDate
-        const filterArray = data.muddySand.slice(indexOfFrom, indexOfTo);
+    // Filter data by fromDate and toDate
+    const filterArray = data.muddySand.slice(indexOfFrom, indexOfTo);
 
-        const filterMuddySand = [];
-        filterArray.forEach(function(e){
+    const filterMuddySand = [];
+    filterArray.forEach(function(e){
       filterMuddySand.push(e.Result);
-     })
+    })
 
-        const filterDate = [];
-        filterArray.forEach(function(e){
+    const filterDate = [];
+    filterArray.forEach(function(e){
       filterDate.push(e.Date_Time);
-     })
+    })
 
     //  Max do duc trong thang
      function maxOfMonth(month){
        return Math.max.apply(Math, month);
      }
+
+     //  Min do duc trong thang
+     function minOfMonth(month){
+      return Math.min.apply(Math, month);
+    }
 
      // Do duc trung binh cua thang
       function averageOfMonth(month){
@@ -162,6 +179,7 @@ const loadMuddySand = (id) => {
         }
       }
 
+      // Do duc trung binh nam
      function averageTurbidityOfYear(year){
       getMonthData(year);
       var avgMonth = [averageOfMonth(JanuaryTurbidity).toFixed(1), averageOfMonth(FebruaryTurbidity).toFixed(1),
@@ -181,6 +199,7 @@ const loadMuddySand = (id) => {
       return month.indexOf(value);
      }
 
+    //  Do duc lon nhat nam
      function maxTurbidityOfYear(year){
       getMonthData(year);
       var maxMonth = [maxOfMonth(JanuaryTurbidity).toFixed(1), maxOfMonth(FebruaryTurbidity).toFixed(1),
@@ -189,7 +208,12 @@ const loadMuddySand = (id) => {
         maxOfMonth(SeptemberTurbidity).toFixed(1), maxOfMonth(OctorberTurbidity).toFixed(1), maxOfMonth(NovemberTurbidity).toFixed(1),
         maxOfMonth(DecemberTurbidity).toFixed(1) ]
 
-        console.log(indexOfMaxInMonth(JanuaryTurbidity, parseFloat(maxOfMonth(JanuaryTurbidity).toFixed(1))));
+        var maxValue = Math.max.apply(Math, maxMonth);
+        var indexOfMaxValue = muddySandOfYear.indexOf(maxValue);
+        var dateMaxOfYear = arrayDateOfYear[indexOfMaxValue];
+
+        $('#max-value').html(maxValue);
+        $('#max-date').html(dateMaxOfYear);
 
         var maxxTurbidityOfYear = [];
         maxMonth.forEach(function(e){
@@ -199,6 +223,30 @@ const loadMuddySand = (id) => {
         return maxxTurbidityOfYear;
      }
 
+    //  Do duc nho nhat nam
+     function minTurbidityOfYear(year){
+      getMonthData(year);
+      var minMonth = [minOfMonth(JanuaryTurbidity).toFixed(1), minOfMonth(FebruaryTurbidity).toFixed(1),
+        minOfMonth(MarchTurbidity).toFixed(1), minOfMonth(AprilTurbidity).toFixed(1), minOfMonth(MayTurbidity).toFixed(1),
+        minOfMonth(JuneTurbidity).toFixed(1), minOfMonth(JulyTurbidity).toFixed(1), minOfMonth(AugustTurbidity).toFixed(1),
+        minOfMonth(SeptemberTurbidity).toFixed(1), minOfMonth(OctorberTurbidity).toFixed(1), minOfMonth(NovemberTurbidity).toFixed(1),
+        minOfMonth(DecemberTurbidity).toFixed(1) ];
+
+        var minValue = Math.min.apply(Math, minMonth);
+        var indexOfMinValue = muddySandOfYear.indexOf(minValue);
+        var dateMinOfYear = arrayDateOfYear[indexOfMinValue];
+
+        $('#min-value').html(minValue);
+        $('#min-date').html(dateMinOfYear);
+
+        var minnTurbidityOfYear = [];
+        minMonth.forEach(function(e){
+          minnTurbidityOfYear.push(parseFloat(e))
+        });
+
+        return minnTurbidityOfYear;
+     }
+
     var startYear = document.getElementById('start-picker').value.slice(-4);
     var endYear = document.getElementById('end-picker').value.slice(-4);
     
@@ -206,7 +254,7 @@ const loadMuddySand = (id) => {
     {
       averageTurbidityOfYear(startYear);
       maxTurbidityOfYear(startYear);
-
+      minTurbidityOfYear(startYear);
     }
 
     // Draw line chart 
@@ -271,8 +319,8 @@ const loadMuddySand = (id) => {
             'IV',
             'V',
             'VI',
-            'VI',
             'VII',
+            'VIII',
             'IX',
             'X',
             'XI',
@@ -302,8 +350,8 @@ const loadMuddySand = (id) => {
           'IV',
           'V',
           'VI',
-          'VI',
           'VII',
+          'VIII',
           'IX',
           'X',
           'XI',
@@ -344,7 +392,7 @@ const loadMuddySand = (id) => {
     },
     series: [{
         name: "Độ đục",
-        data: maxTurbidityOfYear(startYear)
+        data: minTurbidityOfYear(startYear)
     }]
     })
 

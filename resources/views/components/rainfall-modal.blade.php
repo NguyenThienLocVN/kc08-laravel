@@ -16,23 +16,23 @@
                         <div class="basic-info py-2">
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Tên trạm : </div>
-                                <div class="col-5 font-weight-bold">Tà Lài</div>
+                                <div class="col-5 font-weight-bold"><span id="station-value"></span></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Mã trạm : </div>
                                 <div class="col-5 font-weight-bold"></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Kinh độ : </div>
-                                <div class="col-5 font-weight-bold">107o22'</div>
+                                <div class="col-7">Vĩ độ : </div>
+                                <div class="col-5 font-weight-bold"><span id="latitude-value"></span></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Vĩ độ : </div>
-                                <div class="col-5 font-weight-bold">11o22'</div>
+                                <div class="col-7">Kinh độ : </div>
+                                <div class="col-5 font-weight-bold"><span id="longitude-value"></span></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Sông : </div>
-                                <div class="col-5 font-weight-bold">Đồng Nai</div>
+                                <div class="col-5 font-weight-bold"><span id="river-value"></span></div>
                             </div>
                         </div>
                         <div class="monitoring-info py-2">
@@ -41,24 +41,24 @@
                                 <div class="col-5 font-weight-bold">03/10/2007 - 31/12/2007</div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7 pr-0">Trung bình năm (nhiều năm) : </div>
+                                <div class="col-7 pr-0">TB năm (nhiều năm) : </div>
                                 <div class="col-5 font-weight-bold"></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Lớn nhất : </div>
-                                <div class="col-5 font-weight-bold">888 g/m<sup>3</sup></div>
+                                <div class="col-5 font-weight-bold"><span id="max-value"></span> g/m<sup>3</sup></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold">12/12/2007</div>
+                                <div class="col-5 font-weight-bold"><span id="max-date"></span></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Nhỏ nhất : </div>
-                                <div class="col-5 font-weight-bold">888 g/m<sup>3</sup></div>
+                                <div class="col-5 font-weight-bold"><span id="min-value"></span> g/m<sup>3</sup></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold">01/01/1999</div>
+                                <div class="col-5 font-weight-bold"><span id="min-date"></span></div>
                             </div>
                         </div>
                         <div class="wet-season py-2">
@@ -108,14 +108,14 @@
                         <div id="avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>
                     </div>
                     <div class="chart-space">
-                        <div class="date-range d-flex mb-2 align-items-center">
-                            <div class="start d-flex">
+                        <div class="date-range d-flex mb-2 align-items-center font-14">
+                            <div class="d-flex align-items-center" id="block-start">
                                 <span class="mr-1">Từ ngày</span>
-                                <input data-date-format="dd/mm/yyyy" class="w-50 start-picker" id="start-picker" style="height: 25px;">
+                                <input data-date-format="dd/mm/yyyy" class="mr-1 start-picker" id="start-picker" style="height: 25px;">
                             </div>
-                            <div class="end d-flex">
+                            <div class="d-flex align-items-center" id="block-end">
                                 <span class="mr-1">Đến ngày</span>
-                                <input data-date-format="dd/mm/yyyy" class="w-50 end-picker" id="end-picker" style="height: 25px;">
+                                <input data-date-format="dd/mm/yyyy" class="mr-1 end-picker" id="end-picker" style="height: 25px;">
                             </div>
                             <div class="d-flex">
                                 <input type="button" value="Tìm kiếm" class="search-btn" id="search-rain-btn">
@@ -123,46 +123,50 @@
                         </div>
                         <div id="muddy-sand-container" style="width:100%; height:300px;"></div>
                         
-                        <div id="max-chart" class="max-chart turbidity-ele" style="width:100%; height:200px;"></div>
-                        <div class="date-max-appear date-appear">
-                            <table border=1 class="w-100 text-center">
-                                <tr>
-                                    <td>Ngày</td>
-                                    <td>11</td>
-                                    <td>22</td>
-                                    <td>31</td>
-                                    <td>12</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>10</td>
-                                    <td>11</td>
-                                    <td>12</td>
-                                </tr>
-                            </table>
+                        <div class="position-relative">
+                            <div id="max-chart" class="max-chart turbidity-ele" style="width:100%; height:200px;"></div>
+                            <div class="date-max-appear date-appear font-14">
+                                <table border=1 class="w-100 text-center">
+                                    <tr>
+                                        <td>Ngày</td>
+                                        <td>11</td>
+                                        <td>22</td>
+                                        <td>31</td>
+                                        <td>12</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>10</td>
+                                        <td>11</td>
+                                        <td>12</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
 
-                        <div id="min-chart" class="min-chart turbidity-ele" style="width:100%; height:200px;"></div>
-                        <div class="date-min-appear date-appear">
-                            <table border=1 class="w-100 text-center">
-                                <tr>
-                                    <td>Ngày</td>
-                                    <td>11</td>
-                                    <td>22</td>
-                                    <td>31</td>
-                                    <td>12</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>10</td>
-                                    <td>11</td>
-                                    <td>12</td>
-                                </tr>
-                            </table>
+                        <div class="position-relative">
+                            <div id="min-chart" class="min-chart turbidity-ele" style="width:100%; height:200px;"></div>
+                            <div class="date-min-appear date-appear font-14">
+                                <table border=1 class="w-100 text-center">
+                                    <tr>
+                                        <td>Ngày</td>
+                                        <td>11</td>
+                                        <td>22</td>
+                                        <td>31</td>
+                                        <td>12</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>10</td>
+                                        <td>11</td>
+                                        <td>12</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
