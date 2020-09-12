@@ -20,7 +20,7 @@ ul li, ul, li {
 a { text-decoration: none !important; color: #035291; }
 .center { text-align: center; }
 .display-none { display: none; }
-.font-14 { font-size: 14px; }
+.font-13 { font-size: 13px; }
 
 input[type='checkbox'] {
     -webkit-appearance: none;
@@ -437,7 +437,7 @@ footer .copyright {
 /* Calendar Jquery UI */
 .ui-widget-header { background: #035291 !important; border: none !important; }
 .ui-widget-content .ui-state-active { border: 1px solid #5090fb !important; color: #035291 !important; }
-.ui-datepicker-trigger { border: none; background: #bce1ff; }
+.ui-datepicker-trigger { border: none; background: #035291; color: #fff; }
 
 @media screen and (min-width: 768px)
 {
@@ -687,6 +687,7 @@ footer .copyright {
     .muddy-sand-stations table tbody .row-station .item:nth-child(5) { width: 50%;}
     .btn-view-detail { cursor: pointer; }
     .date-max-appear, .date-min-appear {position: absolute; width: 100%; bottom: 14%; }
+    .date-max-appear table, .date-min-appear table { width: 99%; }
 
     /* Map - Hien tuong sat lo bo song */
     .map-control { width: 25%; background: white; height: 100vh; left: 0; position: absolute; }

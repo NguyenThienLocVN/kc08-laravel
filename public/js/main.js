@@ -78,6 +78,7 @@ const loadMuddySand = (id) => {
     $('#longitude-value').html(data.station[0].Longitude);
     $('#latitude-value').html(data.station[0].Latitude);
     $('#river-value').html(data.station[0].Basin_Name);
+    
 
     const arrayDate = [];
     // Get array of all date
@@ -92,6 +93,8 @@ const loadMuddySand = (id) => {
     // Set that values for input
     document.getElementById('start-picker').value = fromDate;
     document.getElementById('end-picker').value = toDate;
+
+    $('#monitoring-time').html($('#start-picker').val()+'-'+$('#end-picker').val());
 
     // Get index of this date in data
     const indexOfFrom = arrayDate.indexOf(fromDate);
@@ -134,6 +137,7 @@ const loadMuddySand = (id) => {
 
       // Get data of month by index
       var JanuaryTurbidity, FebruaryTurbidity, MarchTurbidity, AprilTurbidity, MayTurbidity, JuneTurbidity, JulyTurbidity, AugustTurbidity, SeptemberTurbidity, OctorberTurbidity, NovemberTurbidity, DecemberTurbidity;
+      
       var muddySandOfYear = [], arrayDateOfYear = [];
       function getMonthData(year){
         var indexOfFirstDay = arrayDate.indexOf("01/01/"+year);
@@ -188,6 +192,14 @@ const loadMuddySand = (id) => {
         averageOfMonth(SeptemberTurbidity).toFixed(1), averageOfMonth(OctorberTurbidity).toFixed(1), averageOfMonth(NovemberTurbidity).toFixed(1),
         averageOfMonth(DecemberTurbidity).toFixed(1) ];
 
+      // Get average of 12 months in year
+      var total = 0;
+      for(var i = 0; i < avgMonth.length; i++) {
+          total += parseFloat(avgMonth[i]);
+      }
+      var avg = total / avgMonth.length;
+      $('#average-value').html(avg.toFixed(1));
+
       var avgTurbidityOfYear = [];
       avgMonth.forEach(function(e){
         avgTurbidityOfYear.push(parseFloat(e))
@@ -195,8 +207,8 @@ const loadMuddySand = (id) => {
       return avgTurbidityOfYear;
      }
 
-     function indexOfMaxInMonth(month, value){
-      return month.indexOf(value);
+     function indexOfDateInMonth(month, value){
+      return month.indexOf(value) + 1;
      }
 
     //  Do duc lon nhat nam
@@ -208,12 +220,20 @@ const loadMuddySand = (id) => {
         maxOfMonth(SeptemberTurbidity).toFixed(1), maxOfMonth(OctorberTurbidity).toFixed(1), maxOfMonth(NovemberTurbidity).toFixed(1),
         maxOfMonth(DecemberTurbidity).toFixed(1) ]
 
+        // Get max value & max date and show them
         var maxValue = Math.max.apply(Math, maxMonth);
         var indexOfMaxValue = muddySandOfYear.indexOf(maxValue);
         var dateMaxOfYear = arrayDateOfYear[indexOfMaxValue];
 
         $('#max-value').html(maxValue);
         $('#max-date').html(dateMaxOfYear);
+
+        // Get max date of each month
+        var arrayTwelveMonths = [JanuaryTurbidity, FebruaryTurbidity, MarchTurbidity, AprilTurbidity, MayTurbidity, JuneTurbidity, JulyTurbidity, AugustTurbidity, SeptemberTurbidity, OctorberTurbidity, NovemberTurbidity, DecemberTurbidity];
+        for(var i = 0; i <= 11; i++)
+        {
+          $(".date-max-appear").find('.date').eq(i).html(indexOfDateInMonth(arrayTwelveMonths[i], parseFloat(maxOfMonth(arrayTwelveMonths[i]).toFixed(1))))
+        }
 
         var maxxTurbidityOfYear = [];
         maxMonth.forEach(function(e){
@@ -232,12 +252,20 @@ const loadMuddySand = (id) => {
         minOfMonth(SeptemberTurbidity).toFixed(1), minOfMonth(OctorberTurbidity).toFixed(1), minOfMonth(NovemberTurbidity).toFixed(1),
         minOfMonth(DecemberTurbidity).toFixed(1) ];
 
+        // Get min value & min date and show them
         var minValue = Math.min.apply(Math, minMonth);
         var indexOfMinValue = muddySandOfYear.indexOf(minValue);
         var dateMinOfYear = arrayDateOfYear[indexOfMinValue];
 
         $('#min-value').html(minValue);
         $('#min-date').html(dateMinOfYear);
+
+        // Get min date of each month
+        var arrayTwelveMonths = [JanuaryTurbidity, FebruaryTurbidity, MarchTurbidity, AprilTurbidity, MayTurbidity, JuneTurbidity, JulyTurbidity, AugustTurbidity, SeptemberTurbidity, OctorberTurbidity, NovemberTurbidity, DecemberTurbidity];
+        for(var i = 0; i <= 11; i++)
+        {
+          $(".date-min-appear").find('.date').eq(i).html(indexOfDateInMonth(arrayTwelveMonths[i], parseFloat(minOfMonth(arrayTwelveMonths[i]).toFixed(1))))
+        }
 
         var minnTurbidityOfYear = [];
         minMonth.forEach(function(e){
@@ -255,6 +283,9 @@ const loadMuddySand = (id) => {
       averageTurbidityOfYear(startYear);
       maxTurbidityOfYear(startYear);
       minTurbidityOfYear(startYear);
+
+      // Print year value
+      $('.year-value').html("năm "+startYear);
     }
 
     // Draw line chart 
@@ -309,7 +340,7 @@ const loadMuddySand = (id) => {
         type: 'column'
       },
       title: {
-        text: 'BIỂU ĐỒ ĐỘ ĐỤC TRUNG BÌNH THÁNG / NĂM'
+        text: 'BIỂU ĐỒ ĐỘ ĐỤC TRUNG BÌNH THÁNG / NĂM ' + startYear
       },
     xAxis: {
         categories: [
@@ -340,7 +371,7 @@ const loadMuddySand = (id) => {
         type: 'column'
     },
     title: {
-      text: 'BIỂU ĐỒ ĐỘ ĐỤC LỚN NHẤT THÁNG NĂM'
+      text: 'BIỂU ĐỒ ĐỘ ĐỤC LỚN NHẤT THÁNG NĂM ' + startYear
     },
     xAxis: {
         categories: [
@@ -371,7 +402,7 @@ const loadMuddySand = (id) => {
         type: 'column'
     },
     title: {
-      text: 'BIỂU ĐỒ ĐỘ ĐỤC NHỎ NHẤT THÁNG NĂM'
+      text: 'BIỂU ĐỒ ĐỘ ĐỤC NHỎ NHẤT THÁNG NĂM ' + startYear
     },
     xAxis: {
         categories: [
@@ -423,10 +454,13 @@ const loadMuddySand = (id) => {
       chart.xAxis[0].setCategories(filterDateByInput);
 
 
-    var startTime = new Date(inputFrom)
-    var endTime = new Date(inputTo)
-    var startYear = startTime.getFullYear();
-    var endYear = endTime.getFullYear();
+    // var startTime = new Date(inputFrom)
+    // var endTime = new Date(inputTo)
+    // var startYear = startTime.getFullYear();
+    // var endYear = endTime.getFullYear();
+    var startYear = document.getElementById('start-picker').value.slice(-4);
+    var endYear = document.getElementById('end-picker').value.slice(-4);
+
     if(startYear === endYear)
     {
       averageTurbidityOfYear(startYear);

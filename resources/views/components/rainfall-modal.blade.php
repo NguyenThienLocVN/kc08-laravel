@@ -38,14 +38,14 @@
                         <div class="monitoring-info py-2">
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Thời gian quan trắc : </div>
-                                <div class="col-5 font-weight-bold">03/10/2007 - 31/12/2007</div>
+                                <div class="col-5 font-weight-bold"><span id="monitoring-time"></span></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7 pr-0">TB năm (nhiều năm) : </div>
-                                <div class="col-5 font-weight-bold"></div>
+                                <div class="col-7 pr-0">TB <span class="year-value"></span> : </div>
+                                <div class="col-5 font-weight-bold"><span id="average-value"></span> g/m<sup>3</sup></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Lớn nhất : </div>
+                                <div class="col-7">Lớn nhất <span class="year-value"></span> : </div>
                                 <div class="col-5 font-weight-bold"><span id="max-value"></span> g/m<sup>3</sup></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
@@ -53,7 +53,7 @@
                                 <div class="col-5 font-weight-bold"><span id="max-date"></span></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Nhỏ nhất : </div>
+                                <div class="col-7">Nhỏ nhất <span class="year-value"></span> : </div>
                                 <div class="col-5 font-weight-bold"><span id="min-value"></span> g/m<sup>3</sup></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
@@ -108,7 +108,7 @@
                         <div id="avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>
                     </div>
                     <div class="chart-space">
-                        <div class="date-range d-flex mb-2 align-items-center font-14">
+                        <div class="date-range d-flex mb-2 align-items-center font-13">
                             <div class="d-flex align-items-center" id="block-start">
                                 <span class="mr-1">Từ ngày</span>
                                 <input data-date-format="dd/mm/yyyy" class="mr-1 start-picker" id="start-picker" style="height: 25px;">
@@ -125,22 +125,22 @@
                         
                         <div class="position-relative">
                             <div id="max-chart" class="max-chart turbidity-ele" style="width:100%; height:200px;"></div>
-                            <div class="date-max-appear date-appear font-14">
-                                <table border=1 class="w-100 text-center">
+                            <div class="date-max-appear date-appear font-13">
+                                <table border=1 class="text-center">
                                     <tr>
-                                        <td>Ngày</td>
-                                        <td>11</td>
-                                        <td>22</td>
-                                        <td>31</td>
-                                        <td>12</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>10</td>
-                                        <td>11</td>
-                                        <td>12</td>
+                                        <td>Ngày x/h</td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -148,22 +148,22 @@
 
                         <div class="position-relative">
                             <div id="min-chart" class="min-chart turbidity-ele" style="width:100%; height:200px;"></div>
-                            <div class="date-min-appear date-appear font-14">
-                                <table border=1 class="w-100 text-center">
+                            <div class="date-min-appear date-appear font-13">
+                                <table border=1 class="text-center">
                                     <tr>
-                                        <td>Ngày</td>
-                                        <td>11</td>
-                                        <td>22</td>
-                                        <td>31</td>
-                                        <td>12</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>10</td>
-                                        <td>11</td>
-                                        <td>12</td>
+                                        <td>Ngày x/h</td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
+                                        <td class="date"></td>
                                     </tr>
                                 </table>
                             </div>
