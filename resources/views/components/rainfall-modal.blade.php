@@ -12,7 +12,7 @@
             </div>
             <div class="modal-body">
                 <div class="space-wrapper d-flex">
-                    <div class="statistical-space mr-2">
+                    <div class="statistical-space mr-2" id="statistical-space">
                         <div class="basic-info py-2">
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Tên trạm : </div>
@@ -107,8 +107,11 @@
                         </div>
                         <div id="avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>
                     </div>
-                    <div class="chart-space">
+                    <div class="chart-space" id="chart-space">
                         <div class="date-range d-flex mb-2 align-items-center font-13">
+                            <div class="d-flex align-items-center mr-4" id="block-start">
+                                <button type="button" class="btn-primary" id="btn-hide-statistical" title="Mở rộng / Thu nhỏ"><i class="fa fa-expand" aria-hidden="true"></i></button>
+                            </div>
                             <div class="d-flex align-items-center" id="block-start">
                                 <span class="mr-1">Từ ngày</span>
                                 <input data-date-format="dd/mm/yyyy" class="mr-1 start-picker" id="start-picker" style="height: 25px;">
@@ -128,7 +131,7 @@
                             <div class="date-max-appear date-appear font-13">
                                 <table border=1 class="text-center">
                                     <tr>
-                                        <td>Ngày x/h</td>
+                                        <td>Ngày</td>
                                         <td class="date"></td>
                                         <td class="date"></td>
                                         <td class="date"></td>
@@ -151,7 +154,7 @@
                             <div class="date-min-appear date-appear font-13">
                                 <table border=1 class="text-center">
                                     <tr>
-                                        <td>Ngày x/h</td>
+                                        <td>Ngày</td>
                                         <td class="date"></td>
                                         <td class="date"></td>
                                         <td class="date"></td>

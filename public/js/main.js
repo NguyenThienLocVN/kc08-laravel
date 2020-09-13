@@ -289,7 +289,7 @@ const loadMuddySand = (id) => {
     }
 
     // Draw line chart 
-     $('#muddy-sand-container').highcharts({
+    muddySandChart = Highcharts.chart('muddy-sand-container', {
       title: {
         text: 'BIỂU ĐỒ ĐỘ ĐỤC BÙN CÁT NGÀY'
       },
@@ -366,7 +366,7 @@ const loadMuddySand = (id) => {
     })
 
     // Draw max colummn chart
-    $('#max-chart').highcharts({
+    maxChart = Highcharts.chart('max-chart', {
       chart: {
         type: 'column'
     },
@@ -397,7 +397,7 @@ const loadMuddySand = (id) => {
     })
 
     // Draw min colummn chart
-    $('#min-chart').highcharts({
+    minChart = Highcharts.chart('min-chart', {
       chart: {
         type: 'column'
     },
@@ -504,6 +504,33 @@ const openMuddySand = (id) => {
   // $("#myForm").show();
   // $("#overlay").show();
 }
+
+var newWidth = 870;
+$( "#btn-hide-statistical" ).click(function() {     
+  $('#statistical-space').toggle("slide", { direction: "right" }, 500);
+  $('#chart-space').toggleClass('expanded');
+
+  muddySandChart.update({
+    chart: {
+      width: newWidth
+    }
+  });
+
+  maxChart.update({
+    chart: {
+      width: newWidth
+    }
+  });
+
+  minChart.update({
+    chart: {
+      width: newWidth
+    }
+  });
+
+
+  newWidth = newWidth === 870 ? 555 : 870;
+});
 
 function closeForm() {
   $("#myForm").hide();

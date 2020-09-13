@@ -658,8 +658,10 @@ footer .copyright {
     .modal-body .statistical-space .wet-season { background: lightblue;  }
     .modal-body .statistical-space .dry-season { background: rgb(230 195 130);}
     .modal-body .chart-space { width: 65%; position: relative; }
+    .modal-body .expanded { transition: all .3s; width: 100%; }
     .avg-chart .highcharts-axis-title, .max-chart .highcharts-axis-title, .min-chart .highcharts-axis-title, .highcharts-credits, .highcharts-legend { display: none; }
     .avg-chart .highcharts-title { font-size: 14px !important; }
+    .expanded .date-appear table td:first-child { width: 6.5%; }
     .date-appear table td:first-child { width: 10%; }
     .date-appear table td:not(:first-child) {width: 7.4%;}
 }
