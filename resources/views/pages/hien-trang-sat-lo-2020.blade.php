@@ -15,7 +15,6 @@
 @include('layouts.head')
 
 <body>
-    <div class="container">
 
         <main>
             <div id="btn-toggle-map" class="btn-show-map">
@@ -28,16 +27,34 @@
                     <h4>HIỆN TRẠNG SẠT LỞ BỜ SÔNG</h4>
                 </div>
                 <div class="panel">
-                    
-                </div>
-
-                <div class="note">
-                    <h5>CHÚ THÍCH</h5>
-                    <ul>
-                        <li class="note-item"><span class="note-blue position-relative" style="background: #007bff;"></span>&nbsp; Sạt lở bình thường</li>
-                        <li class="note-item"><span class="note-yellow position-relative" style="background: yellow;"></span>&nbsp; Sạt lở nguy hiểm</li>
-                        <li class="note-item"><span class="note-red position-relative" style="background: red;"></span>&nbsp; Sạt lở rất nguy hiểm</li>
-                    </ul>
+                    <div class="tbl-header landslide-header m-1">
+                        <table cellpadding="0" cellspacing="0" border="1" class="font-13 w-100">
+                            <thead>
+                                <tr>
+                                    <th class="text-center font-weight-bold">STT</th>
+                                    <th class="text-center font-weight-bold">ĐỊA DANH</th>
+                                    <th class="text-center font-weight-bold">DÀI (m)</th>
+                                    <th class="text-center font-weight-bold">GHI CHÚ</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="landslide-body">
+                        <table class="font-13 w-100">
+                            <tbody>
+                                <?php $i = 1; ?>
+                                @foreach($landSlideLocations as $location)
+                                    <tr class="location-item" id="{{$location->latitude.'-'.$location->longitude}}">
+                                        <td class="text-center">{{ $i }}</td>
+                                        <td class="p-1">{{ $location->name }}</td>
+                                        <td class="text-center">{{ $location->length }}</td>
+                                        <td class="p-1">{{ $location->note }}</td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div id="mapid"></div>
@@ -53,6 +70,15 @@
                 </select>
             </div>
 
+            <div class="note font-13">
+                <h5 class="font-weight-bold font-13">CHÚ THÍCH</h5>
+                <ul>
+                    <li class="note-item"><span class="note-blue position-relative" style="background: #007bff;"></span>&nbsp; Sạt lở bình thường</li>
+                    <li class="note-item"><span class="note-yellow position-relative" style="background: yellow;"></span>&nbsp; Sạt lở nguy hiểm</li>
+                    <li class="note-item"><span class="note-red position-relative" style="background: red;"></span>&nbsp; Sạt lở rất nguy hiểm</li>
+                </ul>
+            </div>
+
             <textarea id="normalJson" class="display-none">{!! $normalJson !!}</textarea>
             <textarea id="dangerJson" class="display-none">{!! $dangerJson !!}</textarea>
             <textarea id="veryDangerJson" class="display-none">{!! $veryDangerJson !!}</textarea>
@@ -62,7 +88,6 @@
             <textarea id="veryDangerLineJson" class="display-none">{!! $veryDangerLineJson !!}</textarea>
             
         </main>
-    </div>
 
     <!-- Include map js -->
     <script src="{{ asset('js/map-leaflet.js') }}"></script>

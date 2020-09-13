@@ -20,7 +20,7 @@ ul li, ul, li {
 a { text-decoration: none !important; color: #035291; }
 .center { text-align: center; }
 .display-none { display: none; }
-.font-13 { font-size: 13px; }
+.font-13 { font-size: 13px !important; }
 
 input[type='checkbox'] {
     -webkit-appearance: none;
@@ -413,6 +413,15 @@ main, .content { position: relative; }
     text-align: center;
     display: inline-block;
   }
+  .landslide-header table, .landslide-body table { border: 1px solid #f3f3f3; line-height: 19px; border-top: none; }
+  .landslide-header th { background-color: #BED3E5; padding: 8px 0; }
+  .landslide-header th:first-child, .landslide-body td:first-child { width: 8%; }
+  .landslide-header th:nth-child(2), .landslide-body td:nth-child(2) { width: 40%; }
+  .landslide-header th:nth-child(3), .landslide-body td:nth-child(3) { width: 12%; }
+  .landslide-header th:nth-child(4), .landslide-body td:nth-child(4) { width: 40%; }
+  .landslide-body { height: calc(100vh - 145px); overflow: auto; }
+  .landslide-body .location-item:hover { cursor: pointer; background: #c7c7c7;}
+  
 /* Map */
 #mapid { height: 100%;}
 
@@ -693,17 +702,18 @@ footer .copyright {
     .map-control { width: 25%; background: white; height: 100vh; left: 0; position: absolute; }
     .btn-show-map { background: #b1aeae; top: 0; position: absolute; left: 25%; padding: 10px 5px; color: #035291; z-index: 11;}
     .btn-hide-map { background: #b1aeae; top: 0; position: absolute; left: 0; padding: 10px 5px; color: #035291; z-index: 11;}
-    .map-control .header { background: #d9e6f1; padding: 10px; text-align: center; white-space: nowrap; }
-    .map-control .header h4 { margin: 0; padding-bottom: 5px; font-size: unset; font-weight: bold;}
+    .map-control .header { background: #d9e6f1; padding: 6px; text-align: center; white-space: nowrap; }
+    .map-control .header h4 { margin: 0; padding-bottom: 3px; font-size: unset; font-weight: bold;}
     .map-control .content { height: 50%; }
-    .map-control .note { position: absolute; width: 100%; bottom: 10px; }
-    .map-control .note h5, .map-control .panel h5 { background: #9fd4ff; padding: 10px; margin: 0; font-size: 15px;}
-    .map-control .note-item { background: #e4e4e4ee; padding: 8px; font-size: 14px; }
-    .map-control .note-item span { width: 60px; height: 5px; display: inline-block; }
-    .map-control .note-item span::after { content:''; width: 15px; height: 15px; display: block; border-radius: 50%; position: absolute; left: 23px; top: -5px}
-    .map-control .note-item .note-blue::after { background: #007bff; }
-    .map-control .note-item .note-yellow::after { background: yellow; }
-    .map-control .note-item .note-red::after { background: red; }
+    
+    .note { position: absolute; width: 180px; right: 10px; z-index: 99; top: calc(100vh - 170px)  }
+    .note h5, .map-control .panel h5 { background: #9fd4ff; padding: 10px; margin: 0; }
+    .note .note-item { background: #fff; padding: 8px; }
+    .note .note-item span { width: 40px; height: 5px; display: inline-block; }
+    .note .note-item span::after { content:''; width: 15px; height: 15px; display: block; border-radius: 50%; position: absolute; left: 13px; top: -5px}
+    .note .note-item .note-blue::after { background: #007bff; }
+    .note .note-item .note-yellow::after { background: yellow; }
+    .note .note-item .note-red::after { background: red; }
     .map-control .panel .content ul span { color: #0D47A1; }
     .map-control .btn-home { padding: 2px 5px; display: block; background: rgba(0,123,255,.5); font-size: 14px;}
     .landslide-popup { width: 280px; }
@@ -723,7 +733,7 @@ footer .copyright {
     }
     #basemaps-wrapper {
         position: absolute;
-        top: 10px;
+        top: 200px;
         right: 10px;
         z-index: 400;
         background: white;
@@ -751,5 +761,5 @@ footer .copyright {
     }
 
     .leaflet-popup-content { width: 300px !important; margin: 13px !important; }
-    .info-legend { background: #fff; padding: 6px 10px; border-radius: 3px; margin-top: 60px !important; }
+    .info-legend { background: #fff; padding: 6px 10px; border-radius: 3px; }
 }

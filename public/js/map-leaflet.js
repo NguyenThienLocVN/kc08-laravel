@@ -11,7 +11,7 @@ var mymap = L.map("mapid", {
     tap: pc,
     zoomControl: true
 });
-mymap.zoomControl.setPosition('bottomright');
+mymap.zoomControl.setPosition('bottomleft');
 
 const mapEl = document.querySelector("#mapid");
 // Binds event listeners for the map and calls the function
@@ -247,3 +247,15 @@ $('#very-danger-checkbox').change(function () {
     $('.very-danger-line').fadeIn('normal');
   }
 });
+
+// Focus marker when click on panel
+function setFocusByPosition(arrayLatLong){
+  return mymap.setView(arrayLatLong, 16); 
+}
+
+document.querySelectorAll('.location-item').forEach(function(e){
+  e.addEventListener('click', function(){
+    var latLong = e.id.split("-");
+    setFocusByPosition(latLong);
+  })
+})

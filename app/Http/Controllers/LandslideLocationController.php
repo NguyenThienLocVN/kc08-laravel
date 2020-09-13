@@ -10,9 +10,9 @@ class LandslideLocationController extends Controller
 {
     public function year2020(){
         // Lines
-        $normalLine = LineCoordinate::where('level', 1)->pluck('coordinate');
-        $dangerLine = LineCoordinate::where('level', 2)->pluck('coordinate');
-        $veryDangerLine = LineCoordinate::where('level', 3)->pluck('coordinate');
+        $normalLine = LineCoordinate::where('level', 1)->where('year', 2020)->pluck('coordinate');
+        $dangerLine = LineCoordinate::where('level', 2)->where('year', 2020)->pluck('coordinate');
+        $veryDangerLine = LineCoordinate::where('level', 3)->where('year', 2020)->pluck('coordinate');
 
         // Normal
         $normalLineArray = [];
@@ -49,9 +49,9 @@ class LandslideLocationController extends Controller
         
 
         // Markers
-        $normalLevel = LandslideLocation::where('level_num', 1)->get();
-        $dangerLevel = LandslideLocation::where('level_num', 2)->get();
-        $veryDangerLevel = LandslideLocation::where('level_num', 3)->get();
+        $normalLevel = LandslideLocation::where('level_num', 1)->where('year', 2020)->get();
+        $dangerLevel = LandslideLocation::where('level_num', 2)->where('year', 2020)->get();
+        $veryDangerLevel = LandslideLocation::where('level_num', 3)->where('year', 2020)->get();
 
         // Normal level
         $normalArray = ['type' => 'FeatureCollection',
@@ -119,6 +119,10 @@ class LandslideLocationController extends Controller
         }
         $veryDangerJson = json_encode($veryDangerArray, JSON_UNESCAPED_UNICODE);
 
-        return view('pages.hien-trang-sat-lo-2020', ['normalJson' => $normalJson, 'dangerJson' => $dangerJson, 'veryDangerJson' => $veryDangerJson, 'normalLineJson' => $normalLineJson, 'dangerLineJson' => $dangerLineJson, 'veryDangerLineJson' => $veryDangerLineJson ]);
+
+        // Load all landslide location
+        $landSlideLocations = LandslideLocation::where('year', 2020)->get();
+
+        return view('pages.hien-trang-sat-lo-2020', ['normalJson' => $normalJson, 'dangerJson' => $dangerJson, 'veryDangerJson' => $veryDangerJson, 'normalLineJson' => $normalLineJson, 'dangerLineJson' => $dangerLineJson, 'veryDangerLineJson' => $veryDangerLineJson, 'landSlideLocations' => $landSlideLocations ]);
     }
 }
