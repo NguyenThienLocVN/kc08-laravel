@@ -320,7 +320,7 @@ main, .content { position: relative; }
     width: 280px;
   }
 
-  #start-picker, #end-picker { width: 35%; }
+  #start-picker, #end-picker { width: 37%; }
 
   /* The popup form - hidden by default */
   .form-popup {
@@ -421,6 +421,7 @@ main, .content { position: relative; }
   .landslide-header th:nth-child(4), .landslide-body td:nth-child(4) { width: 40%; }
   .landslide-body { height: calc(100vh - 145px); overflow: auto; }
   .landslide-body .location-item:hover { cursor: pointer; background: #c7c7c7;}
+  .landslide-body .active { background: #8dbbe2; }
   
 /* Map */
 #mapid { height: 100%;}

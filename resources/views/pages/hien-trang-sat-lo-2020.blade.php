@@ -39,7 +39,7 @@
                             </thead>
                         </table>
                     </div>
-                    <div class="landslide-body">
+                    <div class="landslide-body ml-1">
                         <table class="font-13 w-100">
                             <tbody>
                                 <?php $i = 1; ?>
