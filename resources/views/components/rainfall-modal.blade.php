@@ -68,19 +68,19 @@
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Lớn nhất : </div>
-                                <div class="col-5 font-weight-bold">888 g/m<sup>3</sup></div>
+                                <div class="col-5 font-weight-bold"><span id="wet-season-max-value"></span> g/m<sup>3</sup></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold">12/12/2007</div>
+                                <div class="col-5 font-weight-bold"><span id="wet-season-max-date"></span></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Nhỏ nhất : </div>
-                                <div class="col-5 font-weight-bold">888 g/m<sup>3</sup></div>
+                                <div class="col-5 font-weight-bold"><span id="wet-season-min-value"></span> g/m<sup>3</sup></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold">01/01/1999</div>
+                                <div class="col-5 font-weight-bold"><span id="wet-season-min-date"></span></div>
                             </div>
                         </div>
                         <div class="dry-season py-2">
@@ -90,19 +90,19 @@
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Lớn nhất : </div>
-                                <div class="col-5 font-weight-bold">888 g/m<sup>3</sup></div>
+                                <div class="col-5 font-weight-bold"><span id="dry-season-max-value"></span> g/m<sup>3</sup></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold">12/12/2007</div>
+                                <div class="col-5 font-weight-bold"><span id="dry-season-max-date"></span></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Nhỏ nhất : </div>
-                                <div class="col-5 font-weight-bold">888 g/m<sup>3</sup></div>
+                                <div class="col-5 font-weight-bold"><span id="dry-season-min-value"></span> g/m<sup>3</sup></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold">01/01/1999</div>
+                                <div class="col-5 font-weight-bold"><span id="dry-season-min-date"></span></div>
                             </div>
                         </div>
                         <div id="avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>

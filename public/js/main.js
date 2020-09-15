@@ -94,7 +94,7 @@ const loadMuddySand = (id) => {
     document.getElementById('start-picker').value = fromDate;
     document.getElementById('end-picker').value = toDate;
 
-    $('#monitoring-time').html($('#start-picker').val()+'-'+$('#end-picker').val());
+    $('#monitoring-time').html($('#start-picker').val()+' - '+$('#end-picker').val());
 
     // Get index of this date in data
     const indexOfFrom = arrayDate.indexOf(fromDate);
@@ -138,7 +138,7 @@ const loadMuddySand = (id) => {
       // Get data of month by index
       var JanuaryTurbidity, FebruaryTurbidity, MarchTurbidity, AprilTurbidity, MayTurbidity, JuneTurbidity, JulyTurbidity, AugustTurbidity, SeptemberTurbidity, OctorberTurbidity, NovemberTurbidity, DecemberTurbidity;
       
-      var muddySandOfYear = [], arrayDateOfYear = [];
+      var muddySandOfYear = [], arrayDateOfYear = [], muddySandOfDrySeason = [], muddySandOfWetSeason = [], arrayDateOfWetSeason = [], arrayDateOfDrySeason = [];
       function getMonthData(year){
         var indexOfFirstDay = arrayDate.indexOf("01/01/"+year);
         var indexOfLastDay = arrayDate.indexOf("31/12/"+year)+1;
@@ -153,7 +153,6 @@ const loadMuddySand = (id) => {
         })
 
         JanuaryTurbidity = muddySandOfYear.slice(0,31);
-
         if(startYear % 4 === 0){
           FebruaryTurbidity = muddySandOfYear.slice(31, 60);
           MarchTurbidity = muddySandOfYear.slice(60, 91);
@@ -166,6 +165,12 @@ const loadMuddySand = (id) => {
           OctorberTurbidity = muddySandOfYear.slice(274, 305);
           NovemberTurbidity = muddySandOfYear.slice(305, 335);
           DecemberTurbidity = muddySandOfYear.slice(335, 366);
+
+          muddySandOfDrySeason = muddySandOfYear.slice(0,121).concat(muddySandOfYear.slice(305,366))
+          arrayDateOfDrySeason = arrayDateOfYear.slice(0,121).concat(arrayDateOfYear.slice(305,366))
+
+          muddySandOfWetSeason = muddySandOfYear.slice(121,305)
+          arrayDateOfWetSeason = arrayDateOfYear.slice(121,305)
         }
         else
         {
@@ -180,6 +185,12 @@ const loadMuddySand = (id) => {
           OctorberTurbidity = muddySandOfYear.slice(273, 304);
           NovemberTurbidity = muddySandOfYear.slice(304, 334);
           DecemberTurbidity = muddySandOfYear.slice(334, 365);
+
+          muddySandOfWetSeason = muddySandOfYear.slice(120,304)
+          arrayDateOfWetSeason = arrayDateOfYear.slice(120,304)
+
+          arrayDateOfDrySeason = arrayDateOfYear.slice(0,120).concat(arrayDateOfYear.slice(304,365))
+          muddySandOfDrySeason = muddySandOfYear.slice(0,120).concat(muddySandOfYear.slice(304,365))
         }
       }
 
@@ -275,12 +286,68 @@ const loadMuddySand = (id) => {
         return minnTurbidityOfYear;
      }
 
+    //  Wet season - Mua mua
+    function wetSeasonTurbidity(year){
+      getMonthData(year);
+      var minWetSeason = [minOfMonth(MayTurbidity).toFixed(1),
+        minOfMonth(JuneTurbidity).toFixed(1), minOfMonth(JulyTurbidity).toFixed(1), minOfMonth(AugustTurbidity).toFixed(1),
+        minOfMonth(SeptemberTurbidity).toFixed(1), minOfMonth(OctorberTurbidity).toFixed(1) ];
+
+        // Get min value & min date and show them
+        var minValue = Math.min.apply(Math, minWetSeason); 
+        var indexOfMinValue = muddySandOfYear.indexOf(minValue); 
+        var dateMinOfWetSeason = arrayDateOfYear[indexOfMinValue];
+
+        $('#wet-season-min-value').html(minValue);
+        $('#wet-season-min-date').html(dateMinOfWetSeason);
+
+      var maxWetSeason = [maxOfMonth(MayTurbidity).toFixed(1),
+        maxOfMonth(JuneTurbidity).toFixed(1), maxOfMonth(JulyTurbidity).toFixed(1), maxOfMonth(AugustTurbidity).toFixed(1),
+        maxOfMonth(SeptemberTurbidity).toFixed(1), maxOfMonth(OctorberTurbidity).toFixed(1) ];
+        // Get max value & max date and show them
+        var maxValue = Math.max.apply(Math, maxWetSeason); 
+        var indexOfMaxValue = muddySandOfWetSeason.indexOf(maxValue); 
+        var dateMaxOfWetSeason = arrayDateOfWetSeason[indexOfMaxValue];
+
+        $('#wet-season-max-value').html(maxValue);
+        $('#wet-season-max-date').html(dateMaxOfWetSeason);
+    }
+
+    //  Dry season - Mua kho
+    function drySeasonTurbidity(year){
+      getMonthData(year);
+      var minDrySeason = [minOfMonth(JanuaryTurbidity).toFixed(1),
+        minOfMonth(FebruaryTurbidity).toFixed(1), minOfMonth(MarchTurbidity).toFixed(1), minOfMonth(AprilTurbidity).toFixed(1),
+        minOfMonth(NovemberTurbidity).toFixed(1), minOfMonth(DecemberTurbidity).toFixed(1) ];
+
+        // Get min value & min date and show them
+        var minValue = Math.min.apply(Math, minDrySeason); 
+        var indexOfMinValue = muddySandOfDrySeason.indexOf(minValue);
+        var dateMinOfDrySeason = arrayDateOfDrySeason[indexOfMinValue];
+
+        $('#dry-season-min-value').html(minValue);
+        $('#dry-season-min-date').html(dateMinOfDrySeason);
+
+      var maxDrySeason = [maxOfMonth(JanuaryTurbidity).toFixed(1),
+        maxOfMonth(FebruaryTurbidity).toFixed(1), maxOfMonth(MarchTurbidity).toFixed(1), maxOfMonth(AprilTurbidity).toFixed(1),
+        maxOfMonth(NovemberTurbidity).toFixed(1), maxOfMonth(DecemberTurbidity).toFixed(1) ];
+        // Get max value & max date and show them
+        var maxValue = Math.max.apply(Math, maxDrySeason); 
+        var indexOfMaxValue = muddySandOfDrySeason.indexOf(maxValue);
+        var dateMaxOfDrySeason = arrayDateOfDrySeason[indexOfMaxValue];
+
+        $('#dry-season-max-value').html(maxValue);
+        $('#dry-season-max-date').html(dateMaxOfDrySeason);
+    }
+
     var startYear = document.getElementById('start-picker').value.slice(-4);
     var endYear = document.getElementById('end-picker').value.slice(-4);
     
     if(startYear == endYear)
     {
       averageTurbidityOfYear(startYear);
+      wetSeasonTurbidity(startYear);
+      drySeasonTurbidity(startYear);
       maxTurbidityOfYear(startYear);
       minTurbidityOfYear(startYear);
 
@@ -431,6 +498,8 @@ const loadMuddySand = (id) => {
     document.getElementById('search-rain-btn').addEventListener('click', function(){
       var inputFrom = document.getElementById('start-picker').value;
       var inputTo = document.getElementById('end-picker').value;
+
+      $('#monitoring-time').html($('#start-picker').val()+' - '+$('#end-picker').val());
 
       // Get index
       var indexOfInputFrom = arrayDate.indexOf(inputFrom);
