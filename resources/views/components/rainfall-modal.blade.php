@@ -62,9 +62,9 @@
                             </div>
                         </div>
                         <div class="wet-season py-2">
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">MÙA MƯA </div>
-                                <div class="col-5 font-weight-bold"></div>
+                            <div class="d-flex justify-content-between mb-1 position-relative">
+                                <div class="col-7"><span>MÙA MƯA</span> &nbsp; <i class="fa fa-info-circle wet-info" aria-hidden="true" data-toggle="season-info" data-trigger="hover" data-content="Thông số áp dụng khi NGÀY BẮT ĐẦU và NGÀY KẾT THÚC cùng 1 năm"></i></div>
+                                <div class="col-5"></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
                                 <div class="col-7">Lớn nhất : </div>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="dry-season py-2">
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">MÙA KHÔ </div>
+                                <div class="col-7">MÙA KHÔ &nbsp; <i class="fa fa-info-circle wet-info" aria-hidden="true" data-toggle="season-info" data-trigger="hover" data-content="Thông số áp dụng khi NGÀY BẮT ĐẦU và NGÀY KẾT THÚC cùng 1 năm"></i></div>
                                 <div class="col-5 font-weight-bold"></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">

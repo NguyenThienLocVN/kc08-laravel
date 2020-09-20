@@ -57,6 +57,8 @@ jQuery(function($){
     dateFormat: 'dd/mm/yy',
     buttonText: '<i class="fa fa-calendar" aria-hidden="true"></i>'
   });
+
+  $('[data-toggle="season-info"]').popover();
 })
 
 const loadMuddySand = (id) => {
@@ -391,6 +393,7 @@ const loadMuddySand = (id) => {
 
       series: [{
               name: 'Độ đục',
+              color: '#006dc3',
               data: filterMuddySand
           },
       ],
@@ -462,6 +465,7 @@ const loadMuddySand = (id) => {
     },
     series: [{
         name: "Độ đục",
+        color: '#ff8138',
         data: maxTurbidityOfYear(startYear)
     }]
     })
@@ -493,6 +497,7 @@ const loadMuddySand = (id) => {
     },
     series: [{
         name: "Độ đục",
+        color: 'orange',
         data: minTurbidityOfYear(startYear)
     }]
     })
