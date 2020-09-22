@@ -46,9 +46,9 @@
                                 @foreach($landSlideLocations as $location)
                                     <tr class="location-item" id="{{$location->latitude.'-'.$location->longitude}}">
                                         <td class="text-center">{{ $i }}</td>
-                                        <td class="p-1">{{ $location->name }}</td>
+                                        <td class="p-1">{{ $location->title }}</td>
                                         <td class="text-center">{{ $location->length }}</td>
-                                        <td class="p-1">{{ $location->note }}</td>
+                                        <td class="p-1">{{ $location->name }}</td>
                                     </tr>
                                     <?php $i++; ?>
                                 @endforeach

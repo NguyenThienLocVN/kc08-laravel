@@ -5,7 +5,7 @@
 @endpush
 @section('content')
 <div class="content list-station meteorology-stations">
-    <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Danh sách trạm | Số liệu bùn cát</h3>
+    <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Danh sách trạm | Số liệu khí tượng</h3>
 
     <table>
         <tr class="row-station">

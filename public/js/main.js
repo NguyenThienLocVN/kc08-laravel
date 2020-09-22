@@ -365,24 +365,20 @@ const loadMuddySand = (id) => {
       title: {
         text: 'BIỂU ĐỒ ĐỘ ĐỤC BÙN CÁT NGÀY'
       },
-
       yAxis: {
           title: {
               text: '(g/m3)'
           }
       },
-
       xAxis: {
           gridLineWidth: 1,
           categories: filterDate,
       },
-
       legend: {
           layout: 'vertical',
           align: 'right',
           verticalAlign: 'middle'
       },
-
       plotOptions: {
           series: {
               label: {
@@ -390,21 +386,19 @@ const loadMuddySand = (id) => {
               },
           }
       },
-
       series: [{
               name: 'Độ đục',
               color: '#006dc3',
               data: filterMuddySand
           },
       ],
-
       responsive: {
           rules: [{
               condition: {
                   maxWidth: 550
               }
           }]
-      }
+      },
     });
 
     // Draw avg colummn chart
@@ -502,95 +496,103 @@ const loadMuddySand = (id) => {
     }]
     })
 
+    $("#btn-show-download").click(function(){
+      $("#btn-export-png").toggleClass("d-none");
+      $("#btn-export-xls").toggleClass("d-none");
+  
+      $('#btn-export-png').click(function () {
+        var chart = $('#muddy-sand-container').highcharts();
+        chart.exportChartLocal({
+          type: 'image/png'
+        });
+      });
+      
+      // Export TO XLS
+      $('#btn-export-xls').click(function () {
+          var chart = $('#muddy-sand-container').highcharts();
+          chart.downloadXLS();
+      });
+    })
+
     // Filter by date picker
     document.getElementById('search-rain-btn').addEventListener('click', function(){
       var inputFrom = document.getElementById('start-picker').value;
       var inputTo = document.getElementById('end-picker').value;
 
-      var startDate = new Date($('#start-picker').val());
-      var endDate = new Date($('#end-picker').val());
-      if (startDate < endDate){
-          $('#monitoring-time').html($('#start-picker').val()+' - '+$('#end-picker').val());
+      $('#monitoring-time').html($('#start-picker').val()+' - '+$('#end-picker').val());
 
-          // Get index
-          var indexOfInputFrom = arrayDate.indexOf(inputFrom);
-          var indexOfInputTo = arrayDate.indexOf(inputTo) + 1;
+      // Get index
+      var indexOfInputFrom = arrayDate.indexOf(inputFrom);
+      var indexOfInputTo = arrayDate.indexOf(inputTo) + 1;
 
-          // Filter data
-          var filterArrayByInput = data.muddySand.slice(indexOfInputFrom, indexOfInputTo);
+      // Filter data
+      var filterArrayByInput = data.muddySand.slice(indexOfInputFrom, indexOfInputTo);
 
-          var filterMuddySandByInput = [];
-          filterArrayByInput.forEach(function(e){
-            filterMuddySandByInput.push(e.Result);
-          })
+      var filterMuddySandByInput = [];
+      filterArrayByInput.forEach(function(e){
+        filterMuddySandByInput.push(e.Result);
+      })
 
-          var filterDateByInput = [];
-          filterArrayByInput.forEach(function(e){
-            filterDateByInput.push(e.Date_Time);
-          })
+      var filterDateByInput = [];
+      filterArrayByInput.forEach(function(e){
+        filterDateByInput.push(e.Date_Time);
+      })
 
-          var turbidityChart = $('#muddy-sand-container').highcharts();
-          turbidityChart.series[0].setData(filterMuddySandByInput);
-          turbidityChart.xAxis[0].setCategories(filterDateByInput);
+      var turbidityChart = $('#muddy-sand-container').highcharts();
+      turbidityChart.series[0].setData(filterMuddySandByInput);
+      turbidityChart.xAxis[0].setCategories(filterDateByInput);
 
-        var startYear = document.getElementById('start-picker').value.slice(-4);
-        var endYear = document.getElementById('end-picker').value.slice(-4);
+      var startYear = document.getElementById('start-picker').value.slice(-4);
+      var endYear = document.getElementById('end-picker').value.slice(-4);
 
-        if(startYear === endYear)
-        {
-          $('.year-value').html("năm "+startYear)
-
-          wetSeasonTurbidity(startYear)
-          drySeasonTurbidity(startYear)
-
-          // Update max data
-          var maxChart = $('#max-chart').highcharts();
-          maxChart.series[0].setData(maxTurbidityOfYear(startYear));
-          maxChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC LỚN NHẤT THÁNG NĂM "+startYear});
-
-          // Update min data
-          var minChart = $('#min-chart').highcharts();
-          minChart.series[0].setData(minTurbidityOfYear(startYear));
-          minChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC NHỎ NHẤT THÁNG NĂM "+startYear});
-
-          // Update avg data
-          var avgChart = $('#avg-chart').highcharts();
-          avgChart.series[0].setData(averageTurbidityOfYear(startYear));
-          avgChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC TRUNG BÌNH THÁNG NĂM "+startYear});
-
-        }
-        else {
-          var sum = [0,0,0,0,0,0,0,0,0,0,0,0];
-          var avg = [];
-          for(var j = 0; j < 12; j++)
-          {
-            for(var i=startYear; i<=endYear; i++)
-            {
-              sum[j] += parseFloat(averageTurbidityOfYear(i)[j])
-            }
-            avg[j] = (sum[j] / (endYear - startYear + 1)).toFixed(1)
-          }
-
-
-          // Max
-          var max = [0,0,0,0,0,0,0,0,0,0,0,0];
-          for(var j = 0; j < 12; j++)
-          {
-            for(var i=startYear; i<=endYear; i++)
-            {
-              if(max[j] < parseFloat(maxTurbidityOfYear(i)[j]))
-              {
-                max[j] = parseFloat(maxTurbidityOfYear(i)[j])
-              }
-            }
-          }
-          
-        }
-      }
-      else
+      if(startYear === endYear)
       {
-        alert('Vui lòng chọn "NGÀY KẾT THÚC" phải lớn hơn "NGÀY BẮT ĐẦU ');
-        $('#end-picker').val($('#start-picker').val())
+        $('.year-value').html("năm "+startYear)
+
+        wetSeasonTurbidity(startYear)
+        drySeasonTurbidity(startYear)
+
+        // Update max data
+        var maxChart = $('#max-chart').highcharts();
+        maxChart.series[0].setData(maxTurbidityOfYear(startYear));
+        maxChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC LỚN NHẤT THÁNG NĂM "+startYear});
+
+        // Update min data
+        var minChart = $('#min-chart').highcharts();
+        minChart.series[0].setData(minTurbidityOfYear(startYear));
+        minChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC NHỎ NHẤT THÁNG NĂM "+startYear});
+
+        // Update avg data
+        var avgChart = $('#avg-chart').highcharts();
+        avgChart.series[0].setData(averageTurbidityOfYear(startYear));
+        avgChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC TRUNG BÌNH THÁNG NĂM "+startYear});
+
+      }
+      else {
+        var sum = [0,0,0,0,0,0,0,0,0,0,0,0];
+        var avg = [];
+        for(var j = 0; j < 12; j++)
+        {
+          for(var i=startYear; i<=endYear; i++)
+          {
+            sum[j] += parseFloat(averageTurbidityOfYear(i)[j])
+          }
+          avg[j] = (sum[j] / (endYear - startYear + 1)).toFixed(1)
+        }
+
+
+        // Max
+        var max = [0,0,0,0,0,0,0,0,0,0,0,0];
+        for(var j = 0; j < 12; j++)
+        {
+          for(var i=startYear; i<=endYear; i++)
+          {
+            if(max[j] < parseFloat(maxTurbidityOfYear(i)[j]))
+            {
+              max[j] = parseFloat(maxTurbidityOfYear(i)[j])
+            }
+          }
+        }
       }
     })
    }

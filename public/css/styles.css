@@ -449,6 +449,17 @@ footer .copyright {
 .ui-widget-content .ui-state-active { border: 1px solid #5090fb !important; color: #035291 !important; }
 .ui-datepicker-trigger { border: none; background: #035291; color: #fff; }
 
+/* Button export in modal */
+#btn-export-png, #btn-export-xls {
+    z-index: 9;
+    right: 0;
+}
+
+#btn-show-download { top: 50px; right: 0; }
+#btn-export-png { top: 100px; cursor: pointer; }
+#btn-export-xls { top: 125px; cursor: pointer; }
+.highcharts-button-symbol { display: none; }
+
 @media screen and (min-width: 768px)
 {
     .container { width: 90%; }

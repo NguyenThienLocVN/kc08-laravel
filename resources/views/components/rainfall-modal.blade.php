@@ -124,7 +124,13 @@
                                 <input type="button" value="Tìm kiếm" class="search-btn" id="search-rain-btn">
                             </div>
                         </div>
-                        <div id="muddy-sand-container" style="width:100%; height:300px;"></div>
+                        
+                        <div class="position-relative">
+                            <div id="muddy-sand-container" style="width:100%; height:300px;"></div>
+                                <button class="btn btn-primary position-absolute" id="btn-show-download" title="Xuất file biểu đồ"><i class="fa fa-download" aria-hidden="true"></i></button>
+                                <button class="d-none position-absolute btn-success border-0 rounded border-success small" id="btn-export-png">Xuất PNG</button>
+                                <button class="d-none position-absolute btn-success border-0 rounded border-success small" id="btn-export-xls">Xuất XLS</button>
+                        </div>
                         
                         <div class="position-relative">
                             <div id="max-chart" class="max-chart turbidity-ele" style="width:100%; height:200px;"></div>

@@ -94,7 +94,7 @@ Route::group([
     'prefix' => 'hien-trang-sat-lo',
 ], function () {
     // Hien trang sat lo bo song 2020
-    Route::get('2020', 'LandslideLocationController@year2020')->name('hien-trang-sat-lo-2020');
+    Route::get('2020', 'LandslideLocationsController@year2020')->name('hien-trang-sat-lo-2020');
 
     // Hien trang sat lo bo song 2020
     Route::get('2025', function () {
