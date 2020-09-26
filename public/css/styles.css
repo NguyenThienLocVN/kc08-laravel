@@ -461,6 +461,19 @@ footer .copyright {
 #btn-export-xls { top: 125px; cursor: pointer; }
 .highcharts-button-symbol { display: none; }
 
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 7px 10px;
+}
+
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
+
 @media screen and (min-width: 768px)
 {
     .container { width: 90%; }
