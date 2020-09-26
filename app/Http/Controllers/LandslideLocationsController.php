@@ -5,51 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\LandslideLocations;
 use App\Models\LineCoordinate;
+use App\Models\LandslideImages;
 
 class LandslideLocationsController extends Controller
 {
-    public function year2020(){
-        // Lines
-        $normalLine = LineCoordinate::where('level', 1)->where('year', 2020)->pluck('coordinate');
-        $dangerLine = LineCoordinate::where('level', 2)->where('year', 2020)->pluck('coordinate');
-        $veryDangerLine = LineCoordinate::where('level', 3)->where('year', 2020)->pluck('coordinate');
+    public function year2020(){    
 
-        // Normal
-        $normalLineArray = [];
-        foreach($normalLine as $line)
-        {
-            array_push($normalLineArray, [
-                'type' => 'LineString',
-                'coordinates' => json_decode($line)
-            ]);
-        } 
-        $normalLineJson = json_encode($normalLineArray, JSON_UNESCAPED_UNICODE);
+        $images = LandslideImages::all();
         
-        // Danger
-        $dangerLineArray = [];
-        foreach($dangerLine as $line)
-        {
-            array_push($dangerLineArray, [
-                'type' => 'LineString',
-                'coordinates' => json_decode($line)
-            ]);
-        } 
-        $dangerLineJson = json_encode($dangerLineArray, JSON_UNESCAPED_UNICODE);
-
-        // Very danger
-        $veryDangerLineArray = [];
-        foreach($veryDangerLine as $line)
-        {
-            array_push($veryDangerLineArray, [
-                'type' => 'LineString',
-                'coordinates' => json_decode($line)
-            ]);
-        } 
-        $veryDangerLineJson = json_encode($veryDangerLineArray, JSON_UNESCAPED_UNICODE);
-        
-
         // Markers
         $normalLevel = LandslideLocations::where('level', 1)->where('year', 2020)->get();
+        // for($i = 0; $i < count($normalLevel); $i++ ){
+        //     print_r($i);
+        // }
+        foreach($normalLevel as $n)
+        {   
+            foreach($images as $im)
+            {
+                if($n->location_id == $im->location_id)
+                {
+                    $n['image'] = $im->link;
+                }
+            }
+        }
+        
         $dangerLevel = LandslideLocations::where('level', 2)->where('year', 2020)->get();
         $veryDangerLevel = LandslideLocations::where('level', 3)->where('year', 2020)->get();
 
@@ -123,6 +102,6 @@ class LandslideLocationsController extends Controller
         // Load all landslide location
         $landSlideLocations = LandslideLocations::where('year', 2020)->get();
 
-        return view('pages.hien-trang-sat-lo-2020', ['normalJson' => $normalJson, 'dangerJson' => $dangerJson, 'veryDangerJson' => $veryDangerJson, 'normalLineJson' => $normalLineJson, 'dangerLineJson' => $dangerLineJson, 'veryDangerLineJson' => $veryDangerLineJson, 'landSlideLocations' => $landSlideLocations ]);
+        return view('pages.hien-trang-sat-lo-2020', ['normalJson' => $normalJson, 'dangerJson' => $dangerJson, 'veryDangerJson' => $veryDangerJson, 'landSlideLocations' => $landSlideLocations ]);
     }
 }

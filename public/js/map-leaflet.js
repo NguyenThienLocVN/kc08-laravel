@@ -38,11 +38,6 @@ if(currentURL == '2020')
 
   // Load all very-danger level location 
   var veryDangerLocations = JSON.parse(document.getElementById('veryDangerJson').value);
-
-  // Load line 
-  var normalLineLocations = JSON.parse(document.getElementById('normalLineJson').value);
-  var dangerLineLocations = JSON.parse(document.getElementById('dangerLineJson').value);
-  var veryDangerLineLocations = JSON.parse(document.getElementById('veryDangerLineJson').value);
 }
 
 
@@ -53,48 +48,6 @@ function onEachFeature(feature, layer) {
       layer.on('mouseover', function() { layer.bindPopup(feature.properties.hoverContent).openPopup()});
   }
 }
-
-// Draw line
-var normalLine = normalLineLocations;
-
-var normalColor = {
-  color: "#007bff",
-  weight: 4,
-  opacity: 1,
-  className: "normal-line"
-};
-
-L.geoJSON(normalLine, {
-  style: normalColor
-}).addTo(mymap);
-
-// Draw line
-var dangerLine = dangerLineLocations;
-
-var dangerColor = {
-  color: "yellow",
-  weight: 4,
-  opacity: 1,
-  className: "danger-line"
-};
-
-L.geoJSON(dangerLine, {
-  style: dangerColor
-}).addTo(mymap);
-
-// Draw line
-var veryDangerLine = veryDangerLineLocations;
-
-var veryDangerColor = {
-  color: "red",
-  weight: 4,
-  opacity: 1,
-  className: "very-danger-line"
-};
-
-L.geoJSON(veryDangerLine, {
-  style: veryDangerColor
-}).addTo(mymap);
 
 // Define color for normal level marker
 var normalLevelColor = {

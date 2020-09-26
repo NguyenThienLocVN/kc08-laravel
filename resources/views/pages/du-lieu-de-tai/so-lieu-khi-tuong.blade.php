@@ -16,13 +16,13 @@
             <td></td>
         </tr>
         @foreach( $meteorologyStations as $st )
-            <tr class="row-station">
+            <tr class="row-station station-item">
                 <td class="item">{{ $st->Station_ID }}</td>
                 <td class="item">{{ $st->Station_Name }}</td>
                 <td class="item">{{ $st->State }}</td>
                 <td class="item">{{ $st->Measurement_Time }}</td>
 
-                <td><a class="btn-view-detail" data-toggle="modal" data-target="#rainfallModal" title="Xem chi tiết" station-name="{{ $st->Station_Name }}" onclick="openMuddySand({{ $st->Station_ID }})"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
+                <td class="text-center"><a class="btn-view-detail" data-toggle="modal" data-target="#rainfallModal" title="Xem chi tiết" station-name="{{ $st->Station_Name }}" onclick="openMuddySand({{ $st->Station_ID }})"><i class="fa fa-search" aria-hidden="true"></i></a></td>
             </tr>
         @endforeach
 

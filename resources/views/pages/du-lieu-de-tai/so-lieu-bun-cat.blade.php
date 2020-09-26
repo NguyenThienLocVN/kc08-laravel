@@ -8,7 +8,7 @@
     <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-
+    <script src="{{asset('js/turbidity.js')}}"></script>
     <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
     <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css"> -->
 @endpush
@@ -26,14 +26,14 @@
             <td></td>
         </tr>
         @foreach( $stations as $st )
-            <tr class="row-station">
+            <tr class="row-station station-item">
                 <td class="item">{{ $st->Station_ID }}</td>
                 <td class="item">{{ $st->Station_Name }}</td>
                 <td class="item">{{ $st->Basin_Name }}</td>
                 <td class="item">{{ $st->Elevation }}</td>
                 <td class="item">{{ $st->Measurement_Time }}</td>
 
-                <td><a class="btn-view-detail" data-toggle="modal" data-target="#rainfallModal" title="Xem chi tiết" station-name="{{ $st->Station_Name }}" onclick="openMuddySand({{ $st->Station_ID }})"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
+                <td><a class="btn-view-detail" data-toggle="modal" data-target="#rainfallModal" title="Xem chi tiết" station-name="{{ $st->Station_Name }}" onclick="openMuddySand({{ $st->Station_ID }})"><i class="fa fa-search" aria-hidden="true"></i></a></td>
             </tr>
         @endforeach
 

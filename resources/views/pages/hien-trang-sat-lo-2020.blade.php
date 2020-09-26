@@ -82,10 +82,6 @@
             <textarea id="normalJson" class="display-none">{!! $normalJson !!}</textarea>
             <textarea id="dangerJson" class="display-none">{!! $dangerJson !!}</textarea>
             <textarea id="veryDangerJson" class="display-none">{!! $veryDangerJson !!}</textarea>
-
-            <textarea id="normalLineJson" class="display-none">{!! $normalLineJson !!}</textarea>
-            <textarea id="dangerLineJson" class="display-none">{!! $dangerLineJson !!}</textarea>
-            <textarea id="veryDangerLineJson" class="display-none">{!! $veryDangerLineJson !!}</textarea>
             
         </main>
 

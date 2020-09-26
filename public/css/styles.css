@@ -288,9 +288,10 @@ main, .content { position: relative; }
     background-color: #eee;
 }
 
+.list-station table tbody .row-station:nth-child(even):hover, .list-station .station-item:hover { background: lightgray; }
 
 .list-station table tbody .row-station td {
-    border-bottom: 1px solid gray;
+    border: 1px solid #c3c1c1;
     padding: 5px;
 }
 

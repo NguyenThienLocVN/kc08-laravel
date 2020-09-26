@@ -87,8 +87,6 @@ Route::group([
     })->name('du-lieu-de-tai.so-lieu-quan-trac');
 });
 
-
-
 Route::group([
     'name' => 'hien-trang-sat-lo.',
     'prefix' => 'hien-trang-sat-lo',
