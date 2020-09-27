@@ -387,7 +387,7 @@ main, .content { position: relative; }
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255,255,255,0.2); /* Black background with opacity */
+    background-color: rgba(255,255,255,0.8); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   }
 
@@ -476,9 +476,10 @@ footer .copyright {
 
 /* Loading gif */
 #loading-gif-image{
-    top: 50%;
+    top: 10%;
     transform: translateY(-50%);
     left: 50%;
+    z-index: 9999;
 }
 
 @media screen and (min-width: 768px)
