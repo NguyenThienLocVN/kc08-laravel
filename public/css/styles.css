@@ -321,7 +321,7 @@ main, .content { position: relative; }
     width: 280px;
   }
 
-  #start-picker, #end-picker { width: 37%; }
+  .start-picker, .end-picker { width: 38%; }
 
   /* The popup form - hidden by default */
   .form-popup {
@@ -464,7 +464,7 @@ footer .copyright {
 .nav>li>a {
     position: relative;
     display: block;
-    padding: 7px 10px;
+    padding: 4px 10px 4px 0;
 }
 
 .nav-tabs>li>a {

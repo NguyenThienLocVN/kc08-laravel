@@ -73,6 +73,7 @@ Route::group([
 ], function () {
     //So lieu khi tuong
     Route::get('so-lieu-khi-tuong', 'MeteorologyStationsController@showStations')->name('du-lieu-de-tai.so-lieu-khi-tuong');
+    Route::get('so-lieu-khi-tuong/{id}','MeteorologyStationsController@getRainData');
 
     //So lieu bun cat
     Route::get('so-lieu-bun-cat', 'StationsController@muddySandStations')->name('du-lieu-de-tai.so-lieu-bun-cat');
@@ -80,7 +81,6 @@ Route::group([
 
     // So lieu thuy van
     Route::get('so-lieu-thuy-van', 'StationsController@hydrologicalStations')->name('du-lieu-de-tai.so-lieu-thuy-van');
-    Route::get('so-lieu-thuy-van/{id}','StationsController@getRain');
 
     Route::get('so-lieu-quan-trac', function () {
         return view('pages.du-lieu-de-tai.so-lieu-quan-trac');

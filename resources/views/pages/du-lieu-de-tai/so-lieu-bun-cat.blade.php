@@ -33,7 +33,7 @@
                 <td class="item">{{ $st->Elevation }}</td>
                 <td class="item">{{ $st->Measurement_Time }}</td>
 
-                <td><a class="btn-view-detail" data-toggle="modal" data-target="#rainfallModal" title="Xem chi tiết" station-name="{{ $st->Station_Name }}" onclick="openMuddySand({{ $st->Station_ID }})"><i class="fa fa-search" aria-hidden="true"></i></a></td>
+                <td><a class="btn-view-detail" data-toggle="modal" data-target="#turbidityModal" title="Xem chi tiết" station-name="{{ $st->Station_Name }}" onclick="loadMuddySand({{ $st->Station_ID }})"><i class="fa fa-search" aria-hidden="true"></i></a></td>
             </tr>
         @endforeach
 

@@ -1,32 +1,33 @@
-const loadMuddySand = (id) => {
+const loadMeteorology = (id) => {
     $.ajax({
     url:window.location.href+"/"+id, // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
     method:"GET", // phương thức gửi dữ liệu.
     data:{id:id},
     success:function(data){
+    console.log(data);
     //  Show station name
-    $('#turbidityModalLabel').html("TỔNG HỢP SỐ LIỆU BÙN CÁT TRẠM "+data.station[0].Station_Name);
-    $('#station-value').html(data.station[0].Station_Name);
-    $('#longitude-value').html(data.station[0].Longitude);
-    $('#latitude-value').html(data.station[0].Latitude);
-    $('#river-value').html(data.station[0].Basin_Name);
+    $('#meteorologyModalLabel').html("TỔNG HỢP SỐ LIỆU KHÍ TƯỢNG TRẠM "+data.station[0].Station_Name);
+    $('#meteorology-station-value').html(data.station[0].Station_Name);
+    $('#meteorology-longitude-value').html(data.station[0].Longitude);
+    $('#meteorology-latitude-value').html(data.station[0].Latitude);
+    $('#meteorology-river-value').html(data.station[0].Basin_Name);
     
-    if(data.muddySand.length == 0)
+    if(data.meteorologyData.length == 0)
     {
-      $('#max-value').html("");
-      $('#min-value').html("");
-      $('#average-value').html("");
-      $('#max-date').html("");
-      $('#min-date').html("");
-      $('#wet-season-min-value').html("");
-      $('#wet-season-min-date').html("");
-      $('#wet-season-max-value').html("");
-      $('#wet-season-max-date').html("");
+      $('#meteorology-max-value').html("");
+      $('#meteorology-min-value').html("");
+      $('#meteorology-average-value').html("");
+      $('#meteorology-max-date').html("");
+      $('#meteorology-min-date').html("");
+      $('#meteorology-wet-season-min-value').html("");
+      $('#meteorology-wet-season-min-date').html("");
+      $('#meteorology-wet-season-max-value').html("");
+      $('#meteorology-wet-season-max-date').html("");
       alert("Dữ liệu trạm đang được cập nhật. Vui lòng thử lại sau.")
     }
     const arrayDate = [];
     // Get array of all date
-     data.muddySand.forEach(function(e){
+     data.meteorologyData.forEach(function(e){
       arrayDate.push(e.Date_Time);
      })
 
@@ -35,17 +36,17 @@ const loadMuddySand = (id) => {
     const toDate = arrayDate[arrayDate.length - 1];
 
     // Set that values for input
-    document.getElementById('start-picker').value = fromDate;
-    document.getElementById('end-picker').value = toDate;
+    document.getElementById('meteorology-start-picker').value = fromDate;
+    document.getElementById('meteorology-end-picker').value = toDate;
 
-    $('#monitoring-time').html($('#start-picker').val()+' - '+$('#end-picker').val());
+    $('#meteorology-monitoring-time').html($('#meteorology-start-picker').val()+' - '+$('#meteorology-end-picker').val());
 
     // Get index of this date in data
     const indexOfFrom = arrayDate.indexOf(fromDate);
     const indexOfTo = arrayDate.indexOf(toDate) + 1;
 
     // Filter data by fromDate and toDate
-    const filterArray = data.muddySand.slice(indexOfFrom, indexOfTo);
+    const filterArray = data.meteorologyData.slice(indexOfFrom, indexOfTo);
 
     const filterMuddySand = [];
     filterArray.forEach(function(e){
@@ -87,7 +88,7 @@ const loadMuddySand = (id) => {
       function getMonthData(year){
         var indexOfFirstDay = arrayDate.indexOf("01/01/"+year);
         var indexOfLastDay = arrayDate.indexOf("31/12/"+year)+1;
-        const filterArray = data.muddySand.slice(indexOfFirstDay, indexOfLastDay);
+        const filterArray = data.meteorologyData.slice(indexOfFirstDay, indexOfLastDay);
 
         muddySandOfYear = [];
         filterArray.forEach(function(e){
@@ -100,7 +101,7 @@ const loadMuddySand = (id) => {
         })
 
         JanuaryTurbidity = muddySandOfYear.slice(0,31);
-        var startYear = document.getElementById('start-picker').value.slice(-4);
+        var startYear = document.getElementById('meteorology-start-picker').value.slice(-4);
         if(startYear % 4 == 0){
           FebruaryTurbidity = muddySandOfYear.slice(31, 60);
           MarchTurbidity = muddySandOfYear.slice(60, 91);
@@ -164,7 +165,7 @@ const loadMuddySand = (id) => {
           total += parseFloat(avgMonth[i]);
       }
       var avg = total / avgMonth.length;
-      $('#average-value').html(avg.toFixed(1));
+      $('#meteorology-average-value').html(avg.toFixed(1));
 
       var avgTurbidityOfYear = [];
       avgMonth.forEach(function(e){
@@ -192,14 +193,14 @@ const loadMuddySand = (id) => {
         var indexOfMaxValue = muddySandOfYear.indexOf(maxValue);
         var dateMaxOfYear = arrayDateOfYear[indexOfMaxValue];
 
-        $('#max-value').html(maxValue);
-        $('#max-date').html(dateMaxOfYear);
+        $('#meteorology-max-value').html(maxValue);
+        $('#meteorology-max-date').html(dateMaxOfYear);
 
         // Get max date of each month
         
         for(var i = 0; i <= 11; i++)
         {
-          $(".date-max-appear").find('.date').eq(i).html(indexOfDateInMonth(monthData['months'][i], parseFloat(maxMonth[i])))
+          $(".meteorology-date-max-appear").find('.date').eq(i).html(indexOfDateInMonth(monthData['months'][i], parseFloat(maxMonth[i])))
         }
 
         var maxxTurbidityOfYear = [];
@@ -224,13 +225,13 @@ const loadMuddySand = (id) => {
         var indexOfMinValue = muddySandOfYear.indexOf(minValue);
         var dateMinOfYear = arrayDateOfYear[indexOfMinValue];
 
-        $('#min-value').html(minValue);
-        $('#min-date').html(dateMinOfYear);
+        $('#meteorology-min-value').html(minValue);
+        $('#meteorology-min-date').html(dateMinOfYear);
 
         // Get min date of each month
         for(var i = 0; i <= 11; i++)
         {
-          $(".date-min-appear").find('.date').eq(i).html(indexOfDateInMonth(monthData['months'][i], parseFloat(minMonth[i])))
+          $(".meteorology-date-min-appear").find('.date').eq(i).html(indexOfDateInMonth(monthData['months'][i], parseFloat(minMonth[i])))
         }
 
         var minnTurbidityOfYear = [];
@@ -251,8 +252,8 @@ const loadMuddySand = (id) => {
         var indexOfMinValue = muddySandOfWetSeason.indexOf(minValue);
         var dateMinOfWetSeason = arrayDateOfWetSeason[indexOfMinValue];
 
-        $('#wet-season-min-value').html(minValue);
-        $('#wet-season-min-date').html(dateMinOfWetSeason);
+        $('#meteorology-wet-season-min-value').html(minValue);
+        $('#meteorology-wet-season-min-date').html(dateMinOfWetSeason);
 
       var maxWetSeason = [maxOfMonth(monthData['seasons'][0]).toFixed(1)];
         // Get max value & max date and show them
@@ -260,8 +261,8 @@ const loadMuddySand = (id) => {
         var indexOfMaxValue = muddySandOfWetSeason.indexOf(maxValue); 
         var dateMaxOfWetSeason = arrayDateOfWetSeason[indexOfMaxValue];
 
-        $('#wet-season-max-value').html(maxValue);
-        $('#wet-season-max-date').html(dateMaxOfWetSeason);
+        $('#meteorology-wet-season-max-value').html(maxValue);
+        $('#meteorology-wet-season-max-date').html(dateMaxOfWetSeason);
     }
 
     //  Dry season - Mua kho
@@ -274,8 +275,8 @@ const loadMuddySand = (id) => {
         var indexOfMinValue = muddySandOfDrySeason.indexOf(minValue);
         var dateMinOfDrySeason = arrayDateOfDrySeason[indexOfMinValue];
 
-        $('#dry-season-min-value').html(minValue);
-        $('#dry-season-min-date').html(dateMinOfDrySeason);
+        $('#meteorology-dry-season-min-value').html(minValue);
+        $('#meteorology-dry-season-min-date').html(dateMinOfDrySeason);
 
       var maxDrySeason = [maxOfMonth(monthData['seasons'][1]).toFixed(1) ];
         // Get max value & max date and show them
@@ -283,12 +284,12 @@ const loadMuddySand = (id) => {
         var indexOfMaxValue = muddySandOfDrySeason.indexOf(maxValue);
         var dateMaxOfDrySeason = arrayDateOfDrySeason[indexOfMaxValue];
 
-        $('#dry-season-max-value').html(maxValue);
-        $('#dry-season-max-date').html(dateMaxOfDrySeason);
+        $('#meteorology-dry-season-max-value').html(maxValue);
+        $('#meteorology-dry-season-max-date').html(dateMaxOfDrySeason);
     }
 
-    var startYear = document.getElementById('start-picker').value.slice(-4);
-    var endYear = document.getElementById('end-picker').value.slice(-4);
+    var startYear = document.getElementById('meteorology-start-picker').value.slice(-4);
+    var endYear = document.getElementById('meteorology-end-picker').value.slice(-4);
     
     if(startYear == endYear)
     {
@@ -303,13 +304,13 @@ const loadMuddySand = (id) => {
     }
 
     // Draw line chart 
-    muddySandChart = Highcharts.chart('muddy-sand-container', {
+    muddySandChart = Highcharts.chart('meteorology-container', {
       title: {
-        text: 'BIỂU ĐỒ ĐỘ ĐỤC BÙN CÁT NGÀY'
+        text: 'BIỂU ĐỒ KHÍ TƯỢNG NGÀY'
       },
       yAxis: {
           title: {
-              text: '(g/m3)'
+              text: '(mm)'
           }
       },
       xAxis: {
@@ -344,12 +345,12 @@ const loadMuddySand = (id) => {
     });
 
     // Draw avg colummn chart
-    $('#avg-chart').highcharts({
+    $('#meteorology-avg-chart').highcharts({
       chart: {
         type: 'column'
       },
       title: {
-        text: 'BIỂU ĐỒ ĐỘ ĐỤC TRUNG BÌNH THÁNG / NĂM ' + startYear
+        text: 'BIỂU ĐỒ KHÍ TƯỢNG TRUNG BÌNH THÁNG / NĂM ' + startYear
       },
     xAxis: {
         categories: [
@@ -375,12 +376,12 @@ const loadMuddySand = (id) => {
     })
 
     // Draw max colummn chart
-    maxChart = Highcharts.chart('max-chart', {
+    maxChart = Highcharts.chart('meteorology-max-chart', {
       chart: {
         type: 'column'
     },
     title: {
-      text: 'BIỂU ĐỒ ĐỘ ĐỤC LỚN NHẤT THÁNG NĂM ' + startYear
+      text: 'BIỂU ĐỒ KHÍ TƯỢNG LỚN NHẤT THÁNG NĂM ' + startYear
     },
     xAxis: {
         categories: [
@@ -407,12 +408,12 @@ const loadMuddySand = (id) => {
     })
 
     // Draw min colummn chart
-    minChart = Highcharts.chart('min-chart', {
+    minChart = Highcharts.chart('meteorology-min-chart', {
       chart: {
         type: 'column'
     },
     title: {
-      text: 'BIỂU ĐỒ ĐỘ ĐỤC NHỎ NHẤT THÁNG NĂM ' + startYear
+      text: 'BIỂU ĐỒ KHÍ TƯỢNG NHỎ NHẤT THÁNG NĂM ' + startYear
     },
     xAxis: {
         categories: [
@@ -443,7 +444,7 @@ const loadMuddySand = (id) => {
       $("#btn-export-xls").toggleClass("d-none");
   
       $('#btn-export-png').click(function () {
-        var chart = $('#muddy-sand-container').highcharts();
+        var chart = $('#meteorology-container').highcharts();
         chart.exportChartLocal({
           type: 'image/png'
         });
@@ -451,24 +452,24 @@ const loadMuddySand = (id) => {
       
       // Export TO XLS
       $('#btn-export-xls').click(function () {
-          var chart = $('#muddy-sand-container').highcharts();
+          var chart = $('#meteorology-container').highcharts();
           chart.downloadXLS();
       });
     })
 
     // Filter by date picker
     document.getElementById('search-rain-btn').addEventListener('click', function(){
-      var inputFrom = document.getElementById('start-picker').value;
-      var inputTo = document.getElementById('end-picker').value;
+      var inputFrom = document.getElementById('meteorology-start-picker').value;
+      var inputTo = document.getElementById('meteorology-end-picker').value;
 
-      $('#monitoring-time').html($('#start-picker').val()+' - '+$('#end-picker').val());
+      $('#meteorology-monitoring-time').html($('#meteorology-start-picker').val()+' - '+$('#meteorology-end-picker').val());
 
       // Get index
       var indexOfInputFrom = arrayDate.indexOf(inputFrom);
       var indexOfInputTo = arrayDate.indexOf(inputTo) + 1;
 
       // Filter data
-      var filterArrayByInput = data.muddySand.slice(indexOfInputFrom, indexOfInputTo);
+      var filterArrayByInput = data.meteorologyData.slice(indexOfInputFrom, indexOfInputTo);
 
       var filterMuddySandByInput = [];
       filterArrayByInput.forEach(function(e){
@@ -480,12 +481,12 @@ const loadMuddySand = (id) => {
         filterDateByInput.push(e.Date_Time);
       })
 
-      var turbidityChart = $('#muddy-sand-container').highcharts();
+      var turbidityChart = $('#meteorology-container').highcharts();
       turbidityChart.series[0].setData(filterMuddySandByInput);
       turbidityChart.xAxis[0].setCategories(filterDateByInput);
 
-      var startYear = document.getElementById('start-picker').value.slice(-4);
-      var endYear = document.getElementById('end-picker').value.slice(-4);
+      var startYear = document.getElementById('meteorology-start-picker').value.slice(-4);
+      var endYear = document.getElementById('meteorology-end-picker').value.slice(-4);
 
       if(startYear === endYear)
       {
@@ -495,17 +496,17 @@ const loadMuddySand = (id) => {
         drySeasonTurbidity(startYear)
 
         // Update max data
-        var maxChart = $('#max-chart').highcharts();
+        var maxChart = $('#meteorology-max-chart').highcharts();
         maxChart.series[0].setData(maxTurbidityOfYear(startYear));
         maxChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC LỚN NHẤT THÁNG NĂM "+startYear});
 
         // Update min data
-        var minChart = $('#min-chart').highcharts();
+        var minChart = $('#meteorology-min-chart').highcharts();
         minChart.series[0].setData(minTurbidityOfYear(startYear));
         minChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC NHỎ NHẤT THÁNG NĂM "+startYear});
 
         // Update avg data
-        var avgChart = $('#avg-chart').highcharts();
+        var avgChart = $('#meteorology-avg-chart').highcharts();
         avgChart.series[0].setData(averageTurbidityOfYear(startYear));
         avgChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC TRUNG BÌNH THÁNG NĂM "+startYear});
 
