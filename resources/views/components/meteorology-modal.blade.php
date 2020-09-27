@@ -125,16 +125,16 @@
                             </div>
                         </div>
                         
-                        <div class="position-relative">
+                        <div class="position-relative" id="block-export">
                             <div id="meteorology-container" style="width:100%; height:300px;"></div>
-                                <button class="btn btn-primary position-absolute" id="btn-show-download" title="Xuất file biểu đồ"><i class="fa fa-download" aria-hidden="true"></i></button>
-                                <button class="d-none position-absolute btn-success border-0 rounded border-success small" id="btn-export-png">Xuất PNG</button>
-                                <button class="d-none position-absolute btn-success border-0 rounded border-success small" id="btn-export-xls">Xuất XLS</button>
+                            <button class="btn btn-primary position-absolute" id="btn-show-download" title="Xuất file biểu đồ"><i class="fa fa-download" aria-hidden="true"></i></button>
+                            <button class="d-none position-absolute btn-success border-0 rounded border-success small" id="btn-export-png">Xuất PNG</button>
+                            <button class="d-none position-absolute btn-success border-0 rounded border-success small" id="btn-export-xls">Xuất XLS</button>
                         </div>
                         
                         <div class="position-relative">
                             <div id="meteorology-max-chart" class="max-chart turbidity-ele" style="width:100%; height:200px;"></div>
-                            <div class="meteorology-date-max-appear date-max-appear date-appear font-13">
+                            <div id="meteorology-date-max-appear" class="meteorology-date-max-appear date-max-appear date-appear font-13">
                                 <table border=1 class="text-center">
                                     <tr>
                                         <td>Ngày</td>
@@ -157,7 +157,7 @@
 
                         <div class="position-relative">
                             <div id="meteorology-min-chart" class="min-chart turbidity-ele" style="width:100%; height:200px;"></div>
-                            <div class="meteorology-date-min-appear date-min-appear date-appear font-13">
+                            <div id="meteorology-date-min-appear" class="meteorology-date-min-appear date-min-appear date-appear font-13">
                                 <table border=1 class="text-center">
                                     <tr>
                                         <td>Ngày</td>
