@@ -39,7 +39,8 @@
 
     </table>
 </div>
-<img src="{{ asset('images/loading.gif') }}" class="loading-gif" alt="loading" style="display: none;">
+<img src="{{ asset('images/loading.gif') }}" id="loading-gif-image" class="loading-gif position-absolute" alt="loading" style="display: none;">
+<div id="overlay"></div>
 
 <x-rainfall-modal></x-rainfall-modal>
 @endsection('content')

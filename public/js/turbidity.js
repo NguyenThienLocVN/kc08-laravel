@@ -3,7 +3,15 @@ const loadMuddySand = (id) => {
     url:window.location.href+"/"+id, // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
     method:"GET", // phương thức gửi dữ liệu.
     data:{id:id},
+    beforeSend: function(){
+      // Show image container
+      $("#loading-gif-image").show();
+      $("#overlay").show();
+    },    
     success:function(data){
+      $("#loading-gif-image").hide();
+      $("#overlay").hide();
+      
     //  Show station name
     $('#turbidityModalLabel').html("TỔNG HỢP SỐ LIỆU BÙN CÁT TRẠM "+data.station[0].Station_Name);
     $('#station-value').html(data.station[0].Station_Name);
