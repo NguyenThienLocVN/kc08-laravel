@@ -6,11 +6,11 @@ const loadMuddySand = (id) => {
     beforeSend: function(){
       // Show image container
       $("#loading-gif-image").show();
-      $("#overlay").show();
+      $("#turbidity-overlay").show();
     },    
     success:function(data){
       $("#loading-gif-image").hide();
-      $("#overlay").hide();
+      $("#turbidity-overlay").hide();
 
     //  Show station name
     $('#turbidityModalLabel').html("TỔNG HỢP SỐ LIỆU BÙN CÁT TRẠM "+data.station[0].Station_Name);

@@ -18,19 +18,6 @@ const loadMeteorology = (id) => {
     $('#meteorology-latitude-value').html(data.station[0].Latitude);
     $('#meteorology-river-value').html(data.station[0].Basin_Name);
     
-    if(data.meteorologyData.length == 0)
-    {
-      $('#meteorology-max-value').html("");
-      $('#meteorology-min-value').html("");
-      $('#meteorology-average-value').html("");
-      $('#meteorology-max-date').html("");
-      $('#meteorology-min-date').html("");
-      $('#meteorology-wet-season-min-value').html("");
-      $('#meteorology-wet-season-min-date').html("");
-      $('#meteorology-wet-season-max-value').html("");
-      $('#meteorology-wet-season-max-date').html("");
-      alert("Dữ liệu trạm đang được cập nhật. Vui lòng thử lại sau.")
-    }
     const arrayDate = [];
     // Get array of all date
      data.meteorologyData.forEach(function(e){
@@ -45,7 +32,17 @@ const loadMeteorology = (id) => {
     document.getElementById('meteorology-start-picker').value = fromDate;
     document.getElementById('meteorology-end-picker').value = toDate;
 
-    $('#meteorology-monitoring-time').html($('#meteorology-start-picker').val()+' - '+$('#meteorology-end-picker').val());
+    if(data.meteorologyData.length == 0)
+    {
+      $('#meteorology-start-picker').val("")
+      $('#meteorology-end-picker').val("")
+      $('#meteorology-monitoring-time').html("");
+      alert("Dữ liệu trạm đang được cập nhật. Vui lòng thử lại sau.")
+    }
+    else
+    {
+      $('#meteorology-monitoring-time').html($('#meteorology-start-picker').val()+' - '+$('#meteorology-end-picker').val());
+    }
 
     // Get index of this date in data
     const indexOfFrom = arrayDate.indexOf(fromDate);
@@ -159,48 +156,73 @@ const loadMeteorology = (id) => {
       // Do duc trung binh nam
      function averageTurbidityOfYear(year){
       var monthData = getMonthData(year);
-      var avgMonth = [averageOfMonth(monthData['months'][0]).toFixed(1), averageOfMonth(monthData['months'][1]).toFixed(1),
-      averageOfMonth(monthData['months'][2]).toFixed(1), averageOfMonth(monthData['months'][3]).toFixed(1), averageOfMonth(monthData['months'][4]).toFixed(1),
-      averageOfMonth(monthData['months'][5]).toFixed(1), averageOfMonth(monthData['months'][6]).toFixed(1), averageOfMonth(monthData['months'][7]).toFixed(1),
-      averageOfMonth(monthData['months'][8]).toFixed(1), averageOfMonth(monthData['months'][9]).toFixed(1), averageOfMonth(monthData['months'][10]).toFixed(1),
-      averageOfMonth(monthData['months'][11]).toFixed(1) ]
 
-      // Get average of 12 months in year
-      var total = 0;
-      for(var i = 0; i < avgMonth.length; i++) {
-          total += parseFloat(avgMonth[i]);
+      if(data.meteorologyData.length == 0)
+      {
+        var avgMonth = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       }
-      var avg = total / avgMonth.length;
-      $('#meteorology-average-value').html(avg.toFixed(1));
+      else
+      {
+        var avgMonth = [averageOfMonth(monthData['months'][0]).toFixed(1), averageOfMonth(monthData['months'][1]).toFixed(1),
+        averageOfMonth(monthData['months'][2]).toFixed(1), averageOfMonth(monthData['months'][3]).toFixed(1), averageOfMonth(monthData['months'][4]).toFixed(1),
+        averageOfMonth(monthData['months'][5]).toFixed(1), averageOfMonth(monthData['months'][6]).toFixed(1), averageOfMonth(monthData['months'][7]).toFixed(1),
+        averageOfMonth(monthData['months'][8]).toFixed(1), averageOfMonth(monthData['months'][9]).toFixed(1), averageOfMonth(monthData['months'][10]).toFixed(1),
+        averageOfMonth(monthData['months'][11]).toFixed(1) ]
+      }
+      
 
-      var avgTurbidityOfYear = [];
-      avgMonth.forEach(function(e){
-        avgTurbidityOfYear.push(parseFloat(e))
-      })
-      return avgTurbidityOfYear;
-     }
+        // Get average of 12 months in year
+        var total = 0;
+        for(var i = 0; i < avgMonth.length; i++) {
+            total += parseFloat(avgMonth[i]);
+        }
+        var avg = total / avgMonth.length;
+        $('#meteorology-average-value').html(avg.toFixed(1));
 
-     function indexOfDateInMonth(month, value){
-      return month.indexOf(value) + 1;
-     }
+        var avgTurbidityOfYear = [];
+        avgMonth.forEach(function(e){
+          avgTurbidityOfYear.push(parseFloat(e))
+        })
+        return avgTurbidityOfYear;
+      }
+
+      function indexOfDateInMonth(month, value){
+        return month.indexOf(value) + 1;
+      }
 
     //  Do duc lon nhat nam
     function maxTurbidityOfYear(year){
       var monthData = getMonthData(year);
 
-      var maxMonth = [maxOfMonth(monthData['months'][0]).toFixed(1), maxOfMonth(monthData['months'][1]).toFixed(1),
+      if(data.meteorologyData.length == 0)
+      {
+        var maxMonth = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      }
+      else
+      {
+        var maxMonth = [maxOfMonth(monthData['months'][0]).toFixed(1), maxOfMonth(monthData['months'][1]).toFixed(1),
         maxOfMonth(monthData['months'][2]).toFixed(1), maxOfMonth(monthData['months'][3]).toFixed(1), maxOfMonth(monthData['months'][4]).toFixed(1),
         maxOfMonth(monthData['months'][5]).toFixed(1), maxOfMonth(monthData['months'][6]).toFixed(1), maxOfMonth(monthData['months'][7]).toFixed(1),
         maxOfMonth(monthData['months'][8]).toFixed(1), maxOfMonth(monthData['months'][9]).toFixed(1), maxOfMonth(monthData['months'][10]).toFixed(1),
         maxOfMonth(monthData['months'][11]).toFixed(1) ]
-
+      }
+      
         // Get max value & max date and show them
         var maxValue = Math.max.apply(Math, maxMonth);
         var indexOfMaxValue = muddySandOfYear.indexOf(maxValue);
         var dateMaxOfYear = arrayDateOfYear[indexOfMaxValue];
 
-        $('#meteorology-max-value').html(maxValue);
-        $('#meteorology-max-date').html(dateMaxOfYear);
+        if(maxValue == 0)
+        {
+          $('#meteorology-max-value').html("0");
+          $('#meteorology-max-date').html("0");
+        }
+        else
+        {
+          $('#meteorology-max-value').html(maxValue);
+          $('#meteorology-max-date').html(dateMaxOfYear);
+        }
+        
 
         // Get max date of each month
         
@@ -220,16 +242,31 @@ const loadMeteorology = (id) => {
     //  Do duc nho nhat nam
      function minTurbidityOfYear(year){
       var monthData = getMonthData(year);
-      var minMonth = [minOfMonth(monthData['months'][0]).toFixed(1), minOfMonth(monthData['months'][1]).toFixed(1),
-      minOfMonth(monthData['months'][2]).toFixed(1), minOfMonth(monthData['months'][3]).toFixed(1), minOfMonth(monthData['months'][4]).toFixed(1),
-      minOfMonth(monthData['months'][5]).toFixed(1), minOfMonth(monthData['months'][6]).toFixed(1), minOfMonth(monthData['months'][7]).toFixed(1),
-      minOfMonth(monthData['months'][8]).toFixed(1), minOfMonth(monthData['months'][9]).toFixed(1), minOfMonth(monthData['months'][10]).toFixed(1),
-      minOfMonth(monthData['months'][11]).toFixed(1) ]
+      if(data.meteorologyData.length == 0)
+      {
+        var minMonth = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      }
+      else
+      {
+        var minMonth = [minOfMonth(monthData['months'][0]).toFixed(1), minOfMonth(monthData['months'][1]).toFixed(1),
+        minOfMonth(monthData['months'][2]).toFixed(1), minOfMonth(monthData['months'][3]).toFixed(1), minOfMonth(monthData['months'][4]).toFixed(1),
+        minOfMonth(monthData['months'][5]).toFixed(1), minOfMonth(monthData['months'][6]).toFixed(1), minOfMonth(monthData['months'][7]).toFixed(1),
+        minOfMonth(monthData['months'][8]).toFixed(1), minOfMonth(monthData['months'][9]).toFixed(1), minOfMonth(monthData['months'][10]).toFixed(1),
+        minOfMonth(monthData['months'][11]).toFixed(1) ]
+      }
 
         // Get min value & min date and show them
         var minValue = Math.min.apply(Math, minMonth);
         var indexOfMinValue = muddySandOfYear.indexOf(minValue);
-        var dateMinOfYear = arrayDateOfYear[indexOfMinValue];
+        if(data.meteorologyData.length == 0)
+        {
+          var dateMinOfYear = 0;
+        }
+        else
+        {
+          var dateMinOfYear = arrayDateOfYear[indexOfMinValue];
+        }
+        
 
         $('#meteorology-min-value').html(minValue);
         $('#meteorology-min-date').html(dateMinOfYear);
@@ -251,47 +288,77 @@ const loadMeteorology = (id) => {
     //  Wet season - Mua mua
     function wetSeasonTurbidity(year){
       var monthData = getMonthData(year); 
-      var minWetSeason = [minOfMonth(monthData['seasons'][0]).toFixed(1)];
+      if(data.meteorologyData.length == 0)
+      {
+        var minWetSeason = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var maxWetSeason = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      }
+      else
+      {
+        var minWetSeason = [minOfMonth(monthData['seasons'][0]).toFixed(1)];
+        var maxWetSeason = [maxOfMonth(monthData['seasons'][0]).toFixed(1)];
+      }
 
         // Get min value & min date and show them
         var minValue = Math.min.apply(Math, minWetSeason); 
         var indexOfMinValue = muddySandOfWetSeason.indexOf(minValue);
         var dateMinOfWetSeason = arrayDateOfWetSeason[indexOfMinValue];
-
         $('#meteorology-wet-season-min-value').html(minValue);
-        $('#meteorology-wet-season-min-date').html(dateMinOfWetSeason);
 
-      var maxWetSeason = [maxOfMonth(monthData['seasons'][0]).toFixed(1)];
         // Get max value & max date and show them
         var maxValue = Math.max.apply(Math, maxWetSeason); 
         var indexOfMaxValue = muddySandOfWetSeason.indexOf(maxValue); 
         var dateMaxOfWetSeason = arrayDateOfWetSeason[indexOfMaxValue];
-
         $('#meteorology-wet-season-max-value').html(maxValue);
-        $('#meteorology-wet-season-max-date').html(dateMaxOfWetSeason);
+
+        if(data.meteorologyData.length == 0)
+        {
+          $('#meteorology-wet-season-max-date').html("0");
+          $('#meteorology-wet-season-min-date').html("0");
+        }
+        else
+        {
+          $('#meteorology-wet-season-max-date').html(dateMaxOfWetSeason);
+          $('#meteorology-wet-season-min-date').html(dateMinOfWetSeason);
+        }
     }
 
     //  Dry season - Mua kho
     function drySeasonTurbidity(year){
       var monthData = getMonthData(year);
-      var minDrySeason = [minOfMonth(monthData['seasons'][1]).toFixed(1)];
+      if(data.meteorologyData.length == 0)
+      {
+        var minDrySeason = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var maxDrySeason = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      }
+      else
+      {
+        var minDrySeason = [minOfMonth(monthData['seasons'][1]).toFixed(1)];
+        var maxDrySeason = [maxOfMonth(monthData['seasons'][1]).toFixed(1) ];
+      }
 
         // Get min value & min date and show them
         var minValue = Math.min.apply(Math, minDrySeason); 
         var indexOfMinValue = muddySandOfDrySeason.indexOf(minValue);
         var dateMinOfDrySeason = arrayDateOfDrySeason[indexOfMinValue];
-
         $('#meteorology-dry-season-min-value').html(minValue);
-        $('#meteorology-dry-season-min-date').html(dateMinOfDrySeason);
-
-      var maxDrySeason = [maxOfMonth(monthData['seasons'][1]).toFixed(1) ];
+        
         // Get max value & max date and show them
         var maxValue = Math.max.apply(Math, maxDrySeason); 
         var indexOfMaxValue = muddySandOfDrySeason.indexOf(maxValue);
         var dateMaxOfDrySeason = arrayDateOfDrySeason[indexOfMaxValue];
-
         $('#meteorology-dry-season-max-value').html(maxValue);
-        $('#meteorology-dry-season-max-date').html(dateMaxOfDrySeason);
+        
+        if(data.meteorologyData.length == 0)
+        {
+          $('#meteorology-dry-season-min-date').html("0");
+          $('#meteorology-dry-season-max-date').html("0");
+        }
+        else
+        {
+          $('#meteorology-dry-season-min-date').html(dateMinOfDrySeason);
+          $('#meteorology-dry-season-max-date').html(dateMaxOfDrySeason);
+        }
     }
 
     var startYear = document.getElementById('meteorology-start-picker').value.slice(-4);

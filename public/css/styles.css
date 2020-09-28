@@ -378,7 +378,7 @@ main, .content { position: relative; }
     opacity: 1;
   }
 
-  #overlay {
+  #overlay, #turbidity-overlay {
     position: fixed; /* Sit on top of the page content */
     display: none; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
