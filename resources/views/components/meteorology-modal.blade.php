@@ -53,12 +53,12 @@
                                 <div class="col-5 font-weight-bold"><span class="same-year-value" id="meteorology-max-date"></span></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Nhỏ nhất <span class="year-value"></span> : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="meteorology-min-value"></span> g/m<sup>3</sup></div>
+                                <div class="col-7"></div>
+                                <div class="col-5 font-weight-bold"></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="meteorology-min-date"></span></div>
+                                <div class="col-7"></div>
+                                <div class="col-5 font-weight-bold"></div>
                             </div>
                         </div>
                         <div class="wet-season py-2">
@@ -74,13 +74,9 @@
                                 <div class="col-7">Ngày xuất hiện : </div>
                                 <div class="col-5 font-weight-bold"><span class="same-year-value" id="meteorology-wet-season-max-date"></span></div>
                             </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Nhỏ nhất : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="meteorology-wet-season-min-value"></span> g/m<sup>3</sup></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="meteorology-wet-season-min-date"></span></div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="col-7"></div>
+                                <div class="col-5 font-weight-bold"></div>
                             </div>
                         </div>
                         <div class="dry-season py-2">
@@ -97,15 +93,15 @@
                                 <div class="col-5 font-weight-bold"><span class="same-year-value" id="meteorology-dry-season-max-date"></span></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Nhỏ nhất : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="meteorology-dry-season-min-value"></span> g/m<sup>3</sup></div>
+                                <div class="col-7"></div>
+                                <div class="col-5 font-weight-bold"></div>
                             </div>
                             <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="meteorology-dry-season-min-date"></span></div>
+                                <div class="col-7"></div>
+                                <div class="col-5 font-weight-bold"></div>
                             </div>
                         </div>
-                        <div id="meteorology-avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>
+                        
                     </div>
                     <div class="chart-space" id="chart-space">
                         <div class="date-range d-flex mb-2 align-items-center font-13">
@@ -156,26 +152,7 @@
                         </div>
 
                         <div class="position-relative">
-                            <div id="meteorology-min-chart" class="min-chart turbidity-ele" style="width:100%; height:200px;"></div>
-                            <div id="meteorology-date-min-appear" class="meteorology-date-min-appear date-min-appear date-appear font-13">
-                                <table border=1 class="text-center">
-                                    <tr>
-                                        <td>Ngày</td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                        <td class="date"></td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <div id="meteorology-avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>
                         </div>
                     </div>
                 </div>

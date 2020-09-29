@@ -403,7 +403,7 @@ const loadMeteorology = (id) => {
           }
       },
       series: [{
-              name: 'Độ đục',
+              name: 'Lưu lượng',
               color: '#006dc3',
               data: filterMuddySand
           },
@@ -443,7 +443,7 @@ const loadMeteorology = (id) => {
         crosshair: true
     },
     series: [{
-        name: "Độ đục",
+        name: "Lưu lượng",
         data: averageTurbidityOfYear(startYear)
     }]
     })
@@ -474,41 +474,9 @@ const loadMeteorology = (id) => {
         crosshair: true
     },
     series: [{
-        name: "Độ đục",
+        name: "Lưu lượng",
         color: '#ff8138',
         data: maxTurbidityOfYear(startYear)
-    }]
-    })
-
-    // Draw min colummn chart
-    minChart = Highcharts.chart('meteorology-min-chart', {
-      chart: {
-        type: 'column'
-    },
-    title: {
-      text: 'BIỂU ĐỒ KHÍ TƯỢNG NHỎ NHẤT THÁNG NĂM ' + startYear
-    },
-    xAxis: {
-        categories: [
-          'I',
-          'II',
-          'III',
-          'IV',
-          'V',
-          'VI',
-          'VI',
-          'VII',
-          'IX',
-          'X',
-          'XI',
-          'XII'
-      ],
-        crosshair: true
-    },
-    series: [{
-        name: "Độ đục",
-        color: 'orange',
-        data: minTurbidityOfYear(startYear)
     }]
     })
 
@@ -571,17 +539,12 @@ const loadMeteorology = (id) => {
         // Update max data
         var maxChart = $('#meteorology-max-chart').highcharts();
         maxChart.series[0].setData(maxTurbidityOfYear(startYear));
-        maxChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC LỚN NHẤT THÁNG NĂM "+startYear});
-
-        // Update min data
-        var minChart = $('#meteorology-min-chart').highcharts();
-        minChart.series[0].setData(minTurbidityOfYear(startYear));
-        minChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC NHỎ NHẤT THÁNG NĂM "+startYear});
+        maxChart.setTitle({text: "BIỂU ĐỒ LƯU LƯỢNG LỚN NHẤT THÁNG NĂM "+startYear});
 
         // Update avg data
         var avgChart = $('#meteorology-avg-chart').highcharts();
         avgChart.series[0].setData(averageTurbidityOfYear(startYear));
-        avgChart.setTitle({text: "BIỂU ĐỒ ĐỘ ĐỤC TRUNG BÌNH THÁNG NĂM "+startYear});
+        avgChart.setTitle({text: "BIỂU ĐỒ LƯU LƯỢNG TRUNG BÌNH THÁNG NĂM "+startYear});
 
       }
       else {
