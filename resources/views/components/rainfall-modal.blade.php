@@ -13,99 +13,102 @@
             </div>
             <div class="modal-body">
                 <div class="space-wrapper d-flex">
-                    <div class="statistical-space mr-2" id="statistical-space">
-                        <div class="basic-info py-2">
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Tên trạm : </div>
-                                <div class="col-5 font-weight-bold"><span id="station-value"></span></div>
+                    <div class="statistical-space mr-2 position-relative" id="statistical-space">
+                        <div class="station-info" id="station-info">
+                            <div class="basic-info py-2">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Tên trạm : </div>
+                                    <div class="col-5 font-weight-bold"><span id="station-value"></span></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Mã trạm : </div>
+                                    <div class="col-5 font-weight-bold"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Vĩ độ : </div>
+                                    <div class="col-5 font-weight-bold"><span id="latitude-value"></span></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Kinh độ : </div>
+                                    <div class="col-5 font-weight-bold"><span id="longitude-value"></span></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Sông : </div>
+                                    <div class="col-5 font-weight-bold"><span id="river-value"></span></div>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Mã trạm : </div>
-                                <div class="col-5 font-weight-bold"></div>
+                            <div class="monitoring-info py-2">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Thời gian quan trắc : &nbsp; <i class="fa fa-info-circle wet-info" aria-hidden="true" data-toggle="season-info" data-trigger="hover" data-content="Số liệu bên dưới áp dụng khi NGÀY BẮT ĐẦU và NGÀY KẾT THÚC cùng 1 năm"></i></div>
+                                    <div class="col-5 font-weight-bold"><span id="monitoring-time"></span></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7 pr-0">TB <span class="year-value"></span> : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="average-value"></span> g/m<sup>3</sup></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Lớn nhất <span class="year-value"></span> : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="max-value"></span> g/m<sup>3</sup></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Ngày xuất hiện : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="max-date"></span></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Nhỏ nhất <span class="year-value"></span> : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="min-value"></span> g/m<sup>3</sup></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Ngày xuất hiện : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="min-date"></span></div>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Vĩ độ : </div>
-                                <div class="col-5 font-weight-bold"><span id="latitude-value"></span></div>
+                            <div class="wet-season py-2">
+                                <div class="d-flex justify-content-between mb-1 position-relative">
+                                    <div class="col-7 wet-season-title"><span>MÙA MƯA</span></div>
+                                    <div class="col-5"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Lớn nhất : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="wet-season-max-value"></span> g/m<sup>3</sup></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Ngày xuất hiện : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="wet-season-max-date"></span></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Nhỏ nhất : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="wet-season-min-value"></span> g/m<sup>3</sup></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Ngày xuất hiện : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="wet-season-min-date"></span></div>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Kinh độ : </div>
-                                <div class="col-5 font-weight-bold"><span id="longitude-value"></span></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Sông : </div>
-                                <div class="col-5 font-weight-bold"><span id="river-value"></span></div>
+                            <div class="dry-season py-2">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7 dry-season-title">MÙA KHÔ </div>
+                                    <div class="col-5 font-weight-bold"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Lớn nhất : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="dry-season-max-value"></span> g/m<sup>3</sup></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Ngày xuất hiện : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="dry-season-max-date"></span></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Nhỏ nhất : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="dry-season-min-value"></span> g/m<sup>3</sup></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <div class="col-7">Ngày xuất hiện : </div>
+                                    <div class="col-5 font-weight-bold"><span class="same-year-value" id="dry-season-min-date"></span></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="monitoring-info py-2">
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Thời gian quan trắc : &nbsp; <i class="fa fa-info-circle wet-info" aria-hidden="true" data-toggle="season-info" data-trigger="hover" data-content="Số liệu bên dưới áp dụng khi NGÀY BẮT ĐẦU và NGÀY KẾT THÚC cùng 1 năm"></i></div>
-                                <div class="col-5 font-weight-bold"><span id="monitoring-time"></span></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7 pr-0">TB <span class="year-value"></span> : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="average-value"></span> g/m<sup>3</sup></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Lớn nhất <span class="year-value"></span> : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="max-value"></span> g/m<sup>3</sup></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="max-date"></span></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Nhỏ nhất <span class="year-value"></span> : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="min-value"></span> g/m<sup>3</sup></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="min-date"></span></div>
-                            </div>
-                        </div>
-                        <div class="wet-season py-2">
-                            <div class="d-flex justify-content-between mb-1 position-relative">
-                                <div class="col-7"><span>MÙA MƯA</span></div>
-                                <div class="col-5"></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Lớn nhất : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="wet-season-max-value"></span> g/m<sup>3</sup></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="wet-season-max-date"></span></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Nhỏ nhất : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="wet-season-min-value"></span> g/m<sup>3</sup></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="wet-season-min-date"></span></div>
-                            </div>
-                        </div>
-                        <div class="dry-season py-2">
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">MÙA KHÔ </div>
-                                <div class="col-5 font-weight-bold"></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Lớn nhất : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="dry-season-max-value"></span> g/m<sup>3</sup></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="dry-season-max-date"></span></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Nhỏ nhất : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="dry-season-min-value"></span> g/m<sup>3</sup></div>
-                            </div>
-                            <div class="d-flex justify-content-between mb-1">
-                                <div class="col-7">Ngày xuất hiện : </div>
-                                <div class="col-5 font-weight-bold"><span class="same-year-value" id="dry-season-min-date"></span></div>
-                            </div>
-                        </div>
+                        <button class="btn btn-outline-success" id="btn-export-station-info" title="Xuất thông tin" onclick="toPdf()"><i class="fa fa-download" aria-hidden="true"></i></button>
                         <div id="avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>
                     </div>
                     <div class="chart-space" id="chart-space">

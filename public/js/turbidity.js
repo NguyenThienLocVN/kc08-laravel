@@ -593,9 +593,6 @@ const loadMuddySand = (id) => {
 
 const openMuddySand = (id) => {
   loadMuddySand(id);
-
-  // $("#myForm").show();
-  // $("#overlay").show();
 }
 
 var newWidth = 870;
@@ -628,4 +625,24 @@ $( "#btn-hide-statistical" ).click(function() {
 function closeForm() {
   $("#myForm").hide();
   $("#overlay").hide();
+}
+
+function toPdf(){
+  var val = htmlToPdfmake(document.getElementById('station-info').outerHTML);
+  var dd = {
+    content:val,
+    styles:{
+      'font-weight-bold':{
+        bold:true,
+        marginBottom: 10
+      },
+      'wet-season-title':{
+        background:"lightblue"
+      },
+      'dry-season-title':{
+        background:"navajowhite"
+      }
+    }
+  };
+  pdfMake.createPdf(dd).download();
 }
