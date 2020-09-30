@@ -482,6 +482,17 @@ footer .copyright {
     z-index: 9999;
 }
 
+#btn-export-station-info, #btn-meteorology-export-station-info {
+    top: 0;
+    right: 0;
+    border: none;
+    cursor: pointer;
+}
+
+#btn-hide-statistical {
+    border: none;
+}
+
 @media screen and (min-width: 768px)
 {
     .container { width: 90%; }

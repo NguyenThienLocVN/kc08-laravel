@@ -594,3 +594,23 @@ function closeForm() {
   $("#myForm").hide();
   $("#overlay").hide();
 }
+
+function toPdf(){
+  var val = htmlToPdfmake(document.getElementById('meteorology-info').outerHTML);
+  var dd = {
+    content:val,
+    styles:{
+      'font-weight-bold':{
+        bold:true,
+        marginBottom: 10
+      },
+      'wet-season-title':{
+        background:"lightblue"
+      },
+      'dry-season-title':{
+        background:"navajowhite"
+      }
+    }
+  };
+  pdfMake.createPdf(dd).download();
+}

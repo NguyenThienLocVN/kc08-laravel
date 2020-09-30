@@ -108,13 +108,13 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-outline-success" id="btn-export-station-info" title="Xuất thông tin" onclick="toPdf()"><i class="fa fa-download" aria-hidden="true"></i></button>
+                        <button class="btn-success position-absolute" id="btn-export-station-info" title="Xuất thông tin" onclick="toPdf()"><i class="fa fa-download" aria-hidden="true"></i></button>
                         <div id="avg-chart" class="avg-chart turbidity-ele" style="width:100%; height:200px;"></div>
                     </div>
                     <div class="chart-space" id="chart-space">
                         <div class="date-range d-flex mb-2 align-items-center font-13">
                             <div class="d-flex align-items-center mr-4" id="block-start">
-                                <button type="button" class="btn-primary" id="btn-hide-statistical" title="Mở rộng / Thu nhỏ"><i class="fa fa-expand" aria-hidden="true"></i></button>
+                                <button type="button" class="" id="btn-hide-statistical" title="Mở rộng / Thu nhỏ"><i class="fa fa-expand" aria-hidden="true"></i></button>
                             </div>
                             <div class="d-flex align-items-center" id="block-start">
                                 <span class="mr-1">Từ ngày</span>
