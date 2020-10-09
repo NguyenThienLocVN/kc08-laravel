@@ -81,6 +81,7 @@ Route::group([
 
     // So lieu thuy van
     Route::get('so-lieu-thuy-van', 'StationsController@hydrologicalStations')->name('du-lieu-de-tai.so-lieu-thuy-van');
+    Route::get('so-lieu-thuy-van/{id}','StationsController@getHydrologicalData');
 
     Route::get('so-lieu-quan-trac', function () {
         return view('pages.du-lieu-de-tai.so-lieu-quan-trac');

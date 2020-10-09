@@ -482,7 +482,7 @@ footer .copyright {
     z-index: 9999;
 }
 
-#btn-export-station-info, #btn-meteorology-export-station-info {
+#btn-export-station-info, #btn-meteorology-export-station-info, #btn-hydrological-export-station-info {
     top: 0;
     right: 0;
     border: none;
