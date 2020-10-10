@@ -618,10 +618,6 @@ footer .copyright {
     .scheme .director, .scheme .organization { display: inline; }
 
     /* Scheme target - Muc tieu du an (Muc tieu chung va Muc tieu cu the)*/
-    .common-target {
-        margin: 20px 0;
-    }
-
     .common-target img, .specific-target img {
         width: 60%;
         margin: auto;

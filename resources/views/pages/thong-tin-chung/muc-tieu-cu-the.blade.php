@@ -2,8 +2,8 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="content common-target">
-	<h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Mục tiêu chung</h3>
-	<iframe src="{{ asset('files/muc-tieu-chung.pdf') }}" style="width:100%;height:700px;"></iframe>    
+<div class="content specific-target">
+	<h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Mục tiêu cụ thể</h3>
+	<iframe src="{{ asset('files/muc-tieu-cu-the.pdf') }}" style="width:100%;height:600px;"></iframe>    
 </div>
 @endsection('content')
