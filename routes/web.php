@@ -33,9 +33,8 @@ Route::group([
     'prefix' => 'thong-tin-chung',
 ], function () {
     // Muc tieu de tai
-    Route::get('muc-tieu-de-tai', function () {
-        return view('pages.thong-tin-chung.muc-tieu-de-tai');
-    })->name('thong-tin-chung.muc-tieu-de-tai');
+    Route::get('muc-tieu-chung', 'GeneralInfoController@commonTarget')->name('thong-tin-chung.muc-tieu-chung');
+    Route::get('muc-tieu-cu-the', 'GeneralInfoController@specificTarget')->name('thong-tin-chung.muc-tieu-cu-the');
 
     // San pham de tai
     Route::get('san-pham-de-tai', 'SchemeProductController@showAll' )->name('thong-tin-chung.san-pham-de-tai');

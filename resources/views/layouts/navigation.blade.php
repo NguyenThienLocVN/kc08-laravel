@@ -2,7 +2,7 @@
     <li><a href="{{ route('trang-chu') }}">TRANG CHỦ</a></li>
     <li class="has-sub"><a href="#">THÔNG TIN CHUNG</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
     <ul class="submenu">
-        <li><a href="{{ route('thong-tin-chung.muc-tieu-de-tai') }}">MỤC TIÊU ĐỀ TÀI</a></li>
+        <li><a href="#">MỤC TIÊU ĐỀ TÀI</a></li>
         <li><a href="{{ route('thong-tin-chung.san-pham-de-tai') }}">SẢN PHẨM ĐỀ TÀI</a></li>
         <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">ĐÓNG GÓP MỚI CỦA ĐỀ TÀI</a></li>
         <li><a href="#">CÁC SẢN PHẨM ĐÃ CÔNG BỐ</a></li>
@@ -32,7 +32,12 @@
 <ul class="sidebar-left" id="sidebar-left-desktop">
     <li><a href="#" class="item-link">THÔNG TIN CHUNG</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu">
-            <li><a href="{{ route('thong-tin-chung.muc-tieu-de-tai') }}">Mục tiêu đề tài</a></li>
+            <li><a href="#">Mục tiêu đề tài</a><i class="fa fa-caret-right" aria-hidden="true"></i>
+                <ul class="sub-submenu">
+                    <li><a href="{{ route('thong-tin-chung.muc-tieu-chung') }}">Mục tiêu chung</a></li>
+                    <li><a href="{{ route('thong-tin-chung.muc-tieu-cu-the') }}">Mục tiêu cụ thể</a></li>
+                </ul>
+            </li>
             <li><a href="{{ route('thong-tin-chung.san-pham-de-tai') }}">Sản phẩm đề tài</a></li>
             <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">Đóng góp mới của đề tài</a></li>
             <li><a href="#">Các sản phẩm đã công bố</a></li>
