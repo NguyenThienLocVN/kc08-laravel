@@ -1,8 +1,14 @@
-<ul class="sidebar-left" id="sidebar-left-mobile">
+<!-- menu cho dien thoai -->
+<ul class="sidebar-left" id="sidebar-left-mobile"> 
     <li><a href="{{ route('trang-chu') }}">TRANG CHỦ</a></li>
     <li class="has-sub"><a href="#">THÔNG TIN CHUNG</a><i class="fa fa-caret-right" aria-hidden="true"></i></li>
     <ul class="submenu">
-        <li><a href="#">MỤC TIÊU ĐỀ TÀI</a></li>
+        <li><a href="#">MỤC TIÊU ĐỀ TÀI</a><i class="fa fa-caret-down" aria-hidden="true"></i>
+            <ul class="sub-submenu">
+                <li><a href="{{ route('thong-tin-chung.muc-tieu-chung') }}">Mục tiêu chung</a></li>
+                <li><a href="{{ route('thong-tin-chung.muc-tieu-cu-the') }}">Mục tiêu cụ thể</a></li>
+            </ul>
+        </li>
         <li><a href="{{ route('thong-tin-chung.san-pham-de-tai') }}">SẢN PHẨM ĐỀ TÀI</a></li>
         <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">ĐÓNG GÓP MỚI CỦA ĐỀ TÀI</a></li>
         <li><a href="#">CÁC SẢN PHẨM ĐÃ CÔNG BỐ</a></li>
@@ -29,6 +35,7 @@
     <li><a href="{{ route('hien-trang-sat-lo-2020') }}">HIỆN TƯỢNG SẠT LỞ BỜ SÔNG</a></li>
 </ul>
 
+<!-- menu cho laptop -->
 <ul class="sidebar-left" id="sidebar-left-desktop">
     <li><a href="#" class="item-link">THÔNG TIN CHUNG</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu">
@@ -38,11 +45,18 @@
                     <li><a href="{{ route('thong-tin-chung.muc-tieu-cu-the') }}">Mục tiêu cụ thể</a></li>
                 </ul>
             </li>
+            <!-- thêm menucon của muc tieu de tai -->
+
             <li><a href="{{ route('thong-tin-chung.san-pham-de-tai') }}">Sản phẩm đề tài</a></li>
-            <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">Đóng góp mới của đề tài</a></li>
-            <li><a href="#">Các sản phẩm đã công bố</a></li>
+            <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">Đóng góp mới của đề tài</a></li> 
+            <li><a href="{{ route('thong-tin-chung.hieu-qua-de-tai') }}">Hiệu quả của đề tài</a></li>
+            <li><a href="{{ route('thong-tin-chung.cach-tiep-can') }}">Cách tiếp cận - phương pháp nghiên cứu</a></li> 
+            <li><a href="{{ route('thong-tin-chung.bai-bao') }}">Bài báo đã công bố</a></li> 
+            <li><a href="#">Các sản phẩm của đề tài</a></li>
         </ul>
     </li>
+    <!-- hết mục thông tin chung -->
+
     <li><a href="#" class="item-link">KHU VỰC NGHIÊN CỨU</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu">
             <li><a href="#">Đặc điểm điều kiện tự nhiên</a><i class="fa fa-caret-right" aria-hidden="true"></i>
@@ -57,6 +71,9 @@
             <li><a href="#">Hiện trạng khai thác, sử dụng đất ven sông</a></li>
         </ul>
     </li>
+    
+
+    <!-- hết khu vực nghiên cứu -->
     <li><a href="#" class="item-link">DỮ LIỆU ĐỀ TÀI</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu scheme-data-ul">
             <li><a href="{{ route('du-lieu-de-tai.so-lieu-khi-tuong') }}">Số liệu khí tượng</a></li>

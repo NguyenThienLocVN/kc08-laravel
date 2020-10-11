@@ -49,6 +49,21 @@ Route::group([
     Route::get('dong-gop-moi-de-tai', function () {
         return view('pages.thong-tin-chung.dong-gop-moi-de-tai');
     })->name('thong-tin-chung.dong-gop-moi-de-tai');
+
+    // Hieu qua
+    Route::get('hieu-qua', function () {
+        return view('pages.thong-tin-chung.hieu-qua-de-tai');
+    })->name('thong-tin-chung.hieu-qua-de-tai');
+
+    // Cach tiep can
+    Route::get('cach-tiep-can', function () {
+        return view('pages.thong-tin-chung.cach-tiep-can');
+    })->name('thong-tin-chung.cach-tiep-can');
+
+    // Bai bao
+    Route::get('bai-bao', function () {
+        return view('pages.thong-tin-chung.bai-bao');
+    })->name('thong-tin-chung.bai-bao');
 });
 
 // Khu vuc nghien cuu
