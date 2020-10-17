@@ -8,7 +8,7 @@
         <li><a href="{{ route('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         <li><input type="text" name="search-banner-table" id="search-banner-table" class="search-banner-table" placeholder="Nội dung tìm kiếm ..."><i class="fa fa-search" aria-hidden="true"></i></li>
         <li><a href="{{ route('login') }}">Đăng nhập</a></li>
-        <li><a href="#">English</a></li>
+        <li><a href="{{ route('import-file') }}">Nhập dữ liệu</a></li>
         <li><a href="#">Sơ đồ trang</a></li>
         <li><a href="#">Liên hệ</a></li>
     </ul>

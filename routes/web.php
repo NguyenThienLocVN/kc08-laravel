@@ -126,3 +126,6 @@ Route::group([
 Route::get('ban-do-nguy-co-sat-lo', function () {
     return view('pages.ban-do-nguy-co-sat-lo');
 })->name('ban-do-nguy-co-sat-lo');
+
+// Ban do nguy co sat lo
+Route::get('import-file', 'ImportController@showImport')->name('import-file');
