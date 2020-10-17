@@ -17,12 +17,15 @@
 @section('content')
 <div class="content list-station meteorology-stations">
     <h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Danh sách trạm | Số liệu khí tượng</h3>
-
+<!-- bắt đầu số liệu bảng -->
     <table>
         <tr class="row-station">
             <td class="item">STT</td>
             <td class="item">Tên trạm</td>
             <td class="item">Tỉnh / Thành phố</td>
+            <td class="item">Tọa độ </td>
+            <td class="item">Năm bắt đầu</td>
+            <td class="item">Năm kết thúc</td>
             <td class="item" style="text-align: center;">Thời kỳ đo đạc</td>
             <td></td>
         </tr>

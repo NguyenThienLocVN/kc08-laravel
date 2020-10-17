@@ -38,6 +38,13 @@ Route::group([
 
     // San pham de tai
     Route::get('san-pham-de-tai', 'SchemeProductController@showAll' )->name('thong-tin-chung.san-pham-de-tai');
+    Route::get('san-pham-1', function () {
+        return view('pages.thong-tin-chung.san-pham-1');
+    })->name('thong-tin-chung.san-pham-1');
+
+    Route::get('san-pham-2', function () {
+        return view('pages.thong-tin-chung.san-pham-2');
+    })->name('thong-tin-chung.san-pham-2');
 
     // Chi tiet san pham de tai
     Route::get('san-pham-de-tai/{Scheme_ID}', 'SchemeProductController@getDetail')->name('thong-tin-chung.chi-tiet-san-pham-de-tai');

@@ -47,7 +47,14 @@
             </li>
             <!-- thêm menucon của muc tieu de tai -->
 
-            <li><a href="{{ route('thong-tin-chung.san-pham-de-tai') }}">Sản phẩm đề tài</a></li>
+            <li><a href="{{ route('thong-tin-chung.san-pham-de-tai') }}">Sản phẩm đề tài</a><i class="fa fa-caret-right" aria-hidden="true"></i> 
+            <!-- cho mũi tên bên phải <i class="fa fa-caret-right" aria-hidden="true"></i> -->
+            <ul class="sub-submenu">
+                    <li><a href="{{ route('thong-tin-chung.san-pham-1') }}">Sản phẩm 1 </a></li>
+                    <li><a href="{{ route('thong-tin-chung.san-pham-2') }}">Sản phẩm 2 </a></li>
+                </ul>
+            </li>
+
             <li><a href="{{ route('thong-tin-chung.dong-gop-moi-de-tai') }}">Đóng góp mới của đề tài</a></li> 
             <li><a href="{{ route('thong-tin-chung.hieu-qua-de-tai') }}">Hiệu quả của đề tài</a></li>
             <li><a href="{{ route('thong-tin-chung.cach-tiep-can') }}">Cách tiếp cận - phương pháp nghiên cứu</a></li> 
@@ -76,10 +83,21 @@
     <!-- hết khu vực nghiên cứu -->
     <li><a href="#" class="item-link">DỮ LIỆU ĐỀ TÀI</a><i class="fa fa-caret-down" aria-hidden="true"></i>
         <ul class="submenu scheme-data-ul">
-            <li><a href="{{ route('du-lieu-de-tai.so-lieu-khi-tuong') }}">Số liệu khí tượng</a></li>
-            <li><a href="{{ route('du-lieu-de-tai.so-lieu-thuy-van') }}">Số liệu thủy văn</a></li>
-            <li><a href="{{ route('du-lieu-de-tai.so-lieu-bun-cat') }}">Số liệu bùn cát</a></li>
-            <li><a href="#">Số liệu công trình</a></li>
+            <li><a href="#">Số liệu khí tượng thủy văn </a>
+                <ul class="sub-submenu">
+                    <li><a href="{{ url('/du-lieu-de-tai/so-lieu-khi-tuong') }}">Số liệu khí tượng </a></li>
+                    <li><a href="{{ url('/du-lieu-de-tai/so-lieu-thuy-van') }}">Số liệu thủy văn </a></li>
+                    <li><a href="{{ url('/du-lieu-de-tai/so-lieu-bun-cat') }}">Số liệu bùn cát </a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Số liệu địa hình </a>
+                <ul class="sub-submenu">
+                    <li><a href="{{ url('/so-lieu-dia-hinh/so-lieu-binh-do-long-dan') }}">Số liệu bình đồ lòng dẫn </a></li>
+                    <li><a href="{{ url('/so-lieu-dia-hinh/so-lieu-mat-cat-ngang') }}">Số liệu mặt cắt ngang </a></li>
+                    <li><a href="{{ url('/so-lieu-dia-hinh/so-lieu-mat-cat-doc') }}">Số liệu mặt cắt dọc </a></li>
+                </ul>
+            </li>
         </ul>
     </li>
     <li><a href="#" class="item-link">HIỆN TRẠNG SẠT LỞ BỜ SÔNG</a><i class="fa fa-caret-down" aria-hidden="true"></i>
