@@ -129,3 +129,4 @@ Route::get('ban-do-nguy-co-sat-lo', function () {
 
 // Ban do nguy co sat lo
 Route::get('import-file', 'ImportController@showImport')->name('import-file');
+Route::post('import-file', 'ImportController@doImport')->name('do-import-file');
