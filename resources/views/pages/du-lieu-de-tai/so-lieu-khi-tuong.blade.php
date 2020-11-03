@@ -23,9 +23,6 @@
             <td class="item">STT</td>
             <td class="item">Tên trạm</td>
             <td class="item">Tỉnh / Thành phố</td>
-            <td class="item">Tọa độ </td>
-            <td class="item">Năm bắt đầu</td>
-            <td class="item">Năm kết thúc</td>
             <td class="item" style="text-align: center;">Thời kỳ đo đạc</td>
             <td></td>
         </tr>
