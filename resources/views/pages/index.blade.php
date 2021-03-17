@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @section('title', 'Chương trình KC.08/16-20 | Nghiên cứu khoa học và công nghệ phục vụ bảo vệ môi trường và phòng tránh thiên tai')
+    @section('title', 'Chương trình KC.08.28/16-20 | Nghiên cứu khoa học và công nghệ phục vụ bảo vệ môi trường và phòng tránh thiên tai')
     @include('layouts.head')
 </head>
 <body>
@@ -30,7 +30,7 @@
                 <div class="img-background" id="img-background"></div>
 
                 <div class="intro-text">
-                    <h2 class="font-weight-bold">CHƯƠNG TRÌNH KC.08/16-20 <br>
+                    <h2 class="font-weight-bold">CHƯƠNG TRÌNH KC.08.28/16-20 <br>
                         “Nghiên cứu khoa học và công nghệ phục vụ bảo vệ môi trường và phòng tránh thiên tai”
                     </h2>
 
@@ -49,15 +49,15 @@
                         <p>Mọi thông tin liên hệ :</p>
                         <div class="item">
                             <div class="circle"><i class="fa fa-map-pin" aria-hidden="true"></i></div>
-                            <span>175 Tây Sơn</span>
+                            <span>Trường Đại học Thủy lợi - 175 Tây Sơn Đống Đa Hà Nội </span>
                         </div>
                         <div class="item">
                             <div class="circle"><i class="fa fa-phone" aria-hidden="true"></i></div>
-                            <span>099 999 9999</span>
+                            <span> 0428522027 </span>
                         </div>
                         <div class="item">
                             <div class="circle"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                            <span>example@gmail.com</span>
+                            <span>IHECC@gmail.com</span>
                         </div>
                     </div>
                 </div>

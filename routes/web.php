@@ -46,6 +46,22 @@ Route::group([
         return view('pages.thong-tin-chung.san-pham-2');
     })->name('thong-tin-chung.san-pham-2');
 
+    Route::get('san-pham-3', function () {
+        return view('pages.thong-tin-chung.san-pham-3');
+    })->name('thong-tin-chung.san-pham-3');
+
+    Route::get('san-pham-4', function () {
+        return view('pages.thong-tin-chung.san-pham-4');
+    })->name('thong-tin-chung.san-pham-4');
+
+    Route::get('san-pham-5', function () {
+        return view('pages.thong-tin-chung.san-pham-5');
+    })->name('thong-tin-chung.san-pham-5');
+
+    Route::get('san-pham-6', function () {
+        return view('pages.thong-tin-chung.san-pham-6');
+    })->name('thong-tin-chung.san-pham-6');
+
     // Chi tiet san pham de tai
     Route::get('san-pham-de-tai/{Scheme_ID}', 'SchemeProductController@getDetail')->name('thong-tin-chung.chi-tiet-san-pham-de-tai');
     // Sua ten san pham de tai
@@ -71,6 +87,47 @@ Route::group([
     Route::get('bai-bao', function () {
         return view('pages.thong-tin-chung.bai-bao');
     })->name('thong-tin-chung.bai-bao');
+
+// Bai bao tong hop
+Route::get('bao-cao-tong-hop', function () {
+    return view('pages.thong-tin-chung.bao-cao-tong-hop');
+})->name('thong-tin-chung.bao-cao-tong-hop');
+
+// Bai bao tom tat
+Route::get('bao-cao-tom-tat', function () {
+    return view('pages.thong-tin-chung.bao-cao-tom-tat');
+})->name('thong-tin-chung.bao-cao-tom-tat');
+
+// Bai 01
+Route::get('bai-01', function () {
+    return view('pages.thong-tin-chung.Bai-01');
+})->name('thong-tin-chung.Bai_01');
+
+// Bai 02
+Route::get('bai-02', function () {
+    return view('pages.thong-tin-chung.Bai-02');
+})->name('thong-tin-chung.Bai_02');
+
+// Bai 03
+Route::get('bai-03', function () {
+    return view('pages.thong-tin-chung.Bai-03');
+})->name('thong-tin-chung.Bai_03');
+
+// Bai 04
+Route::get('bai-04', function () {
+    return view('pages.thong-tin-chung.Bai-04');
+})->name('thong-tin-chung.Bai_04');
+
+// Bai 05
+Route::get('bai-05', function () {
+    return view('pages.thong-tin-chung.Bai-05');
+})->name('thong-tin-chung.Bai_05');
+
+// Bai 06
+Route::get('bai-06', function () {
+    return view('pages.thong-tin-chung.Bai-06');
+})->name('thong-tin-chung.Bai_06');
+
 });
 
 // Khu vuc nghien cuu
@@ -126,6 +183,27 @@ Route::group([
 Route::get('ban-do-nguy-co-sat-lo', function () {
     return view('pages.ban-do-nguy-co-sat-lo');
 })->name('ban-do-nguy-co-sat-lo');
+
+// SỔ TAY HƯỚNG DẪN QUẢN LÝ BỜ SÔNG
+Route::get('so-tay-huong-dan', function () {
+    return view('pages.so-tay-huong-dan-phan-1');
+})->name('so-tay-huong-dan-phan-1');
+
+Route::get('so-tay-huong-dan-phan-2', function () {
+    return view('pages.so-tay-huong-dan-phan-2');
+})->name('so-tay-huong-dan-phan-2');
+
+Route::get('so-tay-huong-dan-phan-3', function () {
+    return view('pages.so-tay-huong-dan-phan-3');
+})->name('so-tay-huong-dan-phan-3');
+
+Route::get('so-tay-huong-dan-phan-4', function () {
+    return view('pages.so-tay-huong-dan-phan-4');
+})->name('so-tay-huong-dan-phan-4');
+
+Route::get('so-tay-huong-dan-phan-5', function () {
+    return view('pages.so-tay-huong-dan-phan-5');
+})->name('so-tay-huong-dan-phan-5');
 
 // Ban do nguy co sat lo
 Route::get('import-file', 'ImportController@showImport')->name('import-file');

@@ -4,6 +4,6 @@
 @section('content')
 <div class="content common-target">
 	<h3 class="title"><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;Cách tiếp cận</h3>
-	<iframe src="{{ asset('files/cach-tiep-can.pdf') }}" style="width:100%;height:600px;"></iframe>    
+	<img alt="phuongphapnghiencuu" class="d-block m-auto" src="{{ asset('files/phuongphapnghiencuu.jpg') }}" style="height:600px;"></img>    
 </div>
 @endsection('content')
